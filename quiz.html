@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Personality Quiz</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,400&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/quiz.css" />
+  </head>
+  <body>
+    <div class="quiz-app">
+      <!-- Main Content -->
+      <main class="quiz-main">
+        <!-- Quiz View -->
+        <div class="view quiz-view active" id="quizView">
+          <!-- Progress -->
+          <div class="progress-header">
+            <div class="progress-bar">
+              <div class="progress-fill" id="progressFill"></div>
+            </div>
+            <div class="progress-text" id="progressText">Question 1 of 20</div>
+          </div>
+
+          <!-- All Questions -->
+          <div class="questions-scroll" id="questionsScroll">
+            <!-- Questions rendered by JS -->
+          </div>
+
+          <button class="skip-btn" id="btnSkip">Skip</button>
+        </div>
+
+        <!-- Results View -->
+        <div class="view results-view" id="resultsView">
+          <div class="results-card">
+            <div class="results-circle" id="resultsCircle"></div>
+            <div class="results-label">You're a</div>
+            <div class="results-nickname" id="resultsNickname">Campaigner</div>
+            <div class="results-description" id="resultsDescription"></div>
+
+            <div class="dimension-results" id="dimensionResults"></div>
+
+            <div class="results-actions">
+              <button class="nav-btn btn-explore" id="btnExplore">Explore Archetype</button>
+              <a href="#" class="results-pair-link" id="btnPair">Pair with a team mate</a>
+            </div>
+          </div>
+        </div>
+      </main>
+    </div>
+
+    <!-- Color Wheel Popup -->
+    <div class="color-wheel-overlay" id="colorWheelOverlay">
+      <div class="color-wheel-container">
+        <div class="wheel-ring" id="wheelRing">
+          <div class="wheel-petal" data-i="0"></div>
+          <div class="wheel-petal" data-i="1"></div>
+          <div class="wheel-petal" data-i="2"></div>
+          <div class="wheel-petal" data-i="3"></div>
+          <div class="wheel-petal" data-i="4"></div>
+          <div class="wheel-petal" data-i="5"></div>
+          <div class="wheel-petal" data-i="6"></div>
+          <div class="wheel-petal" data-i="7"></div>
+          <div class="wheel-petal" data-i="8"></div>
+          <div class="wheel-petal" data-i="9"></div>
+          <div class="wheel-petal" data-i="10"></div>
+          <div class="wheel-petal" data-i="11"></div>
+          <div class="wheel-petal" data-i="12"></div>
+          <div class="wheel-petal" data-i="13"></div>
+          <div class="wheel-petal" data-i="14"></div>
+          <div class="wheel-petal" data-i="15"></div>
+        </div>
+        <div class="wheel-center"></div>
+      </div>
+      <div class="slot-label" id="slotLabel"></div>
+    </div>
+
+    <script type="module" src="/quiz.js"></script>
+  </body>
+</html>

@@ -1,0 +1,16 @@
+{
+  "permissions": {
+    "allow": [
+      "WebFetch(domain:www.figma.com)",
+      "mcp__Claude_Preview__preview_start",
+      "Bash(npm init:*)",
+      "Bash(npm install:*)",
+      "Bash(lsof -ti:5173,5174,5175)",
+      "Bash(xargs kill:*)",
+      "Bash(npm list:*)",
+      "Bash(git init:*)",
+      "Bash(git add:*)",
+      "Bash(git commit:*)"
+    ]
+  }
+}
