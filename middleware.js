@@ -121,12 +121,12 @@ const PASSWORD_PAGE = `<!DOCTYPE html>
 </body>
 </html>`;
 
-export default function middleware(request) {
+export default async function middleware(request) {
   const url = new URL(request.url);
 
   // Handle auth POST
   if (url.pathname === '/__auth' && request.method === 'POST') {
-    return handleAuth(request);
+    return await handleAuth(request);
   }
 
   // Check for auth cookie
