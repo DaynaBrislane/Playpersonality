@@ -1,0 +1,222 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background: #080c29;
+  overflow-x: hidden;
+  font-family: 'Inter', sans-serif;
+}
+
+/* Scrollable section - tall enough for scroll animation */
+.context-section {
+  height: 300vh;
+  position: relative;
+}
+
+/* Sticky viewport container */
+.context-sticky {
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+/* Center gradient blob container */
+.context-center {
+  position: absolute;
+  width: min(340px, 42vmin);
+  height: min(340px, 42vmin);
+  transition: transform 0.1s linear;
+}
+
+.gradient-blob {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  filter: blur(60px);
+}
+
+.blob-1 {
+  background: linear-gradient(165deg, rgb(250, 119, 243) 10%, rgb(116, 120, 234) 99%);
+  animation: blobPulse 5s ease-in-out infinite alternate;
+}
+
+.blob-2 {
+  background: linear-gradient(222deg, rgba(246, 204, 181, 0) 37%, rgba(16, 195, 233, 0.7) 70%);
+  transform: rotate(-80deg);
+  animation: blobPulse 6s ease-in-out infinite alternate-reverse;
+}
+
+.blob-3 {
+  background: linear-gradient(222deg, rgba(246, 204, 181, 0) 37%, rgb(255, 39, 204) 86%);
+  animation: blobPulse 7s ease-in-out infinite alternate;
+  animation-delay: -2s;
+}
+
+@keyframes blobPulse {
+  from { opacity: 0.85; transform: scale(1); }
+  to { opacity: 1; transform: scale(1.06); }
+}
+
+.blob-2 {
+  animation-name: blobPulse2;
+}
+
+@keyframes blobPulse2 {
+  from { opacity: 0.85; transform: rotate(-80deg) scale(1); }
+  to { opacity: 1; transform: rotate(-80deg) scale(1.06); }
+}
+
+/* Cards container - positioned over center */
+.context-cards {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+/* Individual card */
+.context-card {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 130px;
+  height: 130px;
+  margin-left: -65px;
+  margin-top: -65px;
+  border-radius: 20px;
+  background: rgba(254, 228, 240, 0.15);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 0.75px solid rgba(255, 255, 255, 0.5);
+  box-shadow:
+    0px 6px 36px -6px rgba(0, 0, 0, 0.16),
+    inset 2px 2px 0.5px -2px rgba(255, 255, 255, 0.5),
+    inset -2px -2px 12px -2px rgba(255, 255, 255, 0.5),
+    inset 0px 0px 10px 0px rgba(160, 160, 160, 0.3);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  padding: 16px;
+  will-change: transform, opacity;
+  pointer-events: auto;
+  transform: scale(0);
+  opacity: 0;
+}
+
+/* Icon container inside card */
+.card-icon {
+  width: 55px;
+  height: 55px;
+  border-radius: 11px;
+  background: rgba(254, 228, 240, 0.15);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  border: 0.5px solid rgba(255, 255, 255, 0.5);
+  box-shadow:
+    0px 3px 18px -3px rgba(0, 0, 0, 0.16),
+    inset 1.5px 1.5px 0.4px -1.5px rgba(255, 255, 255, 0.5),
+    inset -1.5px -1.5px 7px -1.5px rgba(255, 255, 255, 0.5),
+    inset 0px 0px 6px 0px rgba(160, 160, 160, 0.3);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.card-icon svg {
+  width: 28px;
+  height: 28px;
+}
+
+/* Card label */
+.card-label {
+  font-family: 'Inter', sans-serif;
+  font-weight: 600;
+  font-size: 14px;
+  color: white;
+  text-align: center;
+  line-height: 1.35;
+}
+
+/* Scroll hint */
+.scroll-hint {
+  position: absolute;
+  bottom: 32px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  opacity: 0.5;
+  transition: opacity 0.4s ease;
+}
+
+.scroll-hint.hidden {
+  opacity: 0;
+  pointer-events: none;
+}
+
+.scroll-hint span {
+  font-family: 'Inter', sans-serif;
+  font-size: 12px;
+  color: rgba(255, 255, 255, 0.6);
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+.scroll-hint-arrow {
+  width: 20px;
+  height: 20px;
+  border-right: 2px solid rgba(255, 255, 255, 0.4);
+  border-bottom: 2px solid rgba(255, 255, 255, 0.4);
+  transform: rotate(45deg);
+  animation: scrollBounce 1.5s ease-in-out infinite;
+}
+
+@keyframes scrollBounce {
+  0%, 100% { transform: rotate(45deg) translateY(0); }
+  50% { transform: rotate(45deg) translateY(5px); }
+}
+
+/* Mobile adjustments */
+@media (max-width: 640px) {
+  .context-card {
+    width: 120px;
+    height: 120px;
+    margin-left: -60px;
+    margin-top: -60px;
+    border-radius: 16px;
+    gap: 8px;
+    padding: 12px;
+  }
+
+  .card-icon {
+    width: 44px;
+    height: 44px;
+    border-radius: 9px;
+  }
+
+  .card-icon svg {
+    width: 22px;
+    height: 22px;
+  }
+
+  .card-label {
+    font-size: 11px;
+  }
+
+  .context-center {
+    width: 45vmin;
+    height: 45vmin;
+  }
+}
