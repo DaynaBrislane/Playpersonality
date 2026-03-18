@@ -133,7 +133,7 @@ export default async function middleware(request) {
   const cookies = request.headers.get('cookie') || '';
   const match = cookies.match(/pp_auth=([^;]+)/);
 
-  if (match && match[1] === hashToken(process.env.SITE_PASSWORD)) {
+  if (match && match[1] === hashToken('cosmiclatte')) {
     return; // Authenticated, continue to site
   }
 
@@ -147,8 +147,8 @@ export default async function middleware(request) {
 async function handleAuth(request) {
   const body = await request.json();
 
-  if (body.password === process.env.SITE_PASSWORD) {
-    const token = hashToken(process.env.SITE_PASSWORD);
+  if (body.password === 'cosmiclatte') {
+    const token = hashToken('cosmiclatte');
     return new Response('OK', {
       status: 200,
       headers: {
