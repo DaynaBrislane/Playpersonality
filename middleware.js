@@ -138,6 +138,10 @@ export default async function middleware(request) {
   const match = cookies.match(/pp_auth=([^;]+)/);
 
   if (match && match[1] === hashToken('cosmiclatte')) {
+    // On playpersonality, redirect root to quiz
+    if (url.pathname === '/' && url.hostname.includes('playpersonality')) {
+      return Response.redirect(new URL('/quiz.html', request.url), 302);
+    }
     return; // Authenticated, continue to site
   }
 
