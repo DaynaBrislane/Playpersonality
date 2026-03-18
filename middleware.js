@@ -173,5 +173,5 @@ function hashToken(password) {
 }
 
 export const config = {
-  matcher: '/(.*)',
+  matcher: '/((?!cosmos-bg\\.png|assets/|favicon\\.ico).*)',
 };
