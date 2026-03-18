@@ -6,83 +6,103 @@ const PASSWORD_PAGE = `<!DOCTYPE html>
   <title>Play Personality</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Lora:wght@500&family=Inter:wght@400;500&display=swap" rel="stylesheet">
   <style>
     * { margin: 0; padding: 0; box-sizing: border-box; }
     body {
       font-family: 'Inter', sans-serif;
-      background: #FDFDFB;
+      background: #0a0a1a;
       display: flex;
       align-items: center;
       justify-content: center;
       min-height: 100vh;
+      overflow: hidden;
     }
-    .gate {
-      text-align: center;
-      max-width: 320px;
+    .bg {
+      position: fixed;
+      inset: 0;
+      background: url('/cosmos-bg.png') center/cover no-repeat;
+    }
+    .card {
+      position: relative;
+      background: #fff;
+      border: 1px solid #e8e8e8;
+      border-radius: 10px;
+      width: 419px;
+      max-width: calc(100vw - 40px);
+      padding: 40px 30px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 20px;
+    }
+    .card h1 {
+      font-family: 'Lora', serif;
+      font-size: 40px;
+      font-weight: 500;
+      line-height: 44px;
+      color: #262626;
+    }
+    .fields {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 30px;
       width: 100%;
-      padding: 0 20px;
     }
-    .gate h1 {
-      font-size: 1.4rem;
-      font-weight: 600;
-      color: #1a1a1a;
-      margin-bottom: 8px;
-    }
-    .gate p {
-      font-size: 0.85rem;
-      color: #999;
-      margin-bottom: 28px;
-    }
-    .gate input {
-      width: 100%;
-      padding: 14px 18px;
+    .card input {
+      width: 346px;
+      max-width: 100%;
+      height: 48px;
+      padding: 0 14px;
       font-family: 'Inter', sans-serif;
       font-size: 1rem;
-      border: 2px solid #e0e0e0;
-      border-radius: 12px;
+      border: 1px solid rgba(0,0,0,0.2);
+      border-radius: 5px;
       outline: none;
       background: #fff;
-      color: #1a1a1a;
+      color: #262626;
       transition: border-color 0.2s;
     }
-    .gate input:focus { border-color: #555BA2; }
-    .gate button {
-      margin-top: 16px;
-      width: 100%;
-      padding: 14px;
-      font-family: 'Inter', sans-serif;
-      font-size: 1rem;
-      font-weight: 500;
+    .card input:focus { border-color: #555BA2; }
+    .card button {
       background: #555BA2;
       color: #fff;
+      font-family: 'Inter', sans-serif;
+      font-size: 16px;
+      font-weight: 500;
+      line-height: 24px;
+      height: 40px;
+      padding: 0 24px;
       border: none;
-      border-radius: 28px;
+      border-radius: 24px;
       cursor: pointer;
       transition: background 0.2s;
     }
-    .gate button:hover { background: #44498a; }
+    .card button:hover { background: #44498a; }
     .error {
       color: #cc3333;
       font-size: 0.85rem;
-      margin-top: 12px;
+      margin-top: -8px;
       display: none;
     }
   </style>
 </head>
 <body>
-  <div class="gate">
-    <h1>Play Personality</h1>
-    <p>Enter the password to continue</p>
-    <form onsubmit="return handleSubmit(event)">
-      <input type="password" id="pw" placeholder="Password" autofocus>
-      <button type="submit">Enter</button>
-    </form>
+  <div class="bg"></div>
+  <div class="card">
+    <div class="fields">
+      <h1>Password:</h1>
+      <input type="password" id="pw" autofocus>
+    </div>
+    <button type="button" onclick="handleSubmit()">Let me in</button>
     <p class="error" id="err">Incorrect password</p>
   </div>
   <script>
-    async function handleSubmit(e) {
-      e.preventDefault();
+    document.getElementById('pw').addEventListener('keydown', function(e) {
+      if (e.key === 'Enter') handleSubmit();
+    });
+    async function handleSubmit() {
       const pw = document.getElementById('pw').value;
       const res = await fetch('/__auth', {
         method: 'POST',
@@ -96,7 +116,6 @@ const PASSWORD_PAGE = `<!DOCTYPE html>
         document.getElementById('pw').value = '';
         document.getElementById('pw').focus();
       }
-      return false;
     }
   </script>
 </body>
