@@ -110,7 +110,11 @@ const PASSWORD_PAGE = `<!DOCTYPE html>
         body: JSON.stringify({ password: pw })
       });
       if (res.ok) {
-        window.location.reload();
+        if (window.location.hostname.includes('playpersonality')) {
+          window.location.href = '/quiz.html';
+        } else {
+          window.location.reload();
+        }
       } else {
         document.getElementById('err').style.display = 'block';
         document.getElementById('pw').value = '';
