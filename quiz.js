@@ -60,6 +60,7 @@ let isAutoScrolling = false;
 let observer = null;
 
 // DOM Elements
+const introView = document.getElementById('introView');
 const questionsScroll = document.getElementById('questionsScroll');
 const progressFill = document.getElementById('progressFill');
 const progressText = document.getElementById('progressText');
@@ -67,6 +68,13 @@ const quizView = document.getElementById('quizView');
 const resultsView = document.getElementById('resultsView');
 const btnExplore = document.getElementById('btnExplore');
 const btnSkip = document.getElementById('btnSkip');
+const btnLetsGo = document.getElementById('btnLetsGo');
+
+// Intro → Quiz transition
+btnLetsGo.addEventListener('click', () => {
+  introView.classList.remove('active');
+  quizView.classList.add('active');
+});
 
 // Render all questions at once
 function renderAllQuestions() {
@@ -551,9 +559,8 @@ function retake() {
 }
 
 function skipToAnimation() {
-  // Pick a random personality type
-  const types = Object.keys(typeToSlotName);
-  const randomType = types[Math.floor(Math.random() * types.length)];
+  // Always show Campaigner (ENFP) for prototype
+  const randomType = 'ENFP';
 
   // Generate random percentages for dimension bars
   const randomPcts = {};
@@ -583,7 +590,14 @@ function skipToAnimation() {
 
 // Event Listeners
 btnSkip.addEventListener('click', skipToAnimation);
-btnExplore.addEventListener('click', retake);
+btnExplore.addEventListener('click', () => {
+  // If embedded in collaboration profiles, navigate to profile view
+  if (window.parent !== window) {
+    window.parent.postMessage({ action: 'showProfileView' }, '*');
+  } else {
+    retake();
+  }
+});
 
 // Initialize
 window.scrollTo(0, 0);

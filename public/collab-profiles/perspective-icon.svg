@@ -1,0 +1,22 @@
+<svg preserveAspectRatio="none" width="100%" height="100%" overflow="visible" style="display: block;" viewBox="0 0 66.0979 61.6592" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g id="Frame 1261157660">
+<circle id="Ellipse 299" cx="40.6332" cy="25.5424" r="24.4319" fill="var(--fill-0, #BEFEB7)" stroke="var(--stroke-0, black)" stroke-width="2.06467"/>
+<circle id="Ellipse 300" cx="25.5624" cy="36.1928" r="24.4319" fill="var(--fill-0, #F4298F)" stroke="var(--stroke-0, black)" stroke-width="2.06467"/>
+<g id="Mask group">
+<mask id="mask0_0_75" style="mask-type:alpha" maskUnits="userSpaceOnUse" x="15" y="0" width="52" height="51">
+<circle id="Ellipse 325" cx="40.6338" cy="25.4643" r="24.4319" fill="var(--fill-0, #BEFEB7)" stroke="var(--stroke-0, black)" stroke-width="2.06467"/>
+</mask>
+<g mask="url(#mask0_0_75)">
+<circle id="Ellipse 326" cx="25.5635" cy="36.1166" r="24.4319" fill="var(--fill-0, #FFD3A8)" stroke="var(--stroke-0, black)" stroke-width="2.06467"/>
+</g>
+</g>
+<g id="Mask group_2">
+<mask id="mask1_0_75" style="mask-type:alpha" maskUnits="userSpaceOnUse" x="0" y="11" width="51" height="51">
+<circle id="Ellipse 325_2" cx="25.4643" cy="36.4643" r="24.4319" transform="rotate(-180 25.4643 36.4643)" fill="var(--fill-0, #BEFEB7)" stroke="var(--stroke-0, black)" stroke-width="2.06467"/>
+</mask>
+<g mask="url(#mask1_0_75)">
+<circle id="Ellipse 326_2" cx="40.6327" cy="26.0326" r="24.4319" transform="rotate(-180 40.6327 26.0326)" stroke="var(--stroke-0, black)" stroke-width="2.06467"/>
+</g>
+</g>
+</g>
+</svg>

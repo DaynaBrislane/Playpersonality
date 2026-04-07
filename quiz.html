@@ -13,8 +13,67 @@
     <div class="quiz-app">
       <!-- Main Content -->
       <main class="quiz-main">
+        <!-- Intro View -->
+        <div class="view intro-view active" id="introView">
+          <div class="intro-container">
+            <p class="intro-heading">Perspective helps you understand how<br>you work so you can collaborate better</p>
+            <div class="intro-cards">
+              <div class="intro-card">
+                <div class="intro-icon">
+                  <svg width="96" height="42" viewBox="0 0 96.45 41.6531" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <circle cx="20.8265" cy="20.8265" r="19.8265" stroke="#BDC0FF" stroke-width="2"/>
+                    <circle cx="48.225" cy="20.8265" r="19.8265" stroke="#BDC0FF" stroke-width="2"/>
+                    <circle cx="75.6235" cy="20.8265" r="19.8265" stroke="#7478EA" stroke-width="2"/>
+                  </svg>
+                </div>
+                <p class="intro-card-label">Take a<br>Quick Quiz</p>
+              </div>
+              <div class="intro-card">
+                <div class="intro-icon">
+                  <svg width="49" height="46" viewBox="0 0 48.6147 45.35" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <circle cx="29.8854" cy="18.7866" r="17.9288" fill="#BEFEB7" stroke="black" stroke-width="1.6"/>
+                    <circle cx="18.8011" cy="26.6195" r="17.9288" fill="#F4298F" stroke="black" stroke-width="1.6"/>
+                    <mask id="mask0" style="mask-type:alpha" maskUnits="userSpaceOnUse" x="11" y="0" width="38" height="38">
+                      <circle cx="29.8856" cy="18.7288" r="17.9288" fill="#BEFEB7" stroke="black" stroke-width="1.6"/>
+                    </mask>
+                    <g mask="url(#mask0)">
+                      <circle cx="18.8017" cy="26.5639" r="17.9288" fill="#FFD3A8" stroke="black" stroke-width="1.6"/>
+                    </g>
+                    <mask id="mask1" style="mask-type:alpha" maskUnits="userSpaceOnUse" x="-1" y="7" width="39" height="39">
+                      <circle cx="18.7287" cy="26.3991" r="17.9288" transform="rotate(-180 18.7287 26.3991)" fill="#BEFEB7" stroke="black" stroke-width="1.6"/>
+                    </mask>
+                    <g mask="url(#mask1)">
+                      <circle cx="29.8848" cy="18.7271" r="17.9288" transform="rotate(-180 29.8848 18.7271)" stroke="black" stroke-width="1.6"/>
+                    </g>
+                  </svg>
+                </div>
+                <p class="intro-card-label">Uncover your<br>Working Style</p>
+              </div>
+              <div class="intro-card">
+                <div class="intro-icon">
+                  <svg width="96" height="40" viewBox="0 0 96.4517 40.0016" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <circle cx="76.4517" cy="19.9998" r="19.1998" fill="#FFE7B7" stroke="black" stroke-width="1.6"/>
+                    <circle cx="48.2237" cy="19.9998" r="19.1998" fill="#80DADA" stroke="black" stroke-width="1.6"/>
+                    <mask id="path-3-inside" fill="white">
+                      <path d="M62.7957 5.89865C66.1635 9.47797 68.2283 14.2974 68.2283 19.5998C68.2283 25.3654 65.787 30.5593 61.8836 34.2092C58.5161 30.63 56.452 25.8102 56.452 20.508C56.452 14.7428 58.8928 9.54851 62.7957 5.89865Z"/>
+                    </mask>
+                    <path d="M62.7957 5.89865C66.1635 9.47797 68.2283 14.2974 68.2283 19.5998C68.2283 25.3654 65.787 30.5593 61.8836 34.2092C58.5161 30.63 56.452 25.8102 56.452 20.508C56.452 14.7428 58.8928 9.54851 62.7957 5.89865Z" fill="#A1A5FD"/>
+                    <circle cx="19.9998" cy="19.9998" r="19.1998" fill="#F4298F" stroke="black" stroke-width="1.6"/>
+                    <mask id="path-6-inside" fill="white">
+                      <path d="M34.5724 5.89767C37.9406 9.47707 40.006 14.297 40.006 19.5998C40.006 25.3652 37.5645 30.5593 33.6613 34.2092C30.2937 30.6299 28.2297 25.8103 28.2296 20.508C28.2296 14.7427 30.6694 9.54754 34.5724 5.89767Z"/>
+                    </mask>
+                    <path d="M34.5724 5.89767C37.9406 9.47707 40.006 14.297 40.006 19.5998C40.006 25.3652 37.5645 30.5593 33.6613 34.2092C30.2937 30.6299 28.2297 25.8103 28.2296 20.508C28.2296 14.7427 30.6694 9.54754 34.5724 5.89767Z" fill="#FFBC7A"/>
+                  </svg>
+                </div>
+                <p class="intro-card-label">Get Personalized<br>Coaching</p>
+              </div>
+            </div>
+            <button class="intro-btn" id="btnLetsGo">Let's Go</button>
+          </div>
+        </div>
+
         <!-- Quiz View -->
-        <div class="view quiz-view active" id="quizView">
+        <div class="view quiz-view" id="quizView">
           <!-- Progress -->
           <div class="progress-header">
             <div class="progress-bar">
@@ -42,7 +101,7 @@
             <div class="dimension-results" id="dimensionResults"></div>
 
             <div class="results-actions">
-              <button class="nav-btn btn-explore" id="btnExplore">Explore Archetype</button>
+              <button class="nav-btn btn-explore" id="btnExplore">Explore Perspective</button>
               <a href="#" class="results-pair-link" id="btnPair">Pair with a team mate</a>
             </div>
           </div>

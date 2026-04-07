@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Collaboration Profiles</title>
+  <link rel="stylesheet" href="collaboration-profiles.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@400;500&display=swap" rel="stylesheet" />
+</head>
+<body>
+  <!-- Password gate -->
+  <div class="password-gate" id="password-gate">
+    <div class="password-box">
+      <h2 class="password-title">Enter password</h2>
+      <input type="password" class="password-input" id="password-input" placeholder="Password" autofocus />
+      <button class="password-btn" id="password-btn">Enter</button>
+      <p class="password-error" id="password-error"></p>
+    </div>
+  </div>
+
+  <div class="page" id="page-content" style="display:none">
+    <!-- Sidebar -->
+    <aside class="sidebar">
+      <div class="sidebar-inner">
+        <img src="/collab-profiles/sidebar-icon.svg" alt="" class="sidebar-toggle-icon" />
+
+        <div class="sidebar-nav">
+          <a href="#" class="sidebar-item">
+            <span class="sidebar-icon-badge purple">
+              <img src="/collab-profiles/calendar-sm-icon.svg" alt="" />
+            </span>
+            <span class="sidebar-label">New Chat</span>
+          </a>
+          <a href="#" class="sidebar-item active">
+            <img src="/collab-profiles/home-icon.svg" alt="" class="sidebar-icon" />
+            <span class="sidebar-label">Home</span>
+          </a>
+          <a href="#" class="sidebar-item">
+            <img src="/collab-profiles/chat-history-icon.svg" alt="" class="sidebar-icon" />
+            <span class="sidebar-label">Chat History</span>
+          </a>
+        </div>
+
+        <div class="sidebar-section">
+          <span class="sidebar-section-title">WORK</span>
+          <a href="#" class="sidebar-item">
+            <img src="/collab-profiles/notes-icon.svg" alt="" class="sidebar-icon" />
+            <span class="sidebar-label">Nadia's Notes</span>
+          </a>
+          <a href="#" class="sidebar-item">
+            <img src="/collab-profiles/collab-profile-icon.svg" alt="" class="sidebar-icon" />
+            <span class="sidebar-label">Collaboration<br>Profile</span>
+          </a>
+          <a href="#" class="sidebar-item">
+            <img src="/collab-profiles/people-icon.svg" alt="" class="sidebar-icon" />
+            <span class="sidebar-label">My People</span>
+          </a>
+          <a href="#" class="sidebar-item">
+            <img src="/collab-profiles/perf-icon.svg" alt="" class="sidebar-icon" />
+            <span class="sidebar-label">Performance Management</span>
+          </a>
+        </div>
+      </div>
+    </aside>
+
+    <!-- Quiz overlay -->
+    <div class="quiz-overlay" id="quiz-overlay" style="display:none">
+      <div class="quiz-overlay-header">
+        <button class="quiz-back-btn" id="quiz-back-btn">&larr; Back to Home</button>
+      </div>
+      <iframe id="quiz-iframe" class="quiz-iframe" src="about:blank"></iframe>
+    </div>
+
+    <!-- Main content -->
+    <main class="main" id="main-content">
+      <h1 class="welcome-heading">Welcome back, Dayna</h1>
+
+      <!-- Chat input -->
+      <div class="chat-box">
+        <div class="chat-input-row">
+          <p class="chat-placeholder">Whats on your mind?</p>
+        </div>
+        <div class="chat-toolbar">
+          <div class="chat-toolbar-left">
+            <button class="chat-tool-btn attach-btn">
+              <img src="/collab-profiles/attach-icon.svg" alt="Attach" />
+            </button>
+            <button class="chat-tool-btn">
+              <img src="/collab-profiles/audio-icon.svg" alt="Audio" />
+            </button>
+          </div>
+          <div class="chat-toolbar-right">
+            <button class="chat-tool-btn">
+              <img src="/collab-profiles/mic-icon.svg" alt="Mic" />
+            </button>
+            <button class="chat-send-btn">
+              <svg width="40" height="40" viewBox="0 0 40 40" fill="none">
+                <circle cx="20" cy="20" r="20" fill="#555BA2"/>
+                <path d="M20 26V14M20 14L15 19M20 14L25 19" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <p class="help-heading">How can I help you today?</p>
+
+      <!-- Divider -->
+      <div class="section-divider"></div>
+
+      <!-- Action cards grid -->
+      <div class="cards-area">
+        <!-- Complete Perspective (tall card) -->
+        <div class="card-perspective">
+          <img src="/collab-profiles/perspective-icon.svg" alt="" class="perspective-icon" />
+          <div class="perspective-text">
+            <h3>Complete Perspective</h3>
+            <p>Unlock personalized coaching and see how you work with others built around your work style.</p>
+          </div>
+          <button class="btn-complete">Take Assessment</button>
+        </div>
+
+        <!-- Small action cards -->
+        <div class="action-cards">
+          <div class="action-card">
+            <img src="/collab-profiles/practice-icon.svg" alt="" class="action-icon" />
+            <div class="action-text">
+              <strong>Practice a 1:1</strong>
+              <span>You have 9 1:1s in the next 2 weeks. Take some time to prep</span>
+            </div>
+          </div>
+          <div class="action-card">
+            <img src="/collab-profiles/communicate-icon.svg" alt="" class="action-icon" />
+            <div class="action-text">
+              <strong>Communicate hard topics</strong>
+              <span>Find the right words for difficult news or tough feedback</span>
+            </div>
+          </div>
+          <div class="action-card">
+            <img src="/collab-profiles/feedback-icon.svg" alt="" class="action-icon" />
+            <div class="action-text">
+              <strong>Gather Feedback</strong>
+              <span>Ask the right questions to collect meaningful feedback</span>
+            </div>
+          </div>
+          <div class="action-card">
+            <div class="playbook-icon">
+              <div class="playbook-bar"></div>
+              <div class="playbook-bar"></div>
+            </div>
+            <div class="action-text">
+              <strong>Chat with a Playbook</strong>
+              <span>Explore colleagues public work playbook with Nadia.</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Tab pills -->
+      <div class="tab-pills">
+        <button class="tab-pill">
+          <img src="/collab-profiles/calendar-tab-icon.svg" alt="" />
+          <span>Calendar</span>
+        </button>
+        <button class="tab-pill">
+          <img src="/collab-profiles/lightning-icon.svg" alt="" />
+          <span>Tracking Progress</span>
+        </button>
+        <button class="tab-pill active">
+          <img src="/collab-profiles/delta-logo.png" alt="" class="delta-tab-logo" />
+          <span>Improving at Delta</span>
+        </button>
+      </div>
+
+      <!-- Featured cards -->
+      <div class="featured-cards">
+        <div class="featured-card">
+          <img src="/collab-profiles/delta-logo.png" alt="Delta" class="featured-logo" />
+          <div class="featured-text">
+            <span class="featured-label">Trending at Delta</span>
+            <h3>Delta Mid-Year Performance Management Check-In</h3>
+          </div>
+        </div>
+        <div class="featured-card">
+          <img src="/collab-profiles/delta-logo.png" alt="Delta" class="featured-logo" />
+          <div class="featured-text">
+            <span class="featured-label">Featured at your organization</span>
+            <h3>Meet Nadia</h3>
+            <p>New to AI coaching? Start here! Nadia makes your first step simple, personal, and powerful.</p>
+          </div>
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <script type="module" src="collaboration-profiles.js"></script>
+</body>
+</html>

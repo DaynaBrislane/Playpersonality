@@ -1,0 +1,750 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Collaboration Profile</title>
+  <link rel="stylesheet" href="collaboration-profile-view.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;700&display=swap" rel="stylesheet" />
+</head>
+<body>
+  <div class="profile-page">
+
+    <!-- Header -->
+    <div class="profile-header">
+      <div class="profile-header-icon">
+        <img src="/collab-profiles/collab-header-icon.svg" alt="" />
+      </div>
+      <div class="profile-header-text">
+        <div class="profile-header-title-row">
+          <h1>Your collaboration profile</h1>
+          <div class="header-actions">
+            <button class="share-link-btn" id="share-profile-btn">
+              <svg width="18" height="18" viewBox="0 0 18 18" fill="none"><path d="M7.5 10.5a3.5 3.5 0 0 0 5 0l2-2a3.54 3.54 0 0 0-5-5l-1 1M10.5 7.5a3.5 3.5 0 0 0-5 0l-2 2a3.54 3.54 0 0 0 5 5l1-1" stroke="#595959" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </button>
+          <div class="visibility-dropdown" id="visibility-dropdown">
+            <button class="visibility-toggle" id="visibility-toggle">
+              <svg class="visibility-icon" width="16" height="16" viewBox="0 0 16 16" fill="none"><circle cx="6" cy="8" r="4.5" stroke="#595959" stroke-width="1.3" fill="none"/><circle cx="10" cy="8" r="4.5" stroke="#595959" stroke-width="1.3" fill="none"/></svg>
+              <span id="visibility-label">Shared</span>
+              <svg class="visibility-chevron" width="10" height="6" viewBox="0 0 10 6" fill="none"><path d="M1 1l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </button>
+            <div class="visibility-menu" id="visibility-menu" style="display:none">
+              <button class="visibility-option selected" data-value="Shared">
+                <svg width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M8 3C4.5 3 1.7 5.1 0.5 8c1.2 2.9 4 5 7.5 5s6.3-2.1 7.5-5c-1.2-2.9-4-5-7.5-5zm0 8.3a3.3 3.3 0 1 1 0-6.6 3.3 3.3 0 0 1 0 6.6z" fill="#595959"/></svg>
+                <div class="visibility-option-text">
+                  <strong>Shared</strong>
+                  <span>Visible to your organization</span>
+                </div>
+              </button>
+              <button class="visibility-option" data-value="Team Only">
+                <svg width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M5.5 8a2.5 2.5 0 1 0 0-5 2.5 2.5 0 0 0 0 5zm5 0a2 2 0 1 0 0-4 2 2 0 0 0 0 4zM5.5 9.5C3.5 9.5 0 10.5 0 12.5V14h11v-1.5c0-2-3.5-3-5.5-3zm5.5.3c-.3 0-.6 0-.9.1.8.6 1.4 1.4 1.4 2.6V14H16v-1.5c0-1.8-3-2.7-5-2.7z" fill="#595959"/></svg>
+                <div class="visibility-option-text">
+                  <strong>Team Only</strong>
+                  <span>Visible to your direct team</span>
+                </div>
+              </button>
+              <button class="visibility-option" data-value="Private">
+                <svg width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M12 7h-1V5a3 3 0 0 0-6 0v2H4a1 1 0 0 0-1 1v5a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V8a1 1 0 0 0-1-1zM6.5 5a1.5 1.5 0 0 1 3 0v2h-3V5z" fill="#595959"/></svg>
+                <div class="visibility-option-text">
+                  <strong>Private</strong>
+                  <span>Only visible to you</span>
+                </div>
+              </button>
+            </div>
+          </div>
+          </div><!-- end header-actions -->
+        </div>
+        <p class="profile-header-desc">Help others understand how to work with you effectively.</p>
+        <p class="profile-header-meta">Visible to your organization · Last updated January 15, 2026</p>
+      </div>
+    </div>
+
+
+    <!-- Share Modal -->
+    <div class="edit-modal-overlay" id="share-modal" style="display:none">
+      <div class="share-modal-card">
+        <div class="share-header">
+          <div class="share-header-text">
+            <h3>Share your Profile</h3>
+            <p>Let colleagues know how to work with you</p>
+          </div>
+          <button class="share-close-btn" id="share-modal-close">&times;</button>
+        </div>
+        <div class="share-divider"></div>
+        <div class="share-section">
+          <span class="share-label">Copy link</span>
+          <div class="share-link-box">
+            <span class="share-link-url" id="share-link-url">https://valence.co/perspective/share/dayna-brislane</span>
+            <button class="share-copy-btn" id="share-copy-btn">Copy</button>
+          </div>
+        </div>
+        <div class="share-section">
+          <span class="share-label">Share via</span>
+          <div class="share-via-row">
+            <button class="share-via-btn">
+              <img src="/collab-profiles/slack-icon.png" alt="" />
+              Slack
+            </button>
+            <button class="share-via-btn">
+              <img src="/collab-profiles/teams-icon.png" alt="" />
+              Teams
+            </button>
+            <button class="share-via-btn">
+              <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><rect x="1" y="3.5" width="14" height="9" rx="1.5" stroke="#595959" stroke-width="1.3" fill="none"/><path d="M1.5 4.5L8 9l6.5-4.5" stroke="#595959" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg>
+              Email
+            </button>
+          </div>
+        </div>
+        <div class="share-divider"></div>
+        <button class="share-done-btn" id="share-done-btn">Done</button>
+      </div>
+    </div>
+
+    <!-- Profile Card -->
+    <div class="profile-card">
+      <button class="profile-edit-btn" id="profile-edit-btn">
+        <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M11.333 1.333a1.886 1.886 0 0 1 2.667 0 1.886 1.886 0 0 1 0 2.667l-.667.667-2.667-2.667.667-.667zM9.333 3.333l-7 7V13h2.667l7-7-2.667-2.667z" fill="#8c8c8c"/></svg>
+      </button>
+      <div class="profile-card-top">
+        <div class="profile-identity">
+          <img src="/collab-profiles/avatar.svg" alt="" class="profile-avatar" />
+          <div class="profile-name-row">
+            <h2>Dayna Brislane</h2>
+          </div>
+        </div>
+        <span class="campaigner-badge">
+          <img src="/collab-profiles/campaigner-badge.svg" alt="" />
+          Campaigner
+        </span>
+      </div>
+      <p class="profile-desc">You're a campaigner. Energetic and enthusiastic visionaries who spark new ideas and inspire others with their passion and creativity</p>
+      <div class="profile-meta-row">
+        <div class="profile-meta-item">
+          <span class="meta-label">Role</span>
+          <span class="meta-value">Product Designer</span>
+        </div>
+        <div class="profile-meta-item">
+          <span class="meta-label">Team</span>
+          <span class="meta-value">Unknown</span>
+        </div>
+        <div class="profile-meta-item">
+          <span class="meta-label">Level</span>
+          <span class="meta-value">Unknown</span>
+        </div>
+        <div class="profile-meta-item">
+          <span class="meta-label">Organization</span>
+          <span class="meta-value">Valence</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Tabs -->
+    <div class="profile-tabs">
+      <button class="profile-tab active">Perspective</button>
+      <button class="profile-tab">Working With Me</button>
+    </div>
+
+    <!-- Perspective Content -->
+    <div id="perspective-content">
+
+    <!-- Your Traits -->
+    <section class="traits-section">
+      <h3 class="section-title">Your Traits</h3>
+      <div class="traits-card">
+        <!-- Energy -->
+        <div class="trait-row">
+          <div class="trait-label">
+            <img src="/collab-profiles/energy-icon.svg" alt="" class="trait-icon" />
+            <strong>Energy</strong>
+          </div>
+          <div class="trait-bar-container">
+            <div class="trait-bar-bg">
+              <div class="trait-bar-fill" style="background:#e868b3; left:13.75%; width:26.83%"></div>
+            </div>
+            <div class="trait-tooltip" style="left:27%">
+              <span class="tooltip-dot" style="background:#e868b3"></span>
+              Primarily Extroverted
+            </div>
+          </div>
+          <div class="trait-labels">
+            <span>Extroverted</span>
+            <span>Introverted</span>
+          </div>
+        </div>
+        <!-- Information Processing -->
+        <div class="trait-row">
+          <div class="trait-label">
+            <img src="/collab-profiles/info-proc-icon.svg?v=2" alt="" class="trait-icon" />
+            <strong>Information Processing</strong>
+          </div>
+          <div class="trait-bar-container">
+            <div class="trait-bar-bg">
+              <div class="trait-bar-fill" style="background:#ffd094; left:41.69%; width:26.82%"></div>
+            </div>
+            <div class="trait-tooltip" style="left:55%">
+              <span class="tooltip-dot" style="background:#ffd094"></span>
+              Skews Intuiting
+            </div>
+          </div>
+          <div class="trait-labels">
+            <span>Observing</span>
+            <span>Intuiting</span>
+          </div>
+        </div>
+        <!-- Decision Making -->
+        <div class="trait-row">
+          <div class="trait-label">
+            <img src="/collab-profiles/decision-icon.svg?v=2" alt="" class="trait-icon" />
+            <strong>Decision Making</strong>
+          </div>
+          <div class="trait-bar-container">
+            <div class="trait-bar-bg">
+              <div class="trait-bar-fill" style="background:#a0a3f3; left:63.89%; width:28.11%"></div>
+            </div>
+            <div class="trait-tooltip" style="left:78%">
+              <span class="tooltip-dot" style="background:#a0a3f3"></span>
+              Primarily Feeling
+            </div>
+          </div>
+          <div class="trait-labels">
+            <span>Thinking</span>
+            <span>Feeling</span>
+          </div>
+        </div>
+        <!-- Organization -->
+        <div class="trait-row">
+          <div class="trait-label">
+            <div class="org-icon">
+              <div class="org-square"></div>
+              <div class="org-square"></div>
+              <div class="org-square"></div>
+              <div class="org-square"></div>
+            </div>
+            <strong>Organization</strong>
+          </div>
+          <div class="trait-bar-container">
+            <div class="trait-bar-bg">
+              <div class="trait-bar-fill" style="background:#c0efb7; left:10.65%; width:32.7%"></div>
+            </div>
+            <div class="trait-tooltip" style="left:19%">
+              <span class="tooltip-dot" style="background:#c0efb7"></span>
+              Primarily Structured
+            </div>
+          </div>
+          <div class="trait-labels">
+            <span>Structured</span>
+            <span>Exploratory</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Dimension Deep Dive -->
+    <section class="deepdive-section">
+      <h3 class="section-title">Dimension Deep Dive</h3>
+      <div class="deepdive-card">
+        <div class="deepdive-tabs">
+          <button class="deepdive-tab" data-active-color="#F4298F" data-inactive-color="#FDD4E9">
+            <svg class="dd-icon" width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M9.41806 0.265686C9.46215 -0.0887373 9.97584 -0.0887357 10.0199 0.265688L10.7888 6.44617C10.8179 6.67974 11.0904 6.79261 11.2761 6.648L16.19 2.82142C16.4718 2.60198 16.835 2.96521 16.6156 3.24701L12.789 8.16095C12.6444 8.34665 12.7573 8.61915 12.9908 8.6482L19.1713 9.41708C19.5258 9.46117 19.5257 9.97486 19.1713 10.019L12.9908 10.7878C12.7573 10.8169 12.6444 11.0894 12.789 11.2751L16.6156 16.189C16.835 16.4708 16.4718 16.8341 16.19 16.6146L11.2761 12.788C11.0904 12.6434 10.8179 12.7563 10.7888 12.9899L10.0199 19.1704C9.97584 19.5248 9.46215 19.5248 9.41806 19.1703L8.64918 12.9899C8.62012 12.7563 8.34763 12.6434 8.16192 12.788L3.24798 16.6146C2.96619 16.8341 2.60296 16.4708 2.82239 16.189L6.64898 11.2751C6.79359 11.0894 6.68072 10.8169 6.44715 10.7878L0.266663 10.019C-0.0877608 9.97486 -0.0877591 9.46117 0.266664 9.41708L6.44715 8.6482C6.68072 8.61915 6.79359 8.34665 6.64897 8.16095L2.82239 3.247C2.60296 2.96521 2.96619 2.60198 3.24798 2.82142L8.16192 6.648C8.34763 6.79261 8.62012 6.67974 8.64918 6.44617L9.41806 0.265686Z" fill="#FDD4E9"/></svg>
+            <span>Energy</span>
+          </button>
+          <button class="deepdive-tab active" data-active-color="#FFBC7A" data-inactive-color="#FFDDBD">
+            <svg class="dd-icon" width="18" height="16" viewBox="0 0 18 16" fill="none"><path d="M8.13 0.5C8.52 -0.17 9.48 -0.17 9.87 0.5L17.32 13.4C17.71 14.07 17.23 14.9 16.45 14.9H1.55C0.77 14.9 0.29 14.07 0.68 13.4L8.13 0.5Z" fill="#FFBC7A"/></svg>
+            <span>Information Processing</span>
+          </button>
+          <button class="deepdive-tab" data-active-color="#a0a3f3" data-inactive-color="#DBDDFC">
+            <svg class="dd-icon" width="24" height="12" viewBox="0 0 24 12" fill="none"><rect x="11.1973" y="0.535157" width="11.1965" height="11.1965" rx="0.799753" transform="rotate(90 11.1973 0.535157)" fill="#DBDDFC"/><ellipse cx="17.3275" cy="5.99815" rx="5.99815" ry="6.13144" transform="rotate(90 17.3275 5.99815)" fill="#DBDDFC"/></svg>
+            <span>Decision Making</span>
+          </button>
+          <button class="deepdive-tab" data-active-color="#bfe6a0" data-inactive-color="#DFF3CF">
+            <svg class="dd-icon" width="16" height="16" viewBox="0 0 16 16" fill="none"><rect x="0" y="0" width="7" height="7" rx="1" fill="#DFF3CF"/><rect x="9" y="0" width="7" height="7" rx="1" fill="#DFF3CF"/><rect x="0" y="9" width="7" height="7" rx="1" fill="#DFF3CF"/><rect x="9" y="9" width="7" height="7" rx="1" fill="#DFF3CF"/></svg>
+            <span>Organization</span>
+          </button>
+        </div>
+        <!-- Energy content -->
+        <div class="deepdive-content" data-dimension="energy" style="display:none">
+          <div class="deepdive-highlights">
+            <h4>The Highlights</h4>
+            <div class="highlights-divider"></div>
+            <ul>
+              <li>Energized by people and collaboration</li>
+              <li>Thinks out loud and brainstorms freely</li>
+              <li>Initiates conversations easily</li>
+              <li>Thrives in group settings</li>
+              <li>Needs alone time to recharge occasionally</li>
+            </ul>
+          </div>
+          <div class="deepdive-detail">
+            <h4>How you show up with others</h4>
+            <div class="highlights-divider"></div>
+            <p>You draw energy from being around people. Social interactions fuel your creativity and motivation, and you naturally gravitate toward collaborative environments.</p>
+            <ul>
+              <li>Prefer talking through ideas rather than working in isolation</li>
+              <li>Often the one to break the ice or rally a group</li>
+              <li>Can sometimes overwhelm quieter colleagues with enthusiasm</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Information Processing content (default) -->
+        <div class="deepdive-content" data-dimension="info">
+          <div class="deepdive-highlights">
+            <h4>The Highlights</h4>
+            <div class="highlights-divider"></div>
+            <ul>
+              <li>Big-picture first</li>
+              <li>Idea-led and imaginative</li>
+              <li>Pattern-seeking</li>
+              <li>Experimental and Original</li>
+              <li>Balanced enough to ground ideas when needed</li>
+            </ul>
+          </div>
+          <div class="deepdive-detail">
+            <h4>How you make sense of information</h4>
+            <div class="highlights-divider"></div>
+            <p>You tend to grasp the essence of things quickly, often before all the details are on the table.</p>
+            <ul>
+              <li>Look for patterns, meaning, and the "why"</li>
+              <li>Take in information in snapshots, not step-by-step instructions</li>
+              <li>Handle facts well, just not first</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Decision Making content -->
+        <div class="deepdive-content" data-dimension="decision" style="display:none">
+          <div class="deepdive-highlights">
+            <h4>The Highlights</h4>
+            <div class="highlights-divider"></div>
+            <ul>
+              <li>Leads with empathy and values</li>
+              <li>Considers impact on people first</li>
+              <li>Seeks harmony in team dynamics</li>
+              <li>Motivated by authenticity</li>
+              <li>Can weigh logic when stakes are high</li>
+            </ul>
+          </div>
+          <div class="deepdive-detail">
+            <h4>How you make decisions</h4>
+            <div class="highlights-divider"></div>
+            <p>Your decisions are deeply influenced by how they affect the people around you. You prioritize alignment with personal values and team wellbeing over pure efficiency.</p>
+            <ul>
+              <li>Naturally attuned to how others feel about a direction</li>
+              <li>May delay tough calls to avoid conflict or hurt feelings</li>
+              <li>Strongest when pairing instinct with data to back it up</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Organization content -->
+        <div class="deepdive-content" data-dimension="org" style="display:none">
+          <div class="deepdive-highlights">
+            <h4>The Highlights</h4>
+            <div class="highlights-divider"></div>
+            <ul>
+              <li>Flexible and spontaneous</li>
+              <li>Keeps options open as long as possible</li>
+              <li>Adapts quickly to changing plans</li>
+              <li>Creative under pressure</li>
+              <li>Can build structure when the project demands it</li>
+            </ul>
+          </div>
+          <div class="deepdive-detail">
+            <h4>How you organize your work</h4>
+            <div class="highlights-divider"></div>
+            <p>You prefer to stay open and exploratory rather than locked into rigid plans. Deadlines can be motivating, but you do your best work when there's room to pivot and iterate.</p>
+            <ul>
+              <li>Thrive with flexibility but can struggle with long-term follow-through</li>
+              <li>Often juggle multiple projects and ideas at once</li>
+              <li>Benefit from lightweight systems that keep you on track without feeling constrained</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Character Summary -->
+    <section class="summary-section">
+      <h3 class="section-title">Character Summary</h3>
+      <div class="summary-cards">
+        <div class="summary-card">
+          <div class="summary-card-header">
+            <svg class="summary-icon" width="30" height="30" viewBox="0 0 30 30" fill="none"><rect width="30" height="30" rx="4" fill="#BEFEB7"/><path d="M15 8v14M8 15h14" stroke="#555" stroke-width="3" stroke-linecap="round"/></svg>
+            <h4>Strengths</h4>
+          </div>
+          <div class="summary-divider"></div>
+          <div class="summary-items">
+            <div class="summary-item">
+              <p class="summary-item-title">Exceptional People Skills:</p>
+              <p class="summary-item-desc">Skilled in understanding emotions, building rapport, and connecting with diverse groups.</p>
+            </div>
+            <div class="summary-item">
+              <p class="summary-item-title">Adaptability and Creativity:</p>
+              <p class="summary-item-desc">Thrives in fast-paced and unpredictable environments, often finding innovative solutions to complex problems.</p>
+            </div>
+            <div class="summary-item">
+              <p class="summary-item-title">Big Picture Thinkers:</p>
+              <p class="summary-item-desc">Strong ability to see a strategic vision and inspire others toward a common goal.</p>
+            </div>
+          </div>
+        </div>
+        <div class="summary-card">
+          <div class="summary-card-header">
+            <img src="/collab-profiles/growth-icon.svg" alt="" class="summary-icon" />
+            <h4>Growth Areas</h4>
+          </div>
+          <div class="summary-divider"></div>
+          <div class="summary-items">
+            <div class="summary-item">
+              <p class="summary-item-title">Dislike of Administration:</p>
+              <p class="summary-item-desc">Tendency to ignore or struggle with mundane tasks like paperwork or detailed planning.</p>
+            </div>
+            <div class="summary-item">
+              <p class="summary-item-title">Overcommitment and Burnout:</p>
+              <p class="summary-item-desc">Enthusiasm can lead to taking on too many initiatives, causing loss of focus or burn out.</p>
+            </div>
+            <div class="summary-item">
+              <p class="summary-item-title">Conflict Avoidance:</p>
+              <p class="summary-item-desc">In an effort to keep morale high, may avoid difficult, necessary conversations, leading to unresolved team issues.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    </div><!-- end perspective-content -->
+
+    <!-- Working With Me Content -->
+    <div id="working-with-me-content" style="display:none">
+      <section class="wwm-section">
+        <div class="wwm-title-row">
+          <h3 class="section-title">How Dayna Works Best</h3>
+          <button class="wwm-edit-btn" id="wwm-edit-btn">
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M11.333 1.333a1.886 1.886 0 0 1 2.667 0 1.886 1.886 0 0 1 0 2.667l-.667.667-2.667-2.667.667-.667zM9.333 3.333l-7 7V13h2.667l7-7-2.667-2.667z" fill="#8c8c8c"/></svg>
+          </button>
+        </div>
+        <div class="wwm-grid">
+          <!-- Energy and Communication -->
+          <div class="wwm-card">
+            <div class="wwm-card-header">
+              <img src="/collab-profiles/wwm-energy.svg" alt="" class="wwm-icon" />
+              <h4>Energy and Communication</h4>
+            </div>
+            <div class="wwm-divider"></div>
+            <div class="wwm-rows">
+              <div class="wwm-row"><span class="wwm-label">Do</span><span class="wwm-value">Lead with "why" before details, she connects to purpose first</span></div>
+              <div class="wwm-divider"></div>
+              <div class="wwm-row"><span class="wwm-label">Avoid</span><span class="wwm-value">Flat tone reads as resistance, match her energy</span></div>
+              <div class="wwm-divider"></div>
+              <div class="wwm-row"><span class="wwm-label">Tip</span><span class="wwm-value">Align first, debate later, she's far more receptive to pushback after feeling heard</span></div>
+            </div>
+          </div>
+          <!-- Information Processing -->
+          <div class="wwm-card">
+            <div class="wwm-card-header">
+              <img src="/collab-profiles/wwm-info.svg" alt="" class="wwm-icon" />
+              <h4>Information Processing</h4>
+            </div>
+            <div class="wwm-divider"></div>
+            <div class="wwm-rows">
+              <div class="wwm-row"><span class="wwm-label">Do</span><span class="wwm-value">Start with the big picture, then layer in detail once she's oriented</span></div>
+              <div class="wwm-divider"></div>
+              <div class="wwm-row"><span class="wwm-label">Avoid</span><span class="wwm-value">Long briefs without a TL;DR, she'll lose the thread before reaching the point</span></div>
+              <div class="wwm-divider"></div>
+              <div class="wwm-row"><span class="wwm-label">Tip</span><span class="wwm-value">Use examples and analogies over bullet-heavy structured documents</span></div>
+            </div>
+          </div>
+          <!-- Organization -->
+          <div class="wwm-card">
+            <div class="wwm-card-header">
+              <img src="/collab-profiles/wwm-org.svg" alt="" class="wwm-icon" />
+              <h4>Organization</h4>
+            </div>
+            <div class="wwm-divider"></div>
+            <div class="wwm-rows">
+              <div class="wwm-row"><span class="wwm-label">Do</span><span class="wwm-value">Clarify who owns what before work begins — ambiguity slows her down</span></div>
+              <div class="wwm-divider"></div>
+              <div class="wwm-row"><span class="wwm-label">Avoid</span><span class="wwm-value">Heavy process or late-stage reviews, she'd rather iterate on rough early work</span></div>
+              <div class="wwm-divider"></div>
+              <div class="wwm-row"><span class="wwm-label">Tip</span><span class="wwm-value">Light check-ins beat structured status reports — keep momentum over formality</span></div>
+            </div>
+          </div>
+          <!-- Decision Making -->
+          <div class="wwm-card">
+            <div class="wwm-card-header">
+              <img src="/collab-profiles/wwm-decision.svg" alt="" class="wwm-icon" />
+              <h4>Decision Making</h4>
+            </div>
+            <div class="wwm-divider"></div>
+            <div class="wwm-rows">
+              <div class="wwm-row"><span class="wwm-label">Do</span><span class="wwm-value">Bring 2–3 options, not an open question. She'll commit confidently with a frame</span></div>
+              <div class="wwm-divider"></div>
+              <div class="wwm-row"><span class="wwm-label">Avoid</span><span class="wwm-value">Open-ended "what do you think we should do?" — it can feel like the burden is shifted</span></div>
+              <div class="wwm-divider"></div>
+              <div class="wwm-row"><span class="wwm-label">Tip</span><span class="wwm-value">Time-box decisions upfront and make the final call explicit — she'll run with it</span></div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <!-- Profile Edit Modal -->
+    <div class="edit-modal-overlay" id="profile-edit-modal" style="display:none">
+      <div class="edit-modal">
+        <div class="edit-modal-header">
+          <h3>Edit Profile</h3>
+          <button class="edit-modal-close" id="profile-modal-close">&times;</button>
+        </div>
+        <div class="edit-modal-body" id="profile-modal-body">
+          <div class="edit-section">
+            <div class="edit-field">
+              <label>Name</label>
+              <textarea id="edit-profile-name" rows="1"></textarea>
+            </div>
+            <div class="edit-field">
+              <label>Description</label>
+              <textarea id="edit-profile-desc" rows="3"></textarea>
+            </div>
+          </div>
+          <div class="edit-section">
+            <div class="edit-field-row">
+              <div class="edit-field">
+                <label>Role</label>
+                <textarea id="edit-profile-role" rows="1"></textarea>
+              </div>
+              <div class="edit-field">
+                <label>Team</label>
+                <textarea id="edit-profile-team" rows="1"></textarea>
+              </div>
+            </div>
+            <div class="edit-field-row">
+              <div class="edit-field">
+                <label>Level</label>
+                <textarea id="edit-profile-level" rows="1"></textarea>
+              </div>
+              <div class="edit-field">
+                <label>Organization</label>
+                <textarea id="edit-profile-org" rows="1"></textarea>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="edit-modal-footer">
+          <button class="edit-modal-save" id="profile-modal-save">Save</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- WWM Edit Modal -->
+    <div class="edit-modal-overlay" id="edit-modal" style="display:none">
+      <div class="edit-modal">
+        <div class="edit-modal-header">
+          <h3>Edit Working With Me</h3>
+          <button class="edit-modal-close" id="edit-modal-close">&times;</button>
+        </div>
+        <div class="edit-modal-body" id="edit-modal-body"></div>
+        <div class="edit-modal-footer">
+          <button class="edit-modal-save" id="edit-modal-save">Save</button>
+        </div>
+      </div>
+    </div>
+
+  </div>
+  <script>
+    // Share modal
+    const shareBtn = document.getElementById('share-profile-btn');
+    const shareModal = document.getElementById('share-modal');
+    const shareModalClose = document.getElementById('share-modal-close');
+    const shareCopyBtn = document.getElementById('share-copy-btn');
+
+    shareBtn.addEventListener('click', () => { shareModal.style.display = ''; });
+    shareModalClose.addEventListener('click', () => { shareModal.style.display = 'none'; });
+    shareModal.addEventListener('click', (e) => { if (e.target === shareModal) shareModal.style.display = 'none'; });
+
+    document.getElementById('share-done-btn').addEventListener('click', () => { shareModal.style.display = 'none'; });
+
+    shareCopyBtn.addEventListener('click', () => {
+      const url = document.getElementById('share-link-url').textContent;
+      navigator.clipboard.writeText(url).then(() => {
+        shareCopyBtn.textContent = 'Copied!';
+        setTimeout(() => { shareCopyBtn.textContent = 'Copy'; }, 2000);
+      });
+    });
+
+    // Visibility dropdown
+    const visToggle = document.getElementById('visibility-toggle');
+    const visMenu = document.getElementById('visibility-menu');
+    const visLabel = document.getElementById('visibility-label');
+    const visOptions = document.querySelectorAll('.visibility-option');
+
+    visToggle.addEventListener('click', (e) => {
+      e.stopPropagation();
+      visMenu.style.display = visMenu.style.display === 'none' ? '' : 'none';
+    });
+
+    visOptions.forEach(opt => {
+      opt.addEventListener('click', () => {
+        visOptions.forEach(o => o.classList.remove('selected'));
+        opt.classList.add('selected');
+        visLabel.textContent = opt.dataset.value;
+        visMenu.style.display = 'none';
+      });
+    });
+
+    document.addEventListener('click', () => { visMenu.style.display = 'none'; });
+    visMenu.addEventListener('click', (e) => e.stopPropagation());
+
+    // Profile edit modal
+    const profileEditBtn = document.getElementById('profile-edit-btn');
+    const profileModal = document.getElementById('profile-edit-modal');
+    const profileModalClose = document.getElementById('profile-modal-close');
+    const profileModalSave = document.getElementById('profile-modal-save');
+
+    const profileNameEl = document.querySelector('.profile-name-row h2');
+    const profileDescEl = document.querySelector('.profile-desc');
+    const metaValues = document.querySelectorAll('.meta-value');
+
+    profileEditBtn.addEventListener('click', () => {
+      document.getElementById('edit-profile-name').value = profileNameEl.textContent;
+      document.getElementById('edit-profile-desc').value = profileDescEl.textContent;
+      document.getElementById('edit-profile-role').value = metaValues[0].textContent;
+      document.getElementById('edit-profile-team').value = metaValues[1].textContent;
+      document.getElementById('edit-profile-level').value = metaValues[2].textContent;
+      document.getElementById('edit-profile-org').value = metaValues[3].textContent;
+      profileModal.style.display = '';
+    });
+
+    profileModalClose.addEventListener('click', () => { profileModal.style.display = 'none'; });
+    profileModal.addEventListener('click', (e) => { if (e.target === profileModal) profileModal.style.display = 'none'; });
+
+    profileModalSave.addEventListener('click', () => {
+      profileNameEl.textContent = document.getElementById('edit-profile-name').value;
+      profileDescEl.textContent = document.getElementById('edit-profile-desc').value;
+      metaValues[0].textContent = document.getElementById('edit-profile-role').value;
+      metaValues[1].textContent = document.getElementById('edit-profile-team').value;
+      metaValues[2].textContent = document.getElementById('edit-profile-level').value;
+      metaValues[3].textContent = document.getElementById('edit-profile-org').value;
+      profileModal.style.display = 'none';
+    });
+
+    // Working With Me edit modal
+    const wwmEditBtn = document.getElementById('wwm-edit-btn');
+    const editModal = document.getElementById('edit-modal');
+    const editModalBody = document.getElementById('edit-modal-body');
+    const editModalClose = document.getElementById('edit-modal-close');
+    const editModalSave = document.getElementById('edit-modal-save');
+
+    const wwmCards = [
+      { name: 'Energy and Communication', icon: '/collab-profiles/wwm-energy.svg' },
+      { name: 'Information Processing', icon: '/collab-profiles/wwm-info.svg' },
+      { name: 'Organization', icon: '/collab-profiles/wwm-org.svg' },
+      { name: 'Decision Making', icon: '/collab-profiles/wwm-decision.svg' }
+    ];
+
+    function openEditModal() {
+      const cards = document.querySelectorAll('.wwm-card');
+      editModalBody.innerHTML = '';
+      cards.forEach((card, i) => {
+        const values = card.querySelectorAll('.wwm-value');
+        const section = document.createElement('div');
+        section.className = 'edit-section';
+        section.innerHTML = `
+          <div class="edit-section-header">
+            <img src="${wwmCards[i].icon}" alt="" />
+            <h4>${wwmCards[i].name}</h4>
+          </div>
+          <div class="edit-field">
+            <label>Do</label>
+            <textarea data-card="${i}" data-field="0">${values[0].textContent}</textarea>
+          </div>
+          <div class="edit-field">
+            <label>Avoid</label>
+            <textarea data-card="${i}" data-field="1">${values[1].textContent}</textarea>
+          </div>
+          <div class="edit-field">
+            <label>Tip</label>
+            <textarea data-card="${i}" data-field="2">${values[2].textContent}</textarea>
+          </div>
+        `;
+        editModalBody.appendChild(section);
+      });
+      editModal.style.display = '';
+    }
+
+    function closeEditModal() {
+      editModal.style.display = 'none';
+    }
+
+    function saveEditModal() {
+      const cards = document.querySelectorAll('.wwm-card');
+      editModalBody.querySelectorAll('textarea').forEach(ta => {
+        const cardIdx = parseInt(ta.dataset.card);
+        const fieldIdx = parseInt(ta.dataset.field);
+        const values = cards[cardIdx].querySelectorAll('.wwm-value');
+        values[fieldIdx].textContent = ta.value;
+      });
+      closeEditModal();
+    }
+
+    wwmEditBtn.addEventListener('click', openEditModal);
+    editModalClose.addEventListener('click', closeEditModal);
+    editModalSave.addEventListener('click', saveEditModal);
+    editModal.addEventListener('click', (e) => {
+      if (e.target === editModal) closeEditModal();
+    });
+
+    // Profile tab switching (Perspective / Working With Me)
+    const profileTabs = document.querySelectorAll('.profile-tab');
+    const perspectiveContent = document.getElementById('perspective-content');
+    const wwmContent = document.getElementById('working-with-me-content');
+
+    profileTabs.forEach((tab, i) => {
+      tab.addEventListener('click', () => {
+        profileTabs.forEach(t => t.classList.remove('active'));
+        tab.classList.add('active');
+        if (i === 0) {
+          perspectiveContent.style.display = '';
+          wwmContent.style.display = 'none';
+        } else {
+          perspectiveContent.style.display = 'none';
+          wwmContent.style.display = '';
+        }
+      });
+    });
+
+    // Deep dive tab switching
+    const ddTabs = document.querySelectorAll('.deepdive-tab');
+    const dimensionKeys = ['energy', 'info', 'decision', 'org'];
+    const contentPanels = document.querySelectorAll('.deepdive-content');
+
+    ddTabs.forEach((tab, index) => {
+      tab.addEventListener('click', () => {
+        // Deactivate all tabs — set icons to inactive color
+        ddTabs.forEach(t => {
+          t.classList.remove('active');
+          const inactiveColor = t.dataset.inactiveColor;
+          t.querySelectorAll('svg [fill]:not([fill="none"])').forEach(el => {
+            el.setAttribute('fill', inactiveColor);
+          });
+        });
+        // Activate clicked tab — set icon to active color
+        tab.classList.add('active');
+        const activeColor = tab.dataset.activeColor;
+        tab.querySelectorAll('svg [fill]:not([fill="none"])').forEach(el => {
+          el.setAttribute('fill', activeColor);
+        });
+        // Switch content panels
+        contentPanels.forEach(p => p.style.display = 'none');
+        const activePanel = document.querySelector(`.deepdive-content[data-dimension="${dimensionKeys[index]}"]`);
+        if (activePanel) {
+          activePanel.style.display = '';
+          // Update highlight bullet color
+          activePanel.querySelector('.deepdive-highlights').style.setProperty('--highlight-dot-color', activeColor);
+        }
+      });
+    });
+  </script>
+</body>
+</html>
