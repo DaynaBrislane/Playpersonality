@@ -12,6 +12,8 @@ export default defineConfig({
         collabonboard: resolve(__dirname, 'collabonboard.html'),
         collaborationProfiles: resolve(__dirname, 'collaboration-profiles.html'),
         collaborationProfileView: resolve(__dirname, 'collaboration-profile-view.html'),
+        myPeople: resolve(__dirname, 'my-people.html'),
+        personProfile: resolve(__dirname, 'person-profile.html'),
       },
     },
   },

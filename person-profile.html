@@ -1,0 +1,610 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Person Profile - Grace MacNamara</title>
+  <link rel="stylesheet" href="person-profile.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@400;500&display=swap" rel="stylesheet" />
+</head>
+<body>
+  <div class="pp-page">
+
+    <!-- Profile Card -->
+    <div class="pp-profile-card">
+      <div class="pp-profile-top">
+        <div class="pp-identity">
+          <div class="pp-avatar" style="background:#F4298F"></div>
+          <h1 class="pp-name">Grace MacNamara</h1>
+        </div>
+        <span class="pp-badge"><span class="pp-badge-dot" style="background:#F4298F"></span>Consul</span>
+      </div>
+      <div class="pp-divider"></div>
+      <div class="pp-meta-row">
+        <div class="pp-meta-item">
+          <span class="pp-meta-label">Role</span>
+          <span class="pp-meta-value">Product Designer</span>
+        </div>
+        <div class="pp-meta-item">
+          <span class="pp-meta-label">Team</span>
+          <span class="pp-meta-value">Nadia Labs</span>
+        </div>
+        <div class="pp-meta-item">
+          <span class="pp-meta-label">Level</span>
+          <span class="pp-meta-value">Individual Contributor</span>
+        </div>
+        <div class="pp-meta-item">
+          <span class="pp-meta-label">Organization</span>
+          <span class="pp-meta-value">Valence</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Chat Input -->
+    <div class="pp-chat-box">
+      <div class="pp-chat-input-row">
+        <p class="pp-chat-placeholder">Want to discuss Dayna?</p>
+      </div>
+      <div class="pp-chat-toolbar">
+        <div class="pp-chat-toolbar-left">
+          <button class="pp-chat-tool-btn pp-attach-btn">
+            <img src="/collab-profiles/pp-attach.svg" alt="Attach" />
+          </button>
+          <button class="pp-chat-tool-btn">
+            <img src="/collab-profiles/pp-audio.svg" alt="Audio" />
+          </button>
+        </div>
+        <div class="pp-chat-toolbar-right">
+          <button class="pp-chat-tool-btn">
+            <img src="/collab-profiles/pp-mic.svg" alt="Mic" />
+          </button>
+          <button class="pp-chat-send-btn">
+            <svg width="40" height="40" viewBox="0 0 40 40" fill="none">
+              <circle cx="20" cy="20" r="20" fill="#555BA2"/>
+              <path d="M20 26V14M20 14L15 19M20 14L25 19" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Action Buttons Row -->
+    <div class="pp-action-btns">
+      <button class="pp-action-btn">
+        <img src="/collab-profiles/action-role-play.svg" alt="" class="pp-action-icon" />
+        Role Play
+      </button>
+      <button class="pp-action-btn">
+        <img src="/collab-profiles/action-give-feedback.svg" alt="" class="pp-action-icon" />
+        Give Feedback
+      </button>
+      <button class="pp-action-btn">
+        <img src="/collab-profiles/action-request-feedback.svg" alt="" class="pp-action-icon" />
+        Request 360 Feedback
+      </button>
+      <button class="pp-action-btn">
+        <img src="/collab-profiles/action-add-notes.svg" alt="" class="pp-action-icon" />
+        Add Notes
+      </button>
+    </div>
+
+    <!-- Tabs -->
+    <div class="pp-tabs">
+      <button class="pp-tab active">You and Grace</button>
+      <button class="pp-tab">Your Private Notes</button>
+    </div>
+
+    <!-- You and Grace content -->
+    <div id="pp-tab-you-and-grace">
+
+    <!-- Your Dynamic with Grace -->
+    <div class="pp-dynamic-card">
+      <div class="pp-dynamic-top">
+        <div class="pp-dynamic-left">
+          <img src="/collab-profiles/dynamic-icon.svg" alt="" class="pp-dynamic-icon" />
+          <div class="pp-dynamic-title-area">
+            <h2 class="pp-dynamic-title">Your Dynamic with Grace</h2>
+            <div class="pp-dynamic-badges">
+              <span class="pp-dyn-badge"><span class="pp-dyn-dot" style="background:#BEFEB7; box-shadow: inset 0 0 0 1.5px #292929"></span>You: Campaigner</span>
+              <span class="pp-dyn-badge"><span class="pp-dyn-dot" style="background:#F4298F; box-shadow: inset 0 0 0 1.5px #292929"></span>Grace: Consul</span>
+            </div>
+          </div>
+        </div>
+        <button class="pp-view-deep-dive">View Deep Dive</button>
+      </div>
+      <div class="pp-dynamic-divider"></div>
+      <p class="pp-dynamic-desc"><span class="pp-dyn-dot inline" style="background:#BEFEB7; box-shadow: inset 0 0 0 1.5px #292929"></span>High-energy idea generator meets <span class="pp-dyn-dot inline" style="background:#F4298F; box-shadow: inset 0 0 0 1.5px #292929"></span>warm, practical planner.<br><img src="/collab-profiles/mini-collab-inline.svg" alt="" class="pp-mini-collab-inline" />You excel at inspiration and follow-through together — but watch out for conflict avoidance and overcommitting.</p>
+    </div>
+
+    <!-- Two Column Section -->
+    <div class="pp-two-col">
+      <!-- Left: What I think -->
+      <div class="pp-think-section">
+        <h3 class="pp-think-title">What I think about you and Grace</h3>
+        <div class="pp-think-card">
+          <div class="pp-think-content">
+            <img src="/collab-profiles/insight-bar.svg" alt="" class="pp-insight-bar" />
+            <p class="pp-think-text">You and Grace both like direct, kind, forward motion — but she'll move faster when your ideas come as a grounded recommendation. Lead with summary ▷ recommendation ▷ tradeoffs, then decide or run a small experiment. Avoid leaving too many decisions open — she commits best when given a clear frame to react to.</p>
+          </div>
+          <button class="pp-lets-chat-btn">Let's Chat</button>
+        </div>
+      </div>
+
+      <!-- Right: Upcoming with Grace -->
+      <div class="pp-upcoming-section">
+        <h3 class="pp-upcoming-title">Upcoming with Grace</h3>
+        <div class="pp-upcoming-card">
+          <div class="pp-upcoming-header">
+            <span class="pp-upcoming-dot"></span>
+            <span class="pp-upcoming-label">Meetings</span>
+          </div>
+          <div class="pp-upcoming-divider"></div>
+          <div class="pp-meeting-list">
+            <div class="pp-meeting-item">
+              <div class="pp-meeting-bar"></div>
+              <div class="pp-meeting-info">
+                <span class="pp-meeting-name">Product/Eng Weekly Kickoff</span>
+                <span class="pp-meeting-date">Monday January 5</span>
+              </div>
+              <button class="pp-prepare-btn">Prepare</button>
+            </div>
+            <div class="pp-meeting-item">
+              <div class="pp-meeting-bar"></div>
+              <div class="pp-meeting-info">
+                <span class="pp-meeting-name">Dayna/Grace 1:1</span>
+                <span class="pp-meeting-date">Tuesday January 6</span>
+              </div>
+              <button class="pp-prepare-btn">Prepare</button>
+            </div>
+            <div class="pp-meeting-item">
+              <div class="pp-meeting-bar"></div>
+              <div class="pp-meeting-info">
+                <span class="pp-meeting-name">Code Club</span>
+                <span class="pp-meeting-date">Thursday January 8</span>
+              </div>
+              <button class="pp-prepare-btn">Prepare</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- How to work with Grace -->
+    <div class="pp-hww-section">
+      <h2 class="pp-hww-heading">How to work with Grace</h2>
+
+      <!-- Dimension Tabs -->
+      <div class="pp-dim-tabs">
+        <button class="pp-dim-tab active">
+          <img src="/collab-profiles/wwm-energy.svg" alt="" />
+          Energy
+        </button>
+        <button class="pp-dim-tab">
+          <img src="/collab-profiles/wwm-info.svg" alt="" />
+          Info Processing
+        </button>
+        <button class="pp-dim-tab">
+          <img src="/collab-profiles/wwm-decision.svg" alt="" />
+          Decision Making
+        </button>
+        <button class="pp-dim-tab">
+          <img src="/collab-profiles/wwm-org.svg" alt="" />
+          Organization
+        </button>
+      </div>
+
+      <!-- Energy Card -->
+      <div class="pp-hww-card" data-hww="energy">
+        <div class="pp-hww-card-header">
+          <img src="/collab-profiles/wwm-energy.svg" alt="" class="pp-hww-card-icon" />
+          <h3 class="pp-hww-card-title">Energy and Communication</h3>
+        </div>
+        <div class="pp-hww-divider"></div>
+        <div class="pp-hww-cols">
+          <div class="pp-hww-col">
+            <div class="pp-hww-col-header"><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="7" stroke="#262626" stroke-width="1.3" fill="none"/><path d="M5 8l2 2 4-4" stroke="#262626" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Do</span></div>
+            <p class="pp-hww-col-text">Lead with warmth before business — they connect through relationship first, so a little personal check-in goes a long way.</p>
+          </div>
+          <div class="pp-hww-col">
+            <div class="pp-hww-col-header"><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="7" stroke="#262626" stroke-width="1.3" fill="none"/><path d="M5.5 5.5l5 5M10.5 5.5l-5 5" stroke="#262626" stroke-width="1.3" stroke-linecap="round"/></svg><span>Avoid</span></div>
+            <p class="pp-hww-col-text">Cold or transactional communication. Jumping straight to the task without acknowledgement can feel dismissive to them.</p>
+          </div>
+          <div class="pp-hww-col">
+            <div class="pp-hww-col-header"><svg width="16" height="16" viewBox="0 0 16 16" fill="#262626"><path d="M7.657 6.247c.11-.33.576-.33.686 0l.645 1.937a2.89 2.89 0 0 0 1.829 1.828l1.936.645c.33.11.33.576 0 .686l-1.937.645a2.89 2.89 0 0 0-1.828 1.829l-.645 1.936a.361.361 0 0 1-.686 0l-.645-1.937a2.89 2.89 0 0 0-1.828-1.828l-1.937-.645a.361.361 0 0 1 0-.686l1.937-.645a2.89 2.89 0 0 0 1.828-1.829zM3.794 1.148a.217.217 0 0 1 .412 0l.387 1.162c.173.518.546.891 1.064 1.064l1.162.387a.217.217 0 0 1 0 .412l-1.162.387A1.73 1.73 0 0 0 4.593 5.624l-.387 1.162a.217.217 0 0 1-.412 0L3.407 5.624a1.73 1.73 0 0 0-1.064-1.064L1.18 4.173a.217.217 0 0 1 0-.412l1.163-.387a1.73 1.73 0 0 0 1.064-1.064z"/></svg><span>Tip</span></div>
+            <p class="pp-hww-col-text">Make them feel valued before diving into feedback — they're far more open to new ideas when they feel respected and included.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Information Processing Card -->
+      <div class="pp-hww-card" data-hww="info" style="display:none">
+        <div class="pp-hww-card-header">
+          <img src="/collab-profiles/wwm-info.svg" alt="" class="pp-hww-card-icon" />
+          <h3 class="pp-hww-card-title">Information Processing</h3>
+        </div>
+        <div class="pp-hww-divider"></div>
+        <div class="pp-hww-cols">
+          <div class="pp-hww-col">
+            <div class="pp-hww-col-header"><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="7" stroke="#262626" stroke-width="1.3" fill="none"/><path d="M5 8l2 2 4-4" stroke="#262626" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Do</span></div>
+            <p class="pp-hww-col-text">Give them concrete, practical information with real examples — they process best when ideas are grounded in the real world rather than abstract concepts.</p>
+          </div>
+          <div class="pp-hww-col">
+            <div class="pp-hww-col-header"><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="7" stroke="#262626" stroke-width="1.3" fill="none"/><path d="M5.5 5.5l5 5M10.5 5.5l-5 5" stroke="#262626" stroke-width="1.3" stroke-linecap="round"/></svg><span>Avoid</span></div>
+            <p class="pp-hww-col-text">Overloading them with too many hypotheticals or big-picture thinking without context. Ambiguity can feel unsettling rather than exciting.</p>
+          </div>
+          <div class="pp-hww-col">
+            <div class="pp-hww-col-header"><svg width="16" height="16" viewBox="0 0 16 16" fill="#262626"><path d="M7.657 6.247c.11-.33.576-.33.686 0l.645 1.937a2.89 2.89 0 0 0 1.829 1.828l1.936.645c.33.11.33.576 0 .686l-1.937.645a2.89 2.89 0 0 0-1.828 1.829l-.645 1.936a.361.361 0 0 1-.686 0l-.645-1.937a2.89 2.89 0 0 0-1.828-1.828l-1.937-.645a.361.361 0 0 1 0-.686l1.937-.645a2.89 2.89 0 0 0 1.828-1.829zM3.794 1.148a.217.217 0 0 1 .412 0l.387 1.162c.173.518.546.891 1.064 1.064l1.162.387a.217.217 0 0 1 0 .412l-1.162.387A1.73 1.73 0 0 0 4.593 5.624l-.387 1.162a.217.217 0 0 1-.412 0L3.407 5.624a1.73 1.73 0 0 0-1.064-1.064L1.18 4.173a.217.217 0 0 1 0-.412l1.163-.387a1.73 1.73 0 0 0 1.064-1.064z"/></svg><span>Tip</span></div>
+            <p class="pp-hww-col-text">Connect new information to something familiar or already working — they're much more receptive when change feels like an evolution, not a reinvention.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Decision Making Card -->
+      <div class="pp-hww-card" data-hww="decision" style="display:none">
+        <div class="pp-hww-card-header">
+          <img src="/collab-profiles/wwm-decision.svg" alt="" class="pp-hww-card-icon" />
+          <h3 class="pp-hww-card-title">Decision Making</h3>
+        </div>
+        <div class="pp-hww-divider"></div>
+        <div class="pp-hww-cols">
+          <div class="pp-hww-col">
+            <div class="pp-hww-col-header"><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="7" stroke="#262626" stroke-width="1.3" fill="none"/><path d="M5 8l2 2 4-4" stroke="#262626" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Do</span></div>
+            <p class="pp-hww-col-text">Present options with clear pros and cons — they appreciate a structured framework to evaluate rather than open-ended brainstorming.</p>
+          </div>
+          <div class="pp-hww-col">
+            <div class="pp-hww-col-header"><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="7" stroke="#262626" stroke-width="1.3" fill="none"/><path d="M5.5 5.5l5 5M10.5 5.5l-5 5" stroke="#262626" stroke-width="1.3" stroke-linecap="round"/></svg><span>Avoid</span></div>
+            <p class="pp-hww-col-text">Pushing for quick decisions without giving them time to consider the impact on people involved. They need space to weigh the human side.</p>
+          </div>
+          <div class="pp-hww-col">
+            <div class="pp-hww-col-header"><svg width="16" height="16" viewBox="0 0 16 16" fill="#262626"><path d="M7.657 6.247c.11-.33.576-.33.686 0l.645 1.937a2.89 2.89 0 0 0 1.829 1.828l1.936.645c.33.11.33.576 0 .686l-1.937.645a2.89 2.89 0 0 0-1.828 1.829l-.645 1.936a.361.361 0 0 1-.686 0l-.645-1.937a2.89 2.89 0 0 0-1.828-1.828l-1.937-.645a.361.361 0 0 1 0-.686l1.937-.645a2.89 2.89 0 0 0 1.828-1.829zM3.794 1.148a.217.217 0 0 1 .412 0l.387 1.162c.173.518.546.891 1.064 1.064l1.162.387a.217.217 0 0 1 0 .412l-1.162.387A1.73 1.73 0 0 0 4.593 5.624l-.387 1.162a.217.217 0 0 1-.412 0L3.407 5.624a1.73 1.73 0 0 0-1.064-1.064L1.18 4.173a.217.217 0 0 1 0-.412l1.163-.387a1.73 1.73 0 0 0 1.064-1.064z"/></svg><span>Tip</span></div>
+            <p class="pp-hww-col-text">Acknowledge the team impact of any decision before diving into logistics — they'll commit faster when they feel the people side is covered.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Organization Card -->
+      <div class="pp-hww-card" data-hww="org" style="display:none">
+        <div class="pp-hww-card-header">
+          <img src="/collab-profiles/wwm-org.svg" alt="" class="pp-hww-card-icon" />
+          <h3 class="pp-hww-card-title">Organization</h3>
+        </div>
+        <div class="pp-hww-divider"></div>
+        <div class="pp-hww-cols">
+          <div class="pp-hww-col">
+            <div class="pp-hww-col-header"><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="7" stroke="#262626" stroke-width="1.3" fill="none"/><path d="M5 8l2 2 4-4" stroke="#262626" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Do</span></div>
+            <p class="pp-hww-col-text">Provide clear timelines and expectations upfront — they thrive with structure and appreciate knowing exactly what's needed and when.</p>
+          </div>
+          <div class="pp-hww-col">
+            <div class="pp-hww-col-header"><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="7" stroke="#262626" stroke-width="1.3" fill="none"/><path d="M5.5 5.5l5 5M10.5 5.5l-5 5" stroke="#262626" stroke-width="1.3" stroke-linecap="round"/></svg><span>Avoid</span></div>
+            <p class="pp-hww-col-text">Last-minute changes to plans or scope — shifting priorities without context can feel chaotic and undermine their ability to deliver their best work.</p>
+          </div>
+          <div class="pp-hww-col">
+            <div class="pp-hww-col-header"><svg width="16" height="16" viewBox="0 0 16 16" fill="#262626"><path d="M7.657 6.247c.11-.33.576-.33.686 0l.645 1.937a2.89 2.89 0 0 0 1.829 1.828l1.936.645c.33.11.33.576 0 .686l-1.937.645a2.89 2.89 0 0 0-1.828 1.829l-.645 1.936a.361.361 0 0 1-.686 0l-.645-1.937a2.89 2.89 0 0 0-1.828-1.828l-1.937-.645a.361.361 0 0 1 0-.686l1.937-.645a2.89 2.89 0 0 0 1.828-1.829zM3.794 1.148a.217.217 0 0 1 .412 0l.387 1.162c.173.518.546.891 1.064 1.064l1.162.387a.217.217 0 0 1 0 .412l-1.162.387A1.73 1.73 0 0 0 4.593 5.624l-.387 1.162a.217.217 0 0 1-.412 0L3.407 5.624a1.73 1.73 0 0 0-1.064-1.064L1.18 4.173a.217.217 0 0 1 0-.412l1.163-.387a1.73 1.73 0 0 0 1.064-1.064z"/></svg><span>Tip</span></div>
+            <p class="pp-hww-col-text">Use shared checklists or project boards — they love visible progress and feel most confident when the plan is documented and trackable.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    </div><!-- end pp-tab-you-and-grace -->
+
+    <!-- Private Notes content -->
+    <div id="pp-tab-private-notes" style="display:none">
+
+      <div class="pn-header">
+        <h2 class="pn-title">Your Private Notes on Grace</h2>
+        <p class="pn-subtitle">Only visible to you. These notes help Nadia personalise your coaching.</p>
+      </div>
+
+      <!-- Key Observations -->
+      <div class="pn-section">
+        <div class="pn-card">
+          <div class="pn-card-header">
+            <div class="pn-card-title-row">
+              <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="7" stroke="#555ba2" stroke-width="1.3" fill="none"/><circle cx="8" cy="8" r="2" fill="#555ba2"/></svg>
+              <h3>Key Observations</h3>
+            </div>
+            <button class="pn-add-btn" data-section="observations">+ Add</button>
+          </div>
+          <div class="pn-card-divider"></div>
+          <ul class="pn-bullet-list" data-section="observations">
+            <li>Prefers to have all context before a meeting — sending an agenda the day before makes a big difference. <span class="pn-citation-wrap"><span class="pn-citation">1</span><div class="pn-citation-popup"><div class="pn-popup-badge conversation"><svg width="12" height="12" viewBox="0 0 12 12" fill="none"><rect x="1" y="2" width="10" height="7" rx="1" stroke="#555ba2" stroke-width="1" fill="none"/><path d="M1.5 3.5l4.5 3 4.5-3" stroke="#555ba2" stroke-width="1" stroke-linecap="round"/></svg> Conversation</div><span class="pn-popup-date">Sep 19, 2025</span><p class="pn-popup-text">You mentioned that Grace always asks for the agenda before meetings and it helps her prepare...</p><div class="pn-popup-actions"><a href="#" class="pn-popup-view">View →</a><div class="pn-popup-icons"><button class="pn-popup-icon-btn"><svg width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M11.333 1.333a1.886 1.886 0 0 1 2.667 0 1.886 1.886 0 0 1 0 2.667l-.667.667-2.667-2.667.667-.667zM9.333 3.333l-7 7V13h2.667l7-7-2.667-2.667z" fill="#8c8c8c"/></svg></button><button class="pn-popup-icon-btn"><svg width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M2 4h12M5.333 4V2.667a1.333 1.333 0 0 1 1.334-1.334h2.666a1.333 1.333 0 0 1 1.334 1.334V4M6.667 7.333v4M9.333 7.333v4" stroke="#8c8c8c" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/><path d="M3.333 4l.667 9.333a1.333 1.333 0 0 0 1.333 1.334h5.334a1.333 1.333 0 0 0 1.333-1.334L12.667 4" stroke="#8c8c8c" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/></svg></button></div></div></div></span></li>
+            <li>Acknowledging her contributions in group settings boosts her confidence. Responds really well to positive reinforcement. <span class="pn-citation-wrap"><span class="pn-citation">2</span><div class="pn-citation-popup"><div class="pn-popup-badge your-note"><svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M6 1a4 4 0 0 0-4 4c0 1.5.8 2.5 1.5 3.2.4.4.5.8.5 1.3V10a1 1 0 0 0 1 1h2a1 1 0 0 0 1-1v-.5c0-.5.1-.9.5-1.3C9.2 7.5 10 6.5 10 5a4 4 0 0 0-4-4z" stroke="#595959" stroke-width="1" fill="none"/></svg> Your Note</div><span class="pn-popup-date">Jun 16, 2025</span><p class="pn-popup-text">I noticed Grace lights up when her work gets called out in standup. Should do this more often.</p><div class="pn-popup-actions"><a href="#" class="pn-popup-view">View →</a><div class="pn-popup-icons"><button class="pn-popup-icon-btn"><svg width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M11.333 1.333a1.886 1.886 0 0 1 2.667 0 1.886 1.886 0 0 1 0 2.667l-.667.667-2.667-2.667.667-.667zM9.333 3.333l-7 7V13h2.667l7-7-2.667-2.667z" fill="#8c8c8c"/></svg></button><button class="pn-popup-icon-btn"><svg width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M2 4h12M5.333 4V2.667a1.333 1.333 0 0 1 1.334-1.334h2.666a1.333 1.333 0 0 1 1.334 1.334V4M6.667 7.333v4M9.333 7.333v4" stroke="#8c8c8c" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/><path d="M3.333 4l.667 9.333a1.333 1.333 0 0 0 1.333 1.334h5.334a1.333 1.333 0 0 0 1.333-1.334L12.667 4" stroke="#8c8c8c" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/></svg></button></div></div></div></span></li>
+            <li>Responds really well to positive reinforcement. Acknowledging her contributions in group settings boosts her confidence. <span class="pn-citation-wrap"><span class="pn-citation">3</span><div class="pn-citation-popup"><div class="pn-popup-badge nadia-note"><svg width="12" height="12" viewBox="0 0 16 16" fill="#555ba2"><path d="M7.657 6.247c.11-.33.576-.33.686 0l.645 1.937a2.89 2.89 0 0 0 1.829 1.828l1.936.645c.33.11.33.576 0 .686l-1.937.645a2.89 2.89 0 0 0-1.828 1.829l-.645 1.936a.361.361 0 0 1-.686 0l-.645-1.937a2.89 2.89 0 0 0-1.828-1.828l-1.937-.645a.361.361 0 0 1 0-.686l1.937-.645a2.89 2.89 0 0 0 1.828-1.829zM3.794 1.148a.217.217 0 0 1 .412 0l.387 1.162c.173.518.546.891 1.064 1.064l1.162.387a.217.217 0 0 1 0 .412l-1.162.387A1.73 1.73 0 0 0 4.593 5.624l-.387 1.162a.217.217 0 0 1-.412 0L3.407 5.624a1.73 1.73 0 0 0-1.064-1.064L1.18 4.173a.217.217 0 0 1 0-.412l1.163-.387a1.73 1.73 0 0 0 1.064-1.064z"/></svg> Nadia's Note</div><span class="pn-popup-date">Jun 16, 2025</span><p class="pn-popup-text">Grace responds strongly to public recognition. Positive reinforcement in group settings significantly boosts her engagement.</p><div class="pn-popup-actions"><a href="#" class="pn-popup-view">View →</a><div class="pn-popup-icons"><button class="pn-popup-icon-btn"><svg width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M11.333 1.333a1.886 1.886 0 0 1 2.667 0 1.886 1.886 0 0 1 0 2.667l-.667.667-2.667-2.667.667-.667zM9.333 3.333l-7 7V13h2.667l7-7-2.667-2.667z" fill="#8c8c8c"/></svg></button><button class="pn-popup-icon-btn"><svg width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M2 4h12M5.333 4V2.667a1.333 1.333 0 0 1 1.334-1.334h2.666a1.333 1.333 0 0 1 1.334 1.334V4M6.667 7.333v4M9.333 7.333v4" stroke="#8c8c8c" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/><path d="M3.333 4l.667 9.333a1.333 1.333 0 0 0 1.333 1.334h5.334a1.333 1.333 0 0 0 1.333-1.334L12.667 4" stroke="#8c8c8c" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/></svg></button></div></div></div></span></li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Follow-ups -->
+      <div class="pn-section">
+        <div class="pn-card">
+          <div class="pn-card-header">
+            <div class="pn-card-title-row">
+              <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M8 1v6l4 2" stroke="#555ba2" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/><circle cx="8" cy="8" r="7" stroke="#555ba2" stroke-width="1.3" fill="none"/></svg>
+              <h3>Follow-ups</h3>
+            </div>
+            <button class="pn-add-btn" data-section="followups">+ Add</button>
+          </div>
+          <div class="pn-card-divider"></div>
+          <div class="pn-followup-list" data-section="followups">
+            <div class="pn-followup-item">
+              <input type="checkbox" />
+              <div class="pn-followup-content">
+                <p>Check in on the design system proposal she mentioned — she seemed excited but uncertain about next steps.</p>
+                <span class="pn-note-date">Added November 5, 2025</span>
+              </div>
+            </div>
+            <div class="pn-followup-divider"></div>
+            <div class="pn-followup-item completed-item">
+              <input type="checkbox" checked />
+              <div class="pn-followup-content">
+                <p class="pn-done">Ask about her experience with the new sprint format.</p>
+                <span class="pn-note-date">Added November 5, 2025</span>
+              </div>
+              <button class="pn-dismiss-btn" onclick="this.closest('.pn-followup-item').remove()">Dismiss</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Reminders -->
+      <div class="pn-section">
+        <div class="pn-card">
+          <div class="pn-card-header">
+            <div class="pn-card-title-row">
+              <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M8 1.5C5.5 1.5 3.5 3.5 3.5 6v3L2 11h12l-1.5-2V6c0-2.5-2-4.5-4.5-4.5zM6.5 13a1.5 1.5 0 0 0 3 0" stroke="#555ba2" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              <h3>Reminders</h3>
+            </div>
+            <button class="pn-add-btn" data-section="reminders">+ Add</button>
+          </div>
+          <div class="pn-reminders-list" data-section="reminders">
+            <div class="pn-reminder-item">
+              <div class="pn-reminder-bar"></div>
+              <div class="pn-reminder-content">
+                <p>Grace's birthday is March 12 — she mentioned she loves baking.</p>
+                <span class="pn-note-date">Added November 5, 2025</span>
+              </div>
+            </div>
+            <div class="pn-reminder-item">
+              <div class="pn-reminder-bar"></div>
+              <div class="pn-reminder-content">
+                <p>She's working toward a promotion this quarter — be mindful of giving her visibility opportunities.</p>
+                <span class="pn-note-date">Added January 2, 2026</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Memory Section -->
+      <div class="pn-section">
+        <div class="pn-section-header-standalone">
+          <h3>Memory</h3>
+          <button class="pn-add-notes-btn">Add Notes <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M2 3h12M2 6h12M2 9h8M2 12h6" stroke="#595959" stroke-width="1.3" stroke-linecap="round"/></svg></button>
+        </div>
+        <div class="memory-list">
+          <div class="memory-item">
+            <div class="memory-meta">
+              <span class="memory-date">Sep 19, 2025</span>
+              <span class="memory-badge conversation"><svg width="12" height="12" viewBox="0 0 12 12" fill="none"><rect x="1" y="2" width="10" height="7" rx="1" stroke="#555ba2" stroke-width="1" fill="none"/><path d="M1.5 3.5l4.5 3 4.5-3" stroke="#555ba2" stroke-width="1" stroke-linecap="round"/></svg> Conversation</span>
+              <a href="#" class="memory-view">View →</a>
+            </div>
+            <p class="memory-text">Discussed structuring evaluations for team members, starting with Chris.</p>
+          </div>
+          <div class="memory-divider"></div>
+          <div class="memory-item">
+            <div class="memory-meta">
+              <span class="memory-date">Jun 16, 2025</span>
+              <span class="memory-badge your-note"><svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M6 1a4 4 0 0 0-4 4c0 1.5.8 2.5 1.5 3.2.4.4.5.8.5 1.3V10a1 1 0 0 0 1 1h2a1 1 0 0 0 1-1v-.5c0-.5.1-.9.5-1.3C9.2 7.5 10 6.5 10 5a4 4 0 0 0-4-4z" stroke="#595959" stroke-width="1" fill="none"/></svg> Your Note</span>
+              <span class="memory-dots">•••</span>
+            </div>
+            <p class="memory-text">Grace's birthday is March 12</p>
+          </div>
+          <div class="memory-divider"></div>
+          <div class="memory-item">
+            <div class="memory-meta">
+              <span class="memory-date">Jun 16, 2025</span>
+              <span class="memory-badge nadia-note"><svg width="12" height="12" viewBox="0 0 16 16" fill="#555ba2"><path d="M7.657 6.247c.11-.33.576-.33.686 0l.645 1.937a2.89 2.89 0 0 0 1.829 1.828l1.936.645c.33.11.33.576 0 .686l-1.937.645a2.89 2.89 0 0 0-1.828 1.829l-.645 1.936a.361.361 0 0 1-.686 0l-.645-1.937a2.89 2.89 0 0 0-1.828-1.828l-1.937-.645a.361.361 0 0 1 0-.686l1.937-.645a2.89 2.89 0 0 0 1.828-1.829zM3.794 1.148a.217.217 0 0 1 .412 0l.387 1.162c.173.518.546.891 1.064 1.064l1.162.387a.217.217 0 0 1 0 .412l-1.162.387A1.73 1.73 0 0 0 4.593 5.624l-.387 1.162a.217.217 0 0 1-.412 0L3.407 5.624a1.73 1.73 0 0 0-1.064-1.064L1.18 4.173a.217.217 0 0 1 0-.412l1.163-.387a1.73 1.73 0 0 0 1.064-1.064z"/></svg> Nadia's Note</span>
+              <span class="memory-dots">•••</span>
+            </div>
+            <p class="memory-text">Grace is a highly supportive and collaborative team member who values clear communication. Your strong, positive relationship is characterized by her reliability and celebratory approach, making her a valued...</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Edit Observation Modal -->
+      <div class="pn-modal-overlay" id="pn-edit-modal" style="display:none">
+        <div class="pn-modal">
+          <div class="pn-modal-header">
+            <h3>Edit Observation</h3>
+            <button class="pn-modal-close" onclick="document.getElementById('pn-edit-modal').style.display='none'">&times;</button>
+          </div>
+          <div class="pn-edit-source">
+            <span class="pn-popup-badge conversation" id="pn-edit-badge"><svg width="12" height="12" viewBox="0 0 12 12" fill="none"><rect x="1" y="2" width="10" height="7" rx="1" stroke="#555ba2" stroke-width="1" fill="none"/></svg> <span id="pn-edit-badge-text">Conversation</span></span>
+            <span class="pn-popup-date" id="pn-edit-date">Sep 19, 2025</span>
+          </div>
+          <textarea class="pn-modal-textarea" id="pn-edit-textarea" rows="4"></textarea>
+          <div class="pn-modal-footer">
+            <button class="pn-modal-cancel" onclick="document.getElementById('pn-edit-modal').style.display='none'">Cancel</button>
+            <button class="pn-modal-save" id="pn-edit-save">Save Changes</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Delete Confirmation Modal -->
+      <div class="pn-modal-overlay" id="pn-delete-modal" style="display:none">
+        <div class="pn-modal pn-delete-modal">
+          <div class="pn-modal-header">
+            <h3>Delete Observation</h3>
+            <button class="pn-modal-close" onclick="document.getElementById('pn-delete-modal').style.display='none'">&times;</button>
+          </div>
+          <p class="pn-delete-desc">Are you sure you want to delete this observation? This action cannot be undone.</p>
+          <div class="pn-delete-preview" id="pn-delete-preview"></div>
+          <div class="pn-modal-footer">
+            <button class="pn-modal-cancel" onclick="document.getElementById('pn-delete-modal').style.display='none'">Cancel</button>
+            <button class="pn-modal-delete" id="pn-delete-confirm">Delete</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Add Note Modal -->
+      <div class="pn-modal-overlay" id="pn-modal" style="display:none">
+        <div class="pn-modal">
+          <div class="pn-modal-header">
+            <h3 id="pn-modal-title">Add Note</h3>
+            <button class="pn-modal-close" id="pn-modal-close">&times;</button>
+          </div>
+          <textarea class="pn-modal-textarea" id="pn-modal-textarea" rows="4" placeholder="Write your note..."></textarea>
+          <div class="pn-modal-footer">
+            <button class="pn-modal-cancel" id="pn-modal-cancel">Cancel</button>
+            <button class="pn-modal-save" id="pn-modal-save">Save Note</button>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+
+  <script>
+    // Tab switching (You and Grace / Private Notes)
+    const ppTabs = document.querySelectorAll('.pp-tab');
+    const tabYou = document.getElementById('pp-tab-you-and-grace');
+    const tabNotes = document.getElementById('pp-tab-private-notes');
+
+    ppTabs.forEach((tab, i) => {
+      tab.addEventListener('click', () => {
+        ppTabs.forEach(t => t.classList.remove('active'));
+        tab.classList.add('active');
+        tabYou.style.display = i === 0 ? '' : 'none';
+        tabNotes.style.display = i === 1 ? '' : 'none';
+      });
+    });
+
+    // Citation popup - hover to open, stays open while inside
+    let closeTimer = null;
+    document.querySelectorAll('.pn-citation-wrap').forEach(wrap => {
+      wrap.addEventListener('mouseenter', () => {
+        clearTimeout(closeTimer);
+        document.querySelectorAll('.pn-citation-wrap.open').forEach(w => { if (w !== wrap) w.classList.remove('open'); });
+        wrap.classList.add('open');
+      });
+      wrap.addEventListener('mouseleave', () => {
+        closeTimer = setTimeout(() => wrap.classList.remove('open'), 200);
+      });
+    });
+    // Also keep open on click for safety
+    document.querySelectorAll('.pn-citation').forEach(cit => {
+      cit.addEventListener('click', (e) => {
+        e.stopPropagation();
+        clearTimeout(closeTimer);
+        cit.closest('.pn-citation-wrap').classList.add('open');
+      });
+    });
+    document.querySelectorAll('.pn-citation-popup').forEach(p => {
+      p.addEventListener('click', (e) => e.stopPropagation());
+    });
+    document.addEventListener('click', (e) => {
+      if (!e.target.closest('.pn-citation-wrap')) {
+        document.querySelectorAll('.pn-citation-wrap.open').forEach(w => w.classList.remove('open'));
+      }
+    });
+
+    // Citation edit/delete
+    let editingLi = null;
+    const editModal = document.getElementById('pn-edit-modal');
+    const deleteModal = document.getElementById('pn-delete-modal');
+
+    document.querySelectorAll('.pn-popup-icon-btn').forEach(btn => {
+      btn.addEventListener('click', (e) => {
+        e.stopPropagation();
+        const wrap = btn.closest('.pn-citation-wrap');
+        const li = wrap.closest('li');
+        const popup = wrap.querySelector('.pn-citation-popup');
+        const isEdit = btn.querySelector('path[d*="11.333"]');
+
+        if (isEdit) {
+          // Edit modal
+          editingLi = li;
+          const text = li.childNodes[0].textContent.trim();
+          document.getElementById('pn-edit-textarea').value = text;
+          const badge = popup.querySelector('.pn-popup-badge');
+          document.getElementById('pn-edit-badge-text').textContent = badge.textContent.trim();
+          document.getElementById('pn-edit-date').textContent = popup.querySelector('.pn-popup-date').textContent;
+          editModal.style.display = '';
+        } else {
+          // Delete modal
+          editingLi = li;
+          document.getElementById('pn-delete-preview').textContent = li.childNodes[0].textContent.trim();
+          deleteModal.style.display = '';
+        }
+      });
+    });
+
+    document.getElementById('pn-edit-save').addEventListener('click', () => {
+      if (editingLi) {
+        const citationWrap = editingLi.querySelector('.pn-citation-wrap');
+        editingLi.textContent = '';
+        editingLi.textContent = document.getElementById('pn-edit-textarea').value + ' ';
+        editingLi.appendChild(citationWrap);
+      }
+      editModal.style.display = 'none';
+    });
+
+    editModal.addEventListener('click', (e) => { if (e.target === editModal) editModal.style.display = 'none'; });
+
+    document.getElementById('pn-delete-confirm').addEventListener('click', () => {
+      if (editingLi) editingLi.remove();
+      deleteModal.style.display = 'none';
+    });
+
+    deleteModal.addEventListener('click', (e) => { if (e.target === deleteModal) deleteModal.style.display = 'none'; });
+
+    // Private Notes - Add note modal
+    const pnModal = document.getElementById('pn-modal');
+    let currentSection = '';
+
+    document.querySelectorAll('.pn-add-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        currentSection = btn.dataset.section;
+        document.getElementById('pn-modal-title').textContent = 'Add Note';
+        document.getElementById('pn-modal-textarea').value = '';
+        pnModal.style.display = '';
+      });
+    });
+
+    document.getElementById('pn-modal-close').addEventListener('click', () => { pnModal.style.display = 'none'; });
+    document.getElementById('pn-modal-cancel').addEventListener('click', () => { pnModal.style.display = 'none'; });
+    pnModal.addEventListener('click', (e) => { if (e.target === pnModal) pnModal.style.display = 'none'; });
+
+    document.getElementById('pn-modal-save').addEventListener('click', () => {
+      const text = document.getElementById('pn-modal-textarea').value.trim();
+      if (!text) return;
+      const list = document.querySelector(`.pn-notes-list[data-section="${currentSection}"]`);
+      const note = document.createElement('div');
+      note.className = 'pn-note';
+      const now = new Date();
+      const months = ['January','February','March','April','May','June','July','August','September','October','November','December'];
+      note.innerHTML = `<p class="pn-note-text">${text}</p><span class="pn-note-date">Added ${months[now.getMonth()]} ${now.getDate()}, ${now.getFullYear()}</span>`;
+      list.prepend(note);
+      pnModal.style.display = 'none';
+    });
+
+    // Dimension tab switching
+    const dimKeys = ['energy', 'info', 'decision', 'org'];
+    const dimTabs = document.querySelectorAll('.pp-dim-tab');
+    const hwwCards = document.querySelectorAll('.pp-hww-card');
+
+    dimTabs.forEach((tab, i) => {
+      tab.addEventListener('click', () => {
+        dimTabs.forEach(t => t.classList.remove('active'));
+        tab.classList.add('active');
+        hwwCards.forEach(c => c.style.display = 'none');
+        document.querySelector(`.pp-hww-card[data-hww="${dimKeys[i]}"]`).style.display = '';
+      });
+    });
+  </script>
+</body>
+</html>

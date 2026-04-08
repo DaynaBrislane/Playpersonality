@@ -1,0 +1,16 @@
+<svg width="26" height="25" viewBox="0 0 26 25" fill="none" xmlns="http://www.w3.org/2000/svg">
+<circle cx="15.2951" cy="12.4622" r="6.72782" transform="rotate(34.0174 15.2951 12.4622)" fill="#BEFEB7" stroke="#262626"/>
+<circle cx="10.0568" cy="12.5745" r="6.72782" transform="rotate(34.0174 10.0568 12.5745)" fill="#F4298F" stroke="#262626"/>
+<mask id="mask0_683_17407" style="mask-type:alpha" maskUnits="userSpaceOnUse" x="8" y="5" width="15" height="15">
+<circle cx="15.3087" cy="12.4436" r="6.72782" transform="rotate(34.0174 15.3087 12.4436)" fill="#BEFEB7" stroke="black"/>
+</mask>
+<g mask="url(#mask0_683_17407)">
+<circle cx="10.0705" cy="12.556" r="6.72782" transform="rotate(34.0174 10.0705 12.556)" fill="#FFD3A8" stroke="#262626"/>
+</g>
+<mask id="mask1_683_17407" style="mask-type:alpha" maskUnits="userSpaceOnUse" x="2" y="5" width="16" height="15">
+<circle cx="10.084" cy="12.488" r="6.72782" transform="rotate(-145.983 10.084 12.488)" fill="#BEFEB7" stroke="black"/>
+</mask>
+<g mask="url(#mask1_683_17407)">
+<circle cx="15.3105" cy="12.444" r="6.72782" transform="rotate(-145.983 15.3105 12.444)" stroke="#262626"/>
+</g>
+</svg>

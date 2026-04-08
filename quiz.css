@@ -56,6 +56,85 @@ body {
   display: flex;
 }
 
+/* Intro Screen */
+.intro-view {
+  background: #FDFDFB;
+  width: 100vw;
+  margin-left: calc(-50vw + 50%);
+}
+
+.intro-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 80px;
+  min-height: 100vh;
+}
+
+.intro-heading {
+  font-family: 'P22 Mackinac Pro', 'Georgia', serif;
+  font-weight: 500;
+  font-size: 20px;
+  line-height: 24px;
+  color: #000;
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.intro-cards {
+  display: flex;
+  gap: 9px;
+  width: 600px;
+  margin-bottom: 32px;
+}
+
+.intro-card {
+  flex: 1;
+  background: #fff;
+  border: 1px solid #E8E8E8;
+  border-radius: 10px;
+  height: 164px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 15px;
+  padding: 40px 15px;
+}
+
+.intro-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.intro-card-label {
+  font-family: 'P22 Mackinac Pro', 'Georgia', serif;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 24px;
+  color: #262626;
+  text-align: center;
+}
+
+.intro-btn {
+  background: #555BA2;
+  color: #fff;
+  border: none;
+  border-radius: 24px;
+  padding: 8px 24px;
+  font-family: 'Inter', sans-serif;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 24px;
+  cursor: pointer;
+  height: 40px;
+}
+
+.intro-btn:hover {
+  background: #484d8e;
+}
+
 /* Progress Header */
 .progress-header {
   position: sticky;

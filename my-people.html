@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>My People</title>
+  <link rel="stylesheet" href="my-people.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@400;500&display=swap" rel="stylesheet" />
+</head>
+<body>
+  <div class="people-page">
+    <h1 class="people-title">Your People</h1>
+    <p class="people-desc">Adding people from your network can help Nadia remember key context about who you work with.<br>This information is private and will stay between you and Nadia</p>
+
+    <!-- Toolbar -->
+    <div class="people-toolbar">
+      <div class="people-filter-tabs">
+        <button class="filter-tab active">All</button>
+        <button class="filter-tab">Your Team</button>
+        <button class="filter-tab">Organization</button>
+      </div>
+      <div class="people-actions">
+        <button class="btn-calendar">Add from Calendar</button>
+        <button class="btn-add-people">Add People</button>
+      </div>
+    </div>
+
+    <!-- Search & Filter -->
+    <div class="people-search-row">
+      <div class="search-box">
+        <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><circle cx="6.5" cy="6.5" r="5" stroke="#595959" stroke-width="1.3"/><path d="M10.5 10.5L14 14" stroke="#595959" stroke-width="1.3" stroke-linecap="round"/></svg>
+        <span>Search by name or job title</span>
+      </div>
+      <div class="filter-box">
+        <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M2 4h12M4 8h8M6 12h4" stroke="#595959" stroke-width="1.3" stroke-linecap="round"/></svg>
+        <span>Filter</span>
+        <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M3 4.5l3 3 3-3" stroke="#595959" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </div>
+    </div>
+
+    <!-- People Grid -->
+    <div class="people-grid" id="people-grid"></div>
+
+    <!-- Request Connection Modal -->
+    <div class="rc-modal-overlay" id="rc-modal" style="display:none">
+      <div class="rc-modal">
+        <div class="rc-modal-header">
+          <div class="rc-header-text">
+            <h3 id="rc-title"></h3>
+            <p>Send <span id="rc-name"></span> a message asking them to share their Profile.</p>
+          </div>
+          <button class="rc-modal-close" id="rc-modal-close">&times;</button>
+        </div>
+        <div class="rc-divider"></div>
+        <div class="rc-message-box">
+          <p class="rc-message-text" id="rc-message-text"></p>
+          <p class="rc-message-link">https://valence.co/profile/collaboration/</p>
+        </div>
+        <button class="rc-copy-btn" id="rc-copy-btn">Copy message</button>
+        <div class="rc-section">
+          <span class="rc-label">Or share via</span>
+          <div class="rc-via-row">
+            <button class="rc-via-btn">
+              <img src="/collab-profiles/slack-icon.png" alt="" />
+              Slack
+            </button>
+            <button class="rc-via-btn">
+              <img src="/collab-profiles/teams-icon.png" alt="" />
+              Teams
+            </button>
+            <button class="rc-via-btn">
+              <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><rect x="1" y="3.5" width="14" height="9" rx="1.5" stroke="#595959" stroke-width="1.3" fill="none"/><path d="M1.5 4.5L8 9l6.5-4.5" stroke="#595959" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg>
+              Email
+            </button>
+          </div>
+        </div>
+        <div class="rc-divider"></div>
+        <button class="rc-done-btn" id="rc-done">Done</button>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const people = [
+      { name: 'Grace MacNamara', role: 'Product Manager', tip: 'Best results when you give autonomy and focus on outcomes.', tags: ['Practical', 'Prefers async communication'], hasArrow: true, color: '#F4298F' },
+      { name: 'Bob Harley', role: 'Product Designer', tip: 'Give Bob high level goals and let him solve his way', tags: ['Big picture thinker', 'Benefits from detail support'], hasArrow: true, color: '#a0a3f3' },
+      { name: 'Eve Malone', role: 'Engineer', tip: 'Use quick check-ins to maintain alignment.', tags: ['Structured', 'Likes deadlines'], hasArrow: false, hasViewProfile: true, color: '#bfe6a0' },
+      { name: 'Lucas Freeman', role: 'Operations Strategist', tip: 'Share context often and involve in decisions', tags: ['Detail oriented', 'Highly collaborative'], hasArrow: true, color: '#ffd094' },
+      { name: 'Eileen Neslon', role: 'Sales Rep', tip: 'Use quick check-ins to maintain alignment.', tags: ['Structured', 'Likes deadlines'], hasArrow: true, color: '#F4298F' },
+      { name: 'Gwen', role: 'Sales Rep', tip: '', tags: [], hasArrow: true, isRequestConnect: true, noProfile: true, color: '#F1F1F1', noStroke: true },
+      { name: 'Eibhlinn Kiersey', role: 'Sales Rep', tip: '', tags: [], hasArrow: true, noProfile: true, isRequestConnect: true, color: '#F1F1F1', noStroke: true },
+      { name: 'Adam Nolan', role: 'Illustrator', tip: 'Share context often and involve in decisions', tags: ['Detail oriented', 'Highly collaborative'], hasArrow: true, hasViewProfile: true, color: '#bfe6a0' }
+    ];
+
+    const grid = document.getElementById('people-grid');
+    people.forEach(p => {
+      const card = document.createElement('div');
+      card.className = 'person-card' + (p.isConnect ? ' connect-card' : '');
+
+      const arrowHtml = p.hasArrow ? '<svg class="person-arrow" width="10" height="14" viewBox="0 0 10 14" fill="none"><path d="M1 1l6 6-6 6" stroke="#595959" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>' : '';
+      const viewProfileBtn = '';
+      const tagsHtml = p.tags.map(t => '<span class="person-tag">' + t + '</span>').join('');
+      const connectHtml = p.isConnect ? '<button class="btn-connect">Connect with ' + p.name.split(' ')[0] + '</button>' : '';
+      const requestConnectHtml = p.isRequestConnect ? '<p class="person-tip">You have not connected to ' + p.name.split(' ')[0] + '\u2019s profile</p><button class="btn-request-connect">Request Connection</button>' : '';
+      const noProfileHtml = p.noProfile ? '<div class="no-profile-tooltip">' + p.name.split(' ')[0] + ' hasnt connected her Perspective yet</div>' : '';
+
+      if (p.noProfile) card.classList.add('no-profile-card');
+
+      card.innerHTML = `
+        ${noProfileHtml}
+        <div class="person-header">
+          <div class="person-identity">
+            <div class="person-avatar${p.noStroke ? ' no-stroke' : ''}" style="background:${p.color}"></div>
+            <div class="person-info">
+              <h4>${p.name}</h4>
+              <span>${p.role}</span>
+            </div>
+          </div>
+          ${arrowHtml}
+        </div>
+        <div class="person-actions">
+          <button class="person-btn has-icon"><img src="/collab-profiles/nadia-icon.svg" alt="" class="nadia-icon" />Chat</button>
+          <button class="person-btn">Role Play</button>
+          ${viewProfileBtn}
+        </div>
+        <div class="person-divider"></div>
+        ${p.isRequestConnect ? requestConnectHtml : `
+        <p class="person-tip">${p.tip}</p>
+        ${tagsHtml ? '<div class="person-tags">' + tagsHtml + '</div>' : ''}
+        ${connectHtml}`}
+      `;
+      grid.appendChild(card);
+    });
+
+    // Filter tabs
+    document.querySelectorAll('.filter-tab').forEach(tab => {
+      tab.addEventListener('click', () => {
+        document.querySelectorAll('.filter-tab').forEach(t => t.classList.remove('active'));
+        tab.classList.add('active');
+      });
+    });
+
+    // Request Connection modal
+    const rcModal = document.getElementById('rc-modal');
+
+    document.querySelectorAll('.btn-request-connect').forEach(btn => {
+      btn.addEventListener('click', (e) => {
+        e.stopPropagation();
+        const name = btn.closest('.person-card').querySelector('.person-info h4').textContent.split(' ')[0];
+        document.getElementById('rc-title').textContent = 'Connect with ' + name;
+        document.getElementById('rc-name').textContent = name;
+        document.getElementById('rc-message-text').textContent = `Hey ${name}! Want to help me collaborate with you better? Share your Collaboration Profile — just click the link below to set it up and send it my way.`;
+        rcModal.style.display = '';
+      });
+    });
+
+    document.getElementById('rc-modal-close').addEventListener('click', () => { rcModal.style.display = 'none'; });
+    document.getElementById('rc-done').addEventListener('click', () => { rcModal.style.display = 'none'; });
+    rcModal.addEventListener('click', (e) => { if (e.target === rcModal) rcModal.style.display = 'none'; });
+
+    document.getElementById('rc-copy-btn').addEventListener('click', () => {
+      const msg = document.getElementById('rc-message-text').textContent + '\n\nhttps://valence.co/profile/collaboration/';
+      navigator.clipboard.writeText(msg).then(() => {
+        const btn = document.getElementById('rc-copy-btn');
+        btn.textContent = 'Copied!';
+        setTimeout(() => { btn.textContent = 'Copy message'; }, 2000);
+      });
+    });
+
+    // Navigate to person profile on card click (except request-connect cards)
+    document.querySelectorAll('.person-card').forEach(card => {
+      if (card.classList.contains('no-profile-card')) return;
+      card.addEventListener('click', (e) => {
+        // Don't navigate if clicking a button inside the card
+        if (e.target.closest('button')) return;
+        window.parent.postMessage({ action: 'showPersonProfile' }, '*');
+      });
+    });
+  </script>
+</body>
+</html>
