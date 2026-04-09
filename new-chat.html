@@ -11,6 +11,7 @@
 </head>
 <body>
   <div class="chat-page">
+    <div class="chat-scroll">
     <div class="chat-content">
       <!-- Greeting -->
       <div class="chat-greeting">
@@ -32,7 +33,10 @@
       <!-- Spacer -->
       <div class="chat-spacer"></div>
 
-      <!-- Chat Input -->
+    </div><!-- end chat-content -->
+    </div><!-- end chat-scroll -->
+
+      <!-- Chat Input (persistent) -->
       <div class="chat-input-area">
         <div class="chat-input-box">
           <div class="chat-input-row">
@@ -62,9 +66,13 @@
         </div>
         <p class="chat-disclaimer">Messages in this chat are AI generated</p>
       </div>
-    </div>
   </div>
   <script>
+    const scrollContainer = document.querySelector('.chat-scroll');
+    function scrollToBottom() {
+      setTimeout(() => { scrollContainer.scrollTo({ top: scrollContainer.scrollHeight, behavior: 'smooth' }); }, 150);
+    }
+
     const textarea = document.getElementById('chat-textarea');
     let filled = false;
     textarea.addEventListener('focus', () => {
@@ -296,7 +304,7 @@
       aiMsg.style.opacity = '0';
       aiMsg.style.transition = 'opacity 0.5s ease';
       messages.appendChild(aiMsg);
-      setTimeout(() => { aiMsg.style.opacity = '1'; }, 50);
+      setTimeout(() => { aiMsg.style.opacity = '1'; scrollToBottom(); }, 50);
 
       // Email draft card after a delay
       setTimeout(() => {
@@ -321,7 +329,7 @@
           </div>
         `;
         messages.appendChild(emailCard);
-        setTimeout(() => { emailCard.style.opacity = '1'; }, 50);
+        setTimeout(() => { emailCard.style.opacity = '1'; scrollToBottom(); }, 50);
       }, 800);
     }
 
@@ -333,6 +341,7 @@
       msgDiv.className = 'chat-msg-user';
       msgDiv.innerHTML = '<div class="chat-msg-bubble">' + text + '</div>';
       messages.appendChild(msgDiv);
+      scrollToBottom();
 
       textarea.value = '';
       textarea.style.height = 'auto';

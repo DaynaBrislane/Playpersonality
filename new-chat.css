@@ -12,6 +12,16 @@ body {
 .chat-page {
   height: 100vh;
   display: flex;
+  flex-direction: column;
+  align-items: center;
+  overflow: hidden;
+}
+
+.chat-scroll {
+  flex: 1;
+  overflow-y: auto;
+  width: 100%;
+  display: flex;
   justify-content: center;
 }
 
@@ -20,7 +30,7 @@ body {
   max-width: 100%;
   display: flex;
   flex-direction: column;
-  height: 100%;
+  min-height: 100%;
   padding: 40px 0 24px;
 }
 
@@ -318,6 +328,10 @@ body {
   flex-direction: column;
   align-items: center;
   gap: 16px;
+  padding: 20px 0 24px;
+  background: #fdfdfb;
+  width: 100%;
+  flex-shrink: 0;
 }
 
 .chat-input-box {
