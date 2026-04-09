@@ -59,9 +59,20 @@ window.addEventListener('message', (e) => {
   }
 });
 
+// New Chat sidebar link
+const sidebarNewChat = document.getElementById('sidebar-new-chat');
+if (sidebarNewChat) sidebarNewChat.addEventListener('click', (e) => {
+  e.preventDefault();
+  mainContent.style.display = 'none';
+  quizOverlay.style.display = '';
+  quizIframe.src = '/new-chat.html';
+  document.querySelectorAll('.sidebar-item').forEach(i => i.classList.remove('active'));
+  sidebarNewChat.classList.add('active');
+});
+
 // Collaboration Profile sidebar link
 const sidebarCollabProfile = document.getElementById('sidebar-collab-profile');
-sidebarCollabProfile.addEventListener('click', (e) => {
+if (sidebarCollabProfile) sidebarCollabProfile.addEventListener('click', (e) => {
   e.preventDefault();
   mainContent.style.display = 'none';
   quizOverlay.style.display = '';
@@ -72,7 +83,7 @@ sidebarCollabProfile.addEventListener('click', (e) => {
 
 // My People sidebar link
 const sidebarMyPeople = document.getElementById('sidebar-my-people');
-sidebarMyPeople.addEventListener('click', (e) => {
+if (sidebarMyPeople) sidebarMyPeople.addEventListener('click', (e) => {
   e.preventDefault();
   mainContent.style.display = 'none';
   quizOverlay.style.display = '';

@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>New Chat</title>
+  <link rel="stylesheet" href="new-chat.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+</head>
+<body>
+  <div class="chat-page">
+    <div class="chat-content">
+      <!-- Greeting -->
+      <div class="chat-greeting">
+        <div class="nadia-orb">
+          <div class="orb-layer orb-gold"></div>
+          <div class="orb-layer orb-orange"></div>
+          <div class="orb-layer orb-pink"></div>
+        </div>
+        <div class="greeting-text">
+          <p>Dayna, great to see you again.</p>
+          <br />
+          <p class="greeting-bold">What would you like to explore in our conversation today?</p>
+        </div>
+      </div>
+
+      <!-- Spacer -->
+      <div class="chat-spacer"></div>
+
+      <!-- Chat Input -->
+      <div class="chat-input-area">
+        <div class="chat-input-box">
+          <div class="chat-input-row">
+            <p class="chat-placeholder">Type here</p>
+          </div>
+          <div class="chat-toolbar">
+            <div class="chat-toolbar-left">
+              <button class="chat-tool-btn attach-btn">
+                <img src="/collab-profiles/pp-attach.svg" alt="Attach" />
+              </button>
+              <button class="chat-tool-btn">
+                <img src="/collab-profiles/pp-audio.svg" alt="Audio" />
+              </button>
+            </div>
+            <div class="chat-toolbar-right">
+              <button class="chat-tool-btn">
+                <img src="/collab-profiles/pp-mic.svg" alt="Mic" />
+              </button>
+              <button class="chat-send-btn">
+                <svg width="40" height="40" viewBox="0 0 40 40" fill="none">
+                  <circle cx="20" cy="20" r="20" fill="#555BA2"/>
+                  <path d="M20 26V14M20 14L15 19M20 14L25 19" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+              </button>
+            </div>
+          </div>
+        </div>
+        <p class="chat-disclaimer">Messages in this chat are AI generated</p>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
