@@ -7,7 +7,7 @@
   <link rel="stylesheet" href="new-chat.css" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;700&display=swap" rel="stylesheet" />
 </head>
 <body>
   <div class="chat-page">
@@ -26,6 +26,9 @@
         </div>
       </div>
 
+      <!-- Messages area -->
+      <div class="chat-messages" id="chat-messages"></div>
+
       <!-- Spacer -->
       <div class="chat-spacer"></div>
 
@@ -33,7 +36,7 @@
       <div class="chat-input-area">
         <div class="chat-input-box">
           <div class="chat-input-row">
-            <p class="chat-placeholder">Type here</p>
+            <textarea class="chat-textarea" id="chat-textarea" rows="1" placeholder="Type here"></textarea>
           </div>
           <div class="chat-toolbar">
             <div class="chat-toolbar-left">
@@ -61,5 +64,290 @@
       </div>
     </div>
   </div>
+  <script>
+    const textarea = document.getElementById('chat-textarea');
+    let filled = false;
+    textarea.addEventListener('focus', () => {
+      if (!filled) {
+        filled = true;
+        const text = "I need to draft an email to Grace asking for an update on her designs for the Women's Aid projects";
+        textarea.value = '';
+        let i = 0;
+        const type = () => {
+          if (i < text.length) {
+            textarea.value += text[i];
+            textarea.style.height = 'auto';
+            textarea.style.height = textarea.scrollHeight + 'px';
+            i++;
+            setTimeout(type, 20);
+          }
+        };
+        type();
+      }
+    });
+    textarea.addEventListener('input', () => {
+      textarea.style.height = 'auto';
+      textarea.style.height = textarea.scrollHeight + 'px';
+    });
+
+    // Send message
+    const sendBtn = document.querySelector('.chat-send-btn');
+    const messages = document.getElementById('chat-messages');
+
+    const dotColors = ['#BEFEB7', '#FFD094', '#A0A3F3', '#80DADA', '#FFBC7A', '#E868B3', '#F4298F'];
+
+    function showThinkingStep1() {
+      const thinkDiv = document.createElement('div');
+      thinkDiv.className = 'chat-msg-thinking';
+      thinkDiv.id = 'thinking-step-1';
+
+      const textSpan = document.createElement('span');
+      textSpan.className = 'thinking-text';
+      textSpan.textContent = 'Searching your people for Grace';
+
+      const dotsDiv = document.createElement('div');
+      dotsDiv.className = 'thinking-dots';
+
+      thinkDiv.appendChild(textSpan);
+      thinkDiv.appendChild(dotsDiv);
+      messages.appendChild(thinkDiv);
+
+      // Animate dots in one by one
+      const numDots = 7;
+      for (let i = 0; i < numDots; i++) {
+        setTimeout(() => {
+          const dot = document.createElement('div');
+          dot.className = 'thinking-dot';
+          // Start with a random color from the palette
+          dot.style.background = dotColors[i % dotColors.length];
+          dot.style.animationDelay = '0s';
+          dotsDiv.appendChild(dot);
+
+          // After slide in, start color cycling
+          setTimeout(() => {
+            dot.classList.add('cycling');
+            dot.style.background = '';
+          }, 300);
+        }, i * 120);
+      }
+
+      // Settle dots one by one from left to right into pink
+      const settleStart = numDots * 120 + 800;
+      for (let i = 0; i < numDots; i++) {
+        setTimeout(() => {
+          const dots = dotsDiv.querySelectorAll('.thinking-dot');
+          if (dots[i]) {
+            dots[i].classList.remove('cycling');
+            dots[i].classList.add('settled');
+          }
+        }, settleStart + i * 150);
+      }
+
+      // After all settled, collapse all dots onto the first one
+      const collapseStart = settleStart + numDots * 150 + 400;
+      setTimeout(() => {
+        dotsDiv.classList.add('collapsed');
+      }, collapseStart);
+
+      // Step 2: Replace step 1 with "Identifying" + Grace badge
+      setTimeout(() => {
+        const step1 = document.getElementById('thinking-step-1');
+        if (step1) {
+          step1.style.transition = 'opacity 0.3s ease';
+          step1.style.opacity = '0';
+          setTimeout(() => {
+            step1.remove();
+            showThinkingStep2();
+          }, 300);
+        }
+      }, collapseStart + 800);
+    }
+
+    function showThinkingStep2() {
+      const thinkDiv = document.createElement('div');
+      thinkDiv.className = 'chat-msg-thinking';
+      thinkDiv.id = 'thinking-step-2';
+
+      const textSpan = document.createElement('span');
+      textSpan.className = 'thinking-text';
+      textSpan.textContent = 'Identifying';
+
+      const badge = document.createElement('span');
+      badge.className = 'thinking-badge';
+      badge.style.opacity = '0';
+      badge.style.transform = 'translateX(10px)';
+      badge.style.transition = 'opacity 0.4s ease, transform 0.4s ease';
+      badge.innerHTML = '<span class="thinking-badge-dot"></span><span class="thinking-badge-name">Grace Macnamara</span>';
+
+      thinkDiv.appendChild(textSpan);
+      thinkDiv.appendChild(badge);
+      messages.appendChild(thinkDiv);
+
+      // Fade in the badge after text reveals
+      setTimeout(() => {
+        badge.style.opacity = '1';
+        badge.style.transform = 'translateX(0)';
+      }, 600);
+
+      // Step 3: Replace with "Finding Women's Aid deadline from" + Your Calendar badge
+      setTimeout(() => {
+        const step2 = document.getElementById('thinking-step-2');
+        if (step2) {
+          step2.style.transition = 'opacity 0.3s ease';
+          step2.style.opacity = '0';
+          setTimeout(() => {
+            step2.remove();
+            showThinkingStep3();
+          }, 300);
+        }
+      }, 2500);
+    }
+
+    function showThinkingStep3() {
+      const thinkDiv = document.createElement('div');
+      thinkDiv.className = 'chat-msg-thinking';
+      thinkDiv.id = 'thinking-step-3';
+
+      const textSpan = document.createElement('span');
+      textSpan.className = 'thinking-text';
+      textSpan.textContent = "Finding Women\u2019s Aid deadline from";
+
+      const badge = document.createElement('span');
+      badge.className = 'thinking-badge';
+      badge.style.opacity = '0';
+      badge.style.transform = 'translateX(10px)';
+      badge.style.transition = 'opacity 0.4s ease, transform 0.4s ease';
+      badge.innerHTML = '<svg width="16" height="16" viewBox="0 0 16 16" fill="#262626"><path d="M3.5 0a.5.5 0 0 1 .5.5V1h8V.5a.5.5 0 0 1 1 0V1h1a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V3a2 2 0 0 1 2-2h1V.5a.5.5 0 0 1 .5-.5zM1 4v10a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V4H1z"/></svg><span class="thinking-badge-name">Your Calendar</span>';
+
+      thinkDiv.appendChild(textSpan);
+      thinkDiv.appendChild(badge);
+      messages.appendChild(thinkDiv);
+
+      setTimeout(() => {
+        badge.style.opacity = '1';
+        badge.style.transform = 'translateX(0)';
+      }, 600);
+
+      // Step 4: Replace with "Remembering context on the Women's Aid Project" + Nadia's Knowledge
+      setTimeout(() => {
+        const step3 = document.getElementById('thinking-step-3');
+        if (step3) {
+          step3.style.transition = 'opacity 0.3s ease';
+          step3.style.opacity = '0';
+          setTimeout(() => {
+            step3.remove();
+            showThinkingStep4();
+          }, 300);
+        }
+      }, 2500);
+    }
+
+    function showThinkingStep4() {
+      const thinkDiv = document.createElement('div');
+      thinkDiv.className = 'chat-msg-thinking';
+      thinkDiv.id = 'thinking-step-4';
+
+      const textSpan = document.createElement('span');
+      textSpan.className = 'thinking-text';
+      textSpan.innerHTML = 'Remembering context on the <u>Women\u2019s Aid Project</u>';
+
+      const badge = document.createElement('span');
+      badge.className = 'thinking-badge';
+      badge.style.opacity = '0';
+      badge.style.transform = 'translateX(10px)';
+      badge.style.transition = 'opacity 0.4s ease, transform 0.4s ease';
+      badge.innerHTML = '<svg width="16" height="14" viewBox="0 0 16 14" fill="none"><ellipse cx="2.5" cy="7" rx="1.2" ry="3" fill="#FFBC7A"/><ellipse cx="5" cy="7" rx="1.3" ry="4.5" fill="#F5A0B0"/><ellipse cx="7.5" cy="7" rx="1.3" ry="5.5" fill="#E86B8A"/><ellipse cx="10" cy="7" rx="1.3" ry="5" fill="#D44070"/><ellipse cx="12.5" cy="7" rx="1.2" ry="3.5" fill="#B22555"/></svg><span class="thinking-badge-name">Nadia\u2019s Knowledge</span>';
+
+      thinkDiv.appendChild(textSpan);
+      thinkDiv.appendChild(badge);
+      messages.appendChild(thinkDiv);
+
+      setTimeout(() => {
+        badge.style.opacity = '1';
+        badge.style.transform = 'translateX(0)';
+      }, 600);
+
+      // After 1 second, fade out step 4 and show AI response
+      setTimeout(() => {
+        const step4 = document.getElementById('thinking-step-4');
+        if (step4) {
+          step4.style.transition = 'opacity 0.3s ease';
+          step4.style.opacity = '0';
+          setTimeout(() => {
+            step4.remove();
+            showAIResponse();
+          }, 300);
+        }
+      }, 2500);
+    }
+
+    function showAIResponse() {
+      // AI text response
+      const aiMsg = document.createElement('div');
+      aiMsg.className = 'chat-msg-ai';
+      aiMsg.innerHTML = `
+        <div class="nadia-orb nadia-orb-small">
+          <div class="orb-layer orb-gold"></div>
+          <div class="orb-layer orb-orange"></div>
+          <div class="orb-layer orb-pink"></div>
+        </div>
+        <div class="ai-response-text">Of course! <span class="ai-inline-badge">Grace</span> is a consul. Consul personality types are warm, people-oriented, and thrive on harmony and appreciation. They respond best to a tone that is personal, encouraging, and collaborative \u2014 acknowledging their efforts and making them feel valued rather than pressured.</div>
+      `;
+      aiMsg.style.opacity = '0';
+      aiMsg.style.transition = 'opacity 0.5s ease';
+      messages.appendChild(aiMsg);
+      setTimeout(() => { aiMsg.style.opacity = '1'; }, 50);
+
+      // Email draft card after a delay
+      setTimeout(() => {
+        const emailCard = document.createElement('div');
+        emailCard.className = 'chat-email-card';
+        emailCard.style.opacity = '0';
+        emailCard.style.transition = 'opacity 0.5s ease';
+        emailCard.innerHTML = `
+          <div class="email-pills">
+            <span class="email-pill active"><span class="email-pill-dot"></span>For a Consul Profile</span>
+            <span class="email-pill">More Formal</span>
+          </div>
+          <div class="email-divider"></div>
+          <div class="email-subject"><span class="email-subject-label">Subject:</span> Women\u2019s Aid Designs \u2013 Would Love to Hear How It\u2019s Going!</div>
+          <div class="email-divider"></div>
+          <div class="email-body">
+            <p>Hi Grace,</p>
+            <p>I hope you\u2019re having a great week! I\u2019ve been thinking about the Women\u2019s Aid projects and I just wanted to say how much I appreciate all the care and effort you\u2019re putting into them \u2014 they really are in great hands.</p>
+            <p>When you get a chance, could you share a quick update on where the designs are at? I\u2019d love to see how things are shaping up, and please do let me know if there\u2019s anything I can do to support you along the way.</p>
+            <p>Thanks so much, Grace \u2014 really looking forward to seeing what you\u2019ve been working on!</p>
+            <p>Warm regards,</p>
+          </div>
+        `;
+        messages.appendChild(emailCard);
+        setTimeout(() => { emailCard.style.opacity = '1'; }, 50);
+      }, 800);
+    }
+
+    function sendMessage() {
+      const text = textarea.value.trim();
+      if (!text) return;
+
+      const msgDiv = document.createElement('div');
+      msgDiv.className = 'chat-msg-user';
+      msgDiv.innerHTML = '<div class="chat-msg-bubble">' + text + '</div>';
+      messages.appendChild(msgDiv);
+
+      textarea.value = '';
+      textarea.style.height = 'auto';
+
+      // Start thinking animation
+      setTimeout(showThinkingStep1, 500);
+    }
+
+    sendBtn.addEventListener('click', sendMessage);
+    textarea.addEventListener('keydown', (e) => {
+      if (e.key === 'Enter' && !e.shiftKey) {
+        e.preventDefault();
+        sendMessage();
+      }
+    });
+  </script>
 </body>
 </html>
