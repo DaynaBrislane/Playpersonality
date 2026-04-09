@@ -581,10 +581,22 @@ body {
   line-height: 28px;
   color: #262626;
 }
+.dd-outer-card {
+  background: #fff;
+  border: 1px solid #e8e8e8;
+  border-radius: 10px;
+  padding: 30px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+.dd-outer-divider {
+  height: 1px;
+  background: #e8e8e8;
+}
 .dd-two-col {
   display: flex;
   gap: 0;
-  background: #fff;
   border: 1px solid #e8e8e8;
   border-radius: 10px;
   overflow: hidden;
