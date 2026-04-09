@@ -519,7 +519,7 @@ body {
   background: #fff;
   border: 1px solid #e8e8e8;
   border-radius: 10px;
-  padding: 30px;
+  padding: 40px;
   display: flex;
   flex-direction: column;
   gap: 20px;
@@ -560,7 +560,61 @@ body {
 }
 .deepdive-content {
   display: flex;
+  flex-direction: column;
   gap: 20px;
+}
+.dd-card-header {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+.dd-card-icon {
+  width: 31px;
+  height: 31px;
+  object-fit: contain;
+}
+.dd-card-header h4 {
+  font-family: 'P22 Mackinac Pro', Georgia, serif;
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 28px;
+  color: #262626;
+}
+.dd-card-divider {
+  height: 1px;
+  background: #e8e8e8;
+}
+.dd-cols {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 10px;
+}
+.dd-col {
+  background: #f5f5f5;
+  border-radius: 10px;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+.dd-col-header {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+.dd-col-header span {
+  font-family: 'P22 Mackinac Pro', Georgia, serif;
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 24px;
+  color: #262626;
+}
+.dd-col p {
+  font-family: 'P22 Mackinac Pro', Georgia, serif;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 24px;
+  color: #262626;
 }
 .deepdive-highlights,
 .deepdive-detail {
