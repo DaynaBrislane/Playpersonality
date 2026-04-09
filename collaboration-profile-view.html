@@ -12,6 +12,52 @@
 <body>
   <div class="profile-page">
 
+    <!-- Profile Card -->
+    <div class="cpv-profile-card">
+      <button class="profile-edit-btn" id="profile-edit-btn">
+        <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M11.333 1.333a1.886 1.886 0 0 1 2.667 0 1.886 1.886 0 0 1 0 2.667l-.667.667-2.667-2.667.667-.667zM9.333 3.333l-7 7V13h2.667l7-7-2.667-2.667z" fill="#8c8c8c"/></svg>
+      </button>
+      <div class="cpv-profile-top">
+        <div class="cpv-identity">
+          <img src="/collab-profiles/avatar.svg" alt="" class="cpv-avatar" />
+          <h2 class="cpv-name">Dayna Brislane</h2>
+        </div>
+        <span class="cpv-badge"><img src="/collab-profiles/campaigner-badge.svg" alt="" class="cpv-badge-dot" />Campaigner</span>
+      </div>
+      <p class="cpv-desc">You're a campaigner. Energetic and enthusiastic visionaries who spark new ideas and inspire others with their passion and creativity</p>
+      <div class="cpv-meta-row">
+        <div class="cpv-meta-item"><span class="cpv-meta-label">Role</span><span class="cpv-meta-value">Product Designer</span></div>
+        <div class="cpv-meta-item"><span class="cpv-meta-label">Team</span><span class="cpv-meta-value">Unknown</span></div>
+        <div class="cpv-meta-item"><span class="cpv-meta-label">Level</span><span class="cpv-meta-value">Unknown</span></div>
+        <div class="cpv-meta-item"><span class="cpv-meta-label">Organization</span><span class="cpv-meta-value">Valence</span></div>
+      </div>
+    </div>
+
+    <!-- Chat Input -->
+    <div class="cpv-chat-box">
+      <div class="cpv-chat-input-row">
+        <p class="cpv-chat-placeholder">Want to discuss your work style?</p>
+      </div>
+      <div class="cpv-chat-toolbar">
+        <div class="cpv-chat-left">
+          <button class="cpv-chat-btn"><img src="/collab-profiles/pp-attach.svg" alt="" class="cpv-attach-icon" /></button>
+          <button class="cpv-chat-btn"><img src="/collab-profiles/pp-audio.svg" alt="" /></button>
+        </div>
+        <div class="cpv-chat-right">
+          <button class="cpv-chat-btn"><img src="/collab-profiles/pp-mic.svg" alt="" /></button>
+          <button class="cpv-chat-send"><svg width="40" height="40" viewBox="0 0 40 40" fill="none"><circle cx="20" cy="20" r="20" fill="#555BA2"/><path d="M20 26V14M20 14L15 19M20 14L25 19" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Action Buttons -->
+    <div class="cpv-action-btns">
+      <button class="cpv-action-btn" data-prompt="What is something special about me and my work that I bring to my team?"><img src="/collab-profiles/action-shine.svg" alt="" class="cpv-action-icon" />Where you shine</button>
+      <button class="cpv-action-btn" data-prompt="I need space to think but my team likes to discuss everything. How can I navigate this?"><img src="/collab-profiles/action-collab.svg" alt="" class="cpv-action-icon" />Collaborating</button>
+      <button class="cpv-action-btn" data-prompt="What is one thing that will help me get ahead in my career?"><img src="/collab-profiles/action-improving.svg" alt="" class="cpv-action-icon" />Improving</button>
+      <button class="cpv-action-btn" data-prompt="What is one thing that my boss secretly wishes I was better at?"><img src="/collab-profiles/action-blindspots.svg" alt="" class="cpv-action-icon" />Hidden blindspots</button>
+    </div>
+
     <!-- Header -->
     <div class="profile-header">
       <div class="profile-header-icon">
@@ -102,43 +148,6 @@
       </div>
     </div>
 
-    <!-- Profile Card -->
-    <div class="profile-card">
-      <button class="profile-edit-btn" id="profile-edit-btn">
-        <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M11.333 1.333a1.886 1.886 0 0 1 2.667 0 1.886 1.886 0 0 1 0 2.667l-.667.667-2.667-2.667.667-.667zM9.333 3.333l-7 7V13h2.667l7-7-2.667-2.667z" fill="#8c8c8c"/></svg>
-      </button>
-      <div class="profile-card-top">
-        <div class="profile-identity">
-          <img src="/collab-profiles/avatar.svg" alt="" class="profile-avatar" />
-          <div class="profile-name-row">
-            <h2>Dayna Brislane</h2>
-          </div>
-        </div>
-        <span class="campaigner-badge">
-          <img src="/collab-profiles/campaigner-badge.svg" alt="" />
-          Campaigner
-        </span>
-      </div>
-      <p class="profile-desc">You're a campaigner. Energetic and enthusiastic visionaries who spark new ideas and inspire others with their passion and creativity</p>
-      <div class="profile-meta-row">
-        <div class="profile-meta-item">
-          <span class="meta-label">Role</span>
-          <span class="meta-value">Product Designer</span>
-        </div>
-        <div class="profile-meta-item">
-          <span class="meta-label">Team</span>
-          <span class="meta-value">Unknown</span>
-        </div>
-        <div class="profile-meta-item">
-          <span class="meta-label">Level</span>
-          <span class="meta-value">Unknown</span>
-        </div>
-        <div class="profile-meta-item">
-          <span class="meta-label">Organization</span>
-          <span class="meta-value">Valence</span>
-        </div>
-      </div>
-    </div>
 
     <!-- Tabs -->
     <div class="profile-tabs">
@@ -570,6 +579,18 @@
       navigator.clipboard.writeText(url).then(() => {
         shareCopyBtn.textContent = 'Copied!';
         setTimeout(() => { shareCopyBtn.textContent = 'Copy'; }, 2000);
+      });
+    });
+
+    // Action pill hover → change chat placeholder
+    const chatPlaceholder = document.querySelector('.cpv-chat-placeholder');
+    const defaultPrompt = 'Want to discuss your work style?';
+    document.querySelectorAll('.cpv-action-btn').forEach(btn => {
+      btn.addEventListener('mouseenter', () => {
+        chatPlaceholder.textContent = btn.dataset.prompt;
+      });
+      btn.addEventListener('mouseleave', () => {
+        chatPlaceholder.textContent = defaultPrompt;
       });
     });
 

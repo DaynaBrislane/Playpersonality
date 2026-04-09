@@ -59,6 +59,17 @@ window.addEventListener('message', (e) => {
   }
 });
 
+// Collaboration Profile sidebar link
+const sidebarCollabProfile = document.getElementById('sidebar-collab-profile');
+sidebarCollabProfile.addEventListener('click', (e) => {
+  e.preventDefault();
+  mainContent.style.display = 'none';
+  quizOverlay.style.display = '';
+  quizIframe.src = '/collaboration-profile-view.html';
+  document.querySelectorAll('.sidebar-item').forEach(i => i.classList.remove('active'));
+  sidebarCollabProfile.classList.add('active');
+});
+
 // My People sidebar link
 const sidebarMyPeople = document.getElementById('sidebar-my-people');
 sidebarMyPeople.addEventListener('click', (e) => {
