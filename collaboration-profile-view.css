@@ -516,10 +516,10 @@ body {
 /* Deep Dive */
 .deepdive-section { margin-bottom: 40px; }
 .deepdive-card {
-  background: #fff;
-  border: 1px solid #e8e8e8;
-  border-radius: 10px;
-  padding: 40px;
+  background: transparent;
+  border: none;
+  border-radius: 0;
+  padding: 0;
   display: flex;
   flex-direction: column;
   gap: 20px;
@@ -561,12 +561,12 @@ body {
 .deepdive-content {
   display: flex;
   flex-direction: column;
-  gap: 20px;
+  gap: 16px;
 }
-.dd-card-header {
+.dd-section-header {
   display: flex;
   align-items: center;
-  gap: 15px;
+  gap: 12px;
 }
 .dd-card-icon {
   width: 36px;
@@ -574,32 +574,31 @@ body {
   object-fit: contain;
   border-radius: 6px;
 }
-.dd-card-header h4 {
+.dd-section-header h4 {
   font-family: 'P22 Mackinac Pro', Georgia, serif;
   font-weight: 700;
   font-size: 20px;
   line-height: 28px;
   color: #262626;
 }
-.dd-card-divider {
-  height: 1px;
-  background: #e8e8e8;
-}
 .dd-two-col {
   display: flex;
-  gap: 20px;
-}
-.dd-panel {
+  gap: 0;
+  background: #fff;
   border: 1px solid #e8e8e8;
   border-radius: 10px;
+  overflow: hidden;
+}
+.dd-panel {
   padding: 20px;
   display: flex;
   flex-direction: column;
   gap: 10px;
 }
 .dd-panel:first-child {
-  width: 269px;
-  min-width: 269px;
+  width: 280px;
+  min-width: 280px;
+  border-right: 1px solid #e8e8e8;
 }
 .dd-panel:last-child {
   flex: 1;
