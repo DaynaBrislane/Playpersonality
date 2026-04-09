@@ -780,6 +780,56 @@ body {
   color: #707070;
 }
 
+/* ===== Character Summary Grid ===== */
+.cs-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 16px;
+}
+.cs-card {
+  background: #fff;
+  border: 1px solid #e8e8e8;
+  border-radius: 10px;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.cs-card-icon {
+  width: 28px;
+  height: 28px;
+  object-fit: contain;
+  border-radius: 4px;
+}
+.cs-card-title {
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 24px;
+  color: #262626;
+}
+.cs-card-desc {
+  font-size: 16px;
+  line-height: 24px;
+  color: #707070;
+  flex: 1;
+}
+.cs-card-divider {
+  height: 1px;
+  background: #e8e8e8;
+  margin-top: 8px;
+}
+.cs-discuss {
+  font-family: 'Inter', sans-serif;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 24px;
+  color: #555ba2;
+  text-decoration: none;
+}
+.cs-discuss:hover {
+  text-decoration: underline;
+}
+
 /* ===== Working With Me ===== */
 .wwm-section { margin-bottom: 40px; }
 .wwm-grid {
