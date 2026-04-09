@@ -59,6 +59,17 @@ window.addEventListener('message', (e) => {
   }
 });
 
+// Home sidebar link
+const sidebarHome = document.getElementById('sidebar-home');
+if (sidebarHome) sidebarHome.addEventListener('click', (e) => {
+  e.preventDefault();
+  quizOverlay.style.display = 'none';
+  mainContent.style.display = '';
+  quizIframe.src = 'about:blank';
+  document.querySelectorAll('.sidebar-item').forEach(i => i.classList.remove('active'));
+  sidebarHome.classList.add('active');
+});
+
 // New Chat sidebar link
 const sidebarNewChat = document.getElementById('sidebar-new-chat');
 if (sidebarNewChat) sidebarNewChat.addEventListener('click', (e) => {
