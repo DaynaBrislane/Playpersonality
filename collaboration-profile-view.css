@@ -842,34 +842,44 @@ body {
   background: #fff;
   border: 1px solid #e8e8e8;
   border-radius: 10px;
-  padding: 28px 24px;
+  padding: 20px;
   display: flex;
   flex-direction: column;
-  gap: 24px;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+  gap: 10px;
+  box-shadow: 4px 6px 10px rgba(0,0,0,0.1);
 }
 .ga-item {
   display: flex;
   align-items: flex-start;
-  gap: 16px;
+  gap: 15px;
+  padding: 10px;
+}
+.ga-divider {
+  height: 1px;
+  background: #e8e8e8;
+  width: 100%;
 }
 .ga-number {
-  font-family: 'P22 Mackinac Pro', Georgia, serif;
-  font-weight: 700;
-  font-size: 18px;
-  color: #555ba2;
-  min-width: 24px;
-  text-align: center;
-  line-height: 24px;
-  margin-top: 2px;
+  font-family: 'Inter', sans-serif;
+  font-weight: 400;
+  font-size: 15px;
+  line-height: 40px;
+  color: #262626;
+  background: #f3f3ef;
+  border-radius: 3.75px;
+  min-width: 30px;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
 }
 .ga-text {
   display: flex;
   flex-direction: column;
-  gap: 4px;
 }
 .ga-title {
-  font-family: 'Inter', sans-serif;
+  font-family: 'P22 Mackinac Pro', Georgia, serif;
   font-weight: 700;
   font-size: 16px;
   line-height: 24px;
@@ -879,9 +889,9 @@ body {
 .ga-desc {
   font-family: 'Inter', sans-serif;
   font-weight: 400;
-  font-size: 15px;
-  line-height: 22px;
-  color: #595959;
+  font-size: 16px;
+  line-height: 24px;
+  color: #707070;
   margin: 0;
 }
 
