@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Journeys</title>
+  <link rel="stylesheet" href="journeys.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;700&display=swap" rel="stylesheet" />
+</head>
+<body>
+  <div class="journeys-page">
+
+    <!-- Header -->
+    <div class="journeys-header">
+      <svg class="journeys-header-icon" width="44" height="44" viewBox="0 0 44 44" fill="none">
+        <path d="M0 22C0 9.849 9.849 0 22 0s22 9.849 22 22H0z" fill="#80DADA"/>
+        <path d="M0 44C0 31.849 9.849 22 22 22s22 9.849 22 22H0z" fill="#80DADA"/>
+      </svg>
+      <div class="journeys-header-text">
+        <h1 class="journeys-title">Your Goals</h1>
+        <p class="journeys-subtitle">Track your development goals so Nadia can weave them into your coaching and performance conversations throughout the year.</p>
+      </div>
+    </div>
+
+    <!-- Priority Goals -->
+    <div class="priority-goals-card">
+      <p class="priority-goals-label">Priority Goals</p>
+      <div class="priority-goals-body">
+        <div class="goal-list" id="priority-goal-list"></div>
+        <div class="goal-detail" id="priority-goal-detail"></div>
+      </div>
+    </div>
+
+    <!-- Tabs -->
+    <div class="goals-tabs">
+      <button class="goals-tab active" data-tab="other">Other Goals</button>
+      <button class="goals-tab" data-tab="team">Team Goals</button>
+    </div>
+
+    <!-- Other Goals Grid -->
+    <div class="goals-grid" id="other-goals-tab"></div>
+
+    <!-- Team Goals -->
+    <div class="team-goals" id="team-goals-tab" style="display:none"></div>
+
+  </div>
+
+  <!-- Side Panel Overlay -->
+  <div class="side-panel-overlay" id="side-panel-overlay"></div>
+
+  <!-- Side Panel -->
+  <div class="side-panel" id="side-panel">
+    <button class="side-panel-close" id="side-panel-close">
+      <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M12 4L4 12M4 4l8 8" stroke="#262626" stroke-width="1.5" stroke-linecap="round"/></svg>
+    </button>
+
+    <div class="side-panel-header">
+      <div class="goal-detail-dot"></div>
+      <h2 class="side-panel-title" id="side-panel-title"></h2>
+    </div>
+
+    <hr class="goal-detail-divider" />
+
+    <div class="side-panel-body">
+      <div class="side-panel-progress">
+        <div class="progress-bar"><div class="progress-track"><div class="progress-fill" id="side-panel-progress-fill" style="width:67%"></div></div></div>
+        <span class="side-panel-percent" id="side-panel-percent">67% complete</span>
+      </div>
+
+      <p class="side-panel-desc" id="side-panel-desc"></p>
+
+      <p class="goal-detail-actions-label">Actions</p>
+
+      <div class="side-panel-actions" id="side-panel-actions"></div>
+    </div>
+
+    <button class="side-panel-priority-btn" id="side-panel-priority-btn">Make this a priority goal</button>
+
+    <!-- Swap Modal -->
+    <div class="swap-modal" id="swap-modal">
+      <p class="swap-modal-prompt">Which priority goal should <strong>move to other goals</strong> to make room?</p>
+      <div class="swap-modal-list" id="swap-modal-list"></div>
+      <button class="swap-modal-cancel" id="swap-modal-cancel">Cancel</button>
+    </div>
+  </div>
+
+  <!-- Team Member Drawer Overlay -->
+  <div class="side-panel-overlay" id="member-drawer-overlay"></div>
+
+  <!-- Team Member Drawer -->
+  <div class="side-panel member-drawer" id="member-drawer">
+    <button class="side-panel-close" id="member-drawer-close">
+      <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M12 4L4 12M4 4l8 8" stroke="#262626" stroke-width="1.5" stroke-linecap="round"/></svg>
+    </button>
+
+    <div class="member-drawer-header" id="member-drawer-header"></div>
+
+    <hr class="goal-detail-divider" />
+
+    <div class="member-drawer-body" id="member-drawer-body"></div>
+
+    <button class="side-panel-priority-btn" id="member-drawer-assign-btn">Assign a Goal</button>
+  </div>
+
+  <!-- Assign Goal Modal -->
+  <div class="assign-modal-overlay" id="assign-modal-overlay"></div>
+  <div class="assign-modal" id="assign-modal">
+    <h3 class="assign-modal-title" id="assign-modal-title">Assign a goal to</h3>
+    <input type="text" class="assign-modal-input" id="assign-modal-input" placeholder="Enter goal title..." />
+    <div class="assign-modal-buttons">
+      <button class="assign-modal-submit" id="assign-modal-submit">Assign</button>
+      <button class="assign-modal-cancel" id="assign-modal-cancel">Cancel</button>
+    </div>
+  </div>
+
+  <script src="journeys.js"></script>
+</body>
+</html>

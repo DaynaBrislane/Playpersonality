@@ -103,3 +103,14 @@ if (sidebarMyPeople) sidebarMyPeople.addEventListener('click', (e) => {
   document.querySelectorAll('.sidebar-item').forEach(i => i.classList.remove('active'));
   sidebarMyPeople.classList.add('active');
 });
+
+// Journeys sidebar link
+const sidebarJourneys = document.getElementById('sidebar-journeys');
+if (sidebarJourneys) sidebarJourneys.addEventListener('click', (e) => {
+  e.preventDefault();
+  mainContent.style.display = 'none';
+  quizOverlay.style.display = '';
+  quizIframe.src = '/journeys.html';
+  document.querySelectorAll('.sidebar-item').forEach(i => i.classList.remove('active'));
+  sidebarJourneys.classList.add('active');
+});

@@ -1,0 +1,937 @@
+/* ===== Reset & Base ===== */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  font-family: 'Inter', sans-serif;
+  background: #fafafa;
+  color: #262626;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ===== Page Layout ===== */
+.journeys-page {
+  max-width: 850px;
+  margin: 0 auto;
+  padding: 40px 24px 60px;
+}
+
+/* ===== Header ===== */
+.journeys-header {
+  display: flex;
+  gap: 19px;
+  align-items: flex-start;
+  margin-bottom: 32px;
+}
+
+.journeys-header-icon {
+  width: 44px;
+  height: 44px;
+  flex-shrink: 0;
+}
+
+.journeys-header-text {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.journeys-title {
+  font-family: 'P22 Mackinac Pro', Georgia, serif;
+  font-size: 30px;
+  font-weight: 500;
+  line-height: 34px;
+  color: #262626;
+}
+
+.journeys-subtitle {
+  font-family: 'Inter', sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 24px;
+  color: #262626;
+}
+
+/* ===== Priority Goals Card ===== */
+.priority-goals-card {
+  background: #fff;
+  border: 1px solid #e8e8e8;
+  border-radius: 10px;
+  padding: 20px 15px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  margin-bottom: 24px;
+}
+
+.priority-goals-label {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 20px;
+  color: #707070;
+}
+
+.priority-goals-body {
+  display: flex;
+  gap: 20px;
+}
+
+/* --- Goal List (left side) --- */
+.goal-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  width: 285px;
+  flex-shrink: 0;
+}
+
+.goal-list-item {
+  padding: 10px;
+  border-radius: 5px;
+  border: 1px solid #e8e8e8;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  cursor: pointer;
+}
+
+.goal-list-item.active {
+  background: #f5f5f5;
+  border-color: transparent;
+}
+
+.goal-list-item-title {
+  font-family: 'Inter', sans-serif;
+  font-size: 13px;
+  font-weight: 400;
+  line-height: 18px;
+  color: #262626;
+}
+
+/* --- Progress Bar --- */
+.progress-bar {
+  height: 8px;
+  width: 100%;
+  display: flex;
+}
+
+.progress-track {
+  flex: 1;
+  height: 8px;
+  background: #e8e8e8;
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.goal-list-item.active .progress-track {
+  background: #d9d9d9;
+}
+
+.progress-fill {
+  height: 8px;
+  background: #80dada;
+  border-radius: 4px;
+}
+
+/* --- Goal Detail (right side) --- */
+.goal-detail {
+  flex: 1;
+  min-width: 0;
+  background: #fff;
+  border: 1px solid #e8e8e8;
+  border-radius: 5px;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.goal-detail-header {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+.goal-detail-dot {
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background: #80dada;
+  flex-shrink: 0;
+}
+
+.goal-detail-title {
+  font-family: 'Inter', sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 20px;
+  color: #262626;
+}
+
+.goal-detail-divider {
+  border: none;
+  border-top: 1px solid #e8e8e8;
+}
+
+.goal-detail-desc {
+  font-family: 'Inter', sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 20px;
+  color: #262626;
+}
+
+.priority-detail-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.goal-detail-actions-label {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 20px;
+  color: #707070;
+}
+
+/* --- Action Items --- */
+.action-item {
+  display: flex;
+  gap: 12px;
+  align-items: flex-start;
+  padding: 10px;
+  border: 1px solid #e8e8e8;
+  border-radius: 5px;
+}
+
+.action-item.completed {
+  background: #f3f3ef;
+}
+
+.action-checkbox {
+  width: 16px;
+  height: 16px;
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+.action-checkbox-done {
+  width: 16px;
+  height: 16px;
+  background: #80dada;
+  border-radius: 3px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.action-checkbox-done svg {
+  width: 10px;
+  height: 10px;
+}
+
+.action-checkbox-empty {
+  width: 15px;
+  height: 15px;
+  border: 1px solid #bfbfbf;
+  border-radius: 2px;
+  cursor: pointer;
+}
+
+.action-content {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.action-title {
+  font-family: 'Inter', sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 20px;
+  color: #262626;
+}
+
+.action-item.completed .action-title {
+  color: #bfbfbf;
+}
+
+.action-desc {
+  font-family: 'Inter', sans-serif;
+  font-size: 13px;
+  font-weight: 400;
+  line-height: 18px;
+  color: #707070;
+}
+
+/* ===== Tabs ===== */
+.goals-tabs {
+  display: flex;
+  gap: 40px;
+  align-items: center;
+  border-bottom: 1px solid #e8e8e8;
+  padding-left: 21px;
+  margin-bottom: 24px;
+}
+
+.goals-tab {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 24px;
+  color: #262626;
+  padding-bottom: 8px;
+  cursor: pointer;
+  border: none;
+  background: none;
+  position: relative;
+}
+
+.goals-tab.active {
+  font-weight: 700;
+  color: #555ba2;
+}
+
+.goals-tab.active::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -1px;
+  height: 3px;
+  background: #555ba2;
+  border-radius: 2px;
+}
+
+/* ===== Other Goals Grid ===== */
+.goals-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+
+.goal-card {
+  background: #fff;
+  border: 1px solid #e8e8e8;
+  border-radius: 5px;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  cursor: pointer;
+  transition: box-shadow 0.2s;
+}
+
+.goal-card:hover {
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+
+.goal-card-title {
+  font-family: 'Inter', sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 20px;
+  color: #262626;
+}
+
+.goal-card-meta {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.goal-card-percent {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 20px;
+  color: #707070;
+}
+
+/* ===== Team Goals ===== */
+.team-goals {
+  display: flex;
+  flex-direction: column;
+  gap: 29px;
+}
+
+.team-member-divider {
+  border: none;
+  border-top: 1px solid #e8e8e8;
+  margin: 0;
+}
+
+.team-member-section {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.team-member-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.team-member-info {
+  display: flex;
+  gap: 5px;
+  align-items: flex-start;
+}
+
+.team-member-dot {
+  width: 20px;
+  height: 23px;
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
+}
+
+.team-member-dot-circle {
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  border: 1px solid #292929;
+}
+
+.team-member-text {
+  display: flex;
+  flex-direction: column;
+  padding-bottom: 2px;
+}
+
+.team-member-name {
+  font-family: 'P22 Mackinac Pro', Georgia, serif;
+  font-size: 20px;
+  font-weight: 700;
+  line-height: 28px;
+  color: #262626;
+}
+
+.team-member-role {
+  font-family: 'Inter', sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 20px;
+  color: #707070;
+}
+
+.team-assign-btn {
+  font-family: 'Inter', sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 20px;
+  color: #000;
+  background: none;
+  border: 1px solid #e8e8e8;
+  border-radius: 5px;
+  padding: 5px 10px;
+  cursor: pointer;
+  transition: background 0.15s;
+  white-space: nowrap;
+}
+
+.team-assign-btn:hover {
+  background: #f5f5f5;
+}
+
+.team-goals-grid {
+  display: flex;
+  gap: 14px;
+  align-items: center;
+}
+
+.team-goal-card {
+  flex: 1;
+  min-width: 0;
+  background: #fff;
+  border: 1px solid #e8e8e8;
+  border-radius: 5px;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.team-goal-card-title {
+  font-family: 'Inter', sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 20px;
+  color: #262626;
+}
+
+.team-goal-card-percent {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 20px;
+  color: #707070;
+}
+
+.team-goal-card .progress-fill {
+  background: #8c8c8c;
+}
+
+/* ===== Side Panel Overlay ===== */
+.side-panel-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.15);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s;
+  z-index: 99;
+}
+
+.side-panel-overlay.open {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+/* ===== Side Panel ===== */
+.side-panel {
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 427px;
+  height: 100%;
+  background: #fff;
+  box-shadow: -4px -4px 10px rgba(0, 0, 0, 0.1);
+  transform: translateX(100%);
+  transition: transform 0.3s ease;
+  z-index: 100;
+  display: flex;
+  flex-direction: column;
+  padding: 40px 20px;
+  gap: 20px;
+  overflow-y: auto;
+}
+
+.side-panel.open {
+  transform: translateX(0);
+}
+
+.side-panel-close {
+  position: absolute;
+  top: 13px;
+  right: 12px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 4px;
+}
+
+.side-panel-header {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.side-panel-title {
+  font-family: 'P22 Mackinac Pro', Georgia, serif;
+  font-size: 20px;
+  font-weight: 700;
+  line-height: 28px;
+  color: #262626;
+}
+
+.side-panel-body {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.side-panel-progress {
+  display: flex;
+  gap: 13px;
+  align-items: center;
+}
+
+.side-panel-progress .progress-bar {
+  width: 276px;
+}
+
+.side-panel-percent {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 20px;
+  color: #707070;
+  white-space: nowrap;
+}
+
+.side-panel-desc {
+  font-family: 'Inter', sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 20px;
+  color: #262626;
+}
+
+.side-panel-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.side-panel-priority-btn {
+  margin-top: auto;
+  width: 100%;
+  height: 44px;
+  border: 1px solid #e8e8e8;
+  border-radius: 1000px;
+  background: none;
+  font-family: 'Inter', sans-serif;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 24px;
+  color: #262626;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.side-panel-priority-btn:hover {
+  background: #f5f5f5;
+}
+
+/* ===== Swap Modal ===== */
+.swap-modal {
+  display: none;
+  position: absolute;
+  bottom: 20px;
+  left: 20px;
+  right: 20px;
+  background: #fff;
+  border: 1px solid #e8e8e8;
+  border-radius: 10px;
+  padding: 24px 20px;
+  flex-direction: column;
+  gap: 20px;
+  box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.1);
+  z-index: 101;
+}
+
+.swap-modal.open {
+  display: flex;
+}
+
+.swap-modal-prompt {
+  font-family: 'Inter', sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 24px;
+  color: #262626;
+}
+
+.swap-modal-prompt strong {
+  font-weight: 700;
+}
+
+.swap-modal-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.swap-modal-item {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  padding: 20px;
+  border-top: 1px solid #e8e8e8;
+  cursor: pointer;
+  transition: background 0.15s;
+  margin: 0 -20px;
+}
+
+.swap-modal-item:hover {
+  background: #f5f5f5;
+}
+
+.swap-modal-item-title {
+  font-family: 'Inter', sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 20px;
+  color: #262626;
+}
+
+.swap-modal-cancel {
+  width: 100%;
+  height: 44px;
+  border: 1px solid #e8e8e8;
+  border-radius: 1000px;
+  background: none;
+  font-family: 'Inter', sans-serif;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 24px;
+  color: #262626;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.swap-modal-cancel:hover {
+  background: #f5f5f5;
+}
+
+/* ===== Member Drawer ===== */
+.member-drawer {
+  gap: 30px;
+  align-items: center;
+}
+
+.member-drawer-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.member-drawer-header-left {
+  display: flex;
+  gap: 5px;
+  align-items: flex-start;
+}
+
+.member-drawer-header-left .team-member-dot-circle {
+  margin-top: 3px;
+}
+
+.member-drawer-name-text {
+  display: flex;
+  flex-direction: column;
+  padding-bottom: 2px;
+}
+
+.member-drawer-name {
+  font-family: 'P22 Mackinac Pro', Georgia, serif;
+  font-size: 20px;
+  font-weight: 700;
+  line-height: 28px;
+  color: #000;
+}
+
+.member-drawer-role {
+  font-family: 'Inter', sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 20px;
+  color: #707070;
+}
+
+.member-drawer-view-profile {
+  font-family: 'Inter', sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 20px;
+  color: #000;
+  background: none;
+  border: 1px solid #e8e8e8;
+  border-radius: 5px;
+  padding: 5px 10px;
+  cursor: pointer;
+  text-decoration: none;
+  white-space: nowrap;
+  transition: background 0.15s;
+}
+
+.member-drawer-view-profile:hover {
+  background: #f5f5f5;
+}
+
+.member-drawer-body {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  flex: 1;
+  overflow-y: auto;
+  width: 100%;
+}
+
+/* Priority goals wrapper */
+.member-drawer-priority-wrap {
+  background: #f3f3ef;
+  border-radius: 10px;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  width: 100%;
+}
+
+.member-drawer-section-label {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 20px;
+  color: #707070;
+}
+
+.member-drawer-priority-goals {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.member-drawer-goal-card {
+  background: #fff;
+  border: 1px solid #e8e8e8;
+  border-radius: 5px;
+  padding: 15px;
+  display: flex;
+  flex-direction: column;
+}
+
+.member-drawer-goal-title {
+  font-family: 'Inter', sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 20px;
+  color: #262626;
+}
+
+.member-drawer-goal-percent {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 20px;
+  color: #707070;
+}
+
+/* Other goals section */
+.member-drawer-other-section {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  width: 100%;
+}
+
+.member-drawer-other-goals {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.member-drawer-other-goal-card {
+  background: #fff;
+  border: 1px solid #e8e8e8;
+  border-radius: 5px;
+  padding: 15px;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.member-drawer-other-goal-card .progress-fill {
+  background: #8c8c8c;
+}
+
+/* ===== Assign Goal Modal ===== */
+.assign-modal-overlay {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.25);
+  z-index: 200;
+}
+
+.assign-modal-overlay.open {
+  display: block;
+}
+
+.assign-modal {
+  display: none;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: #fff;
+  border-radius: 10px;
+  padding: 28px 24px;
+  width: 420px;
+  flex-direction: column;
+  gap: 20px;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
+  z-index: 201;
+}
+
+.assign-modal.open {
+  display: flex;
+}
+
+.assign-modal-title {
+  font-family: 'P22 Mackinac Pro', Georgia, serif;
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 26px;
+  color: #262626;
+}
+
+.assign-modal-input {
+  width: 100%;
+  padding: 12px 14px;
+  border: 1px solid #e8e8e8;
+  border-radius: 8px;
+  font-family: 'Inter', sans-serif;
+  font-size: 14px;
+  line-height: 20px;
+  color: #262626;
+  outline: none;
+}
+
+.assign-modal-input:focus {
+  border-color: #d2d2ff;
+}
+
+.assign-modal-input::placeholder {
+  color: #bfbfbf;
+}
+
+.assign-modal-buttons {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.assign-modal-submit {
+  width: 100%;
+  height: 44px;
+  border: none;
+  border-radius: 1000px;
+  background: #d2d2ff;
+  font-family: 'Inter', sans-serif;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 24px;
+  color: #262626;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.assign-modal-submit:hover {
+  background: #c0c0f5;
+}
+
+.assign-modal-cancel {
+  width: 100%;
+  height: 44px;
+  border: 1px solid #e8e8e8;
+  border-radius: 1000px;
+  background: none;
+  font-family: 'Inter', sans-serif;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 24px;
+  color: #262626;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.assign-modal-cancel:hover {
+  background: #f5f5f5;
+}

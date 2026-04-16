@@ -15,6 +15,7 @@ export default defineConfig({
         collaborationProfileView: resolve(__dirname, 'collaboration-profile-view.html'),
         myPeople: resolve(__dirname, 'my-people.html'),
         personProfile: resolve(__dirname, 'person-profile.html'),
+        journeys: resolve(__dirname, 'journeys.html'),
       },
     },
   },
