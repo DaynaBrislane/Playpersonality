@@ -19,8 +19,8 @@ body {
 .journeys-header {
   display: flex;
   gap: 19px;
-  align-items: flex-start;
-  margin-bottom: 32px;
+  align-items: center;
+  margin-bottom: 24px;
 }
 
 .journeys-header-icon {
@@ -32,7 +32,9 @@ body {
 .journeys-header-text {
   display: flex;
   flex-direction: column;
-  gap: 12px;
+  gap: 6px;
+  flex: 1;
+  min-width: 0;
 }
 
 .journeys-title {
@@ -49,6 +51,42 @@ body {
   font-weight: 400;
   line-height: 24px;
   color: #262626;
+}
+
+.journeys-learn-more {
+  color: #262626;
+  text-decoration: underline;
+}
+
+.add-goal-btn {
+  background: #555ba2;
+  color: #fff;
+  font-family: 'Inter', sans-serif;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 24px;
+  border: none;
+  border-radius: 24px;
+  padding: 8px 20px;
+  height: 40px;
+  cursor: pointer;
+  flex-shrink: 0;
+  transition: background 0.2s;
+}
+
+.add-goal-btn:hover {
+  background: #474d8f;
+}
+
+/* ===== Other Goals Label ===== */
+.other-goals-label {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 20px;
+  color: #707070;
+  margin-top: 28px;
+  margin-bottom: 14px;
 }
 
 /* ===== Priority Goals Card ===== */
@@ -274,7 +312,7 @@ body {
   align-items: center;
   border-bottom: 1px solid #e8e8e8;
   padding-left: 21px;
-  margin-bottom: 24px;
+  margin-bottom: 20px;
 }
 
 .goals-tab {
@@ -497,18 +535,19 @@ body {
   position: fixed;
   top: 0;
   right: 0;
-  width: 427px;
+  width: 487px;
   height: 100%;
-  background: #fff;
+  background: #f3f3ef;
   box-shadow: -4px -4px 10px rgba(0, 0, 0, 0.1);
   transform: translateX(100%);
   transition: transform 0.3s ease;
   z-index: 100;
   display: flex;
   flex-direction: column;
-  padding: 40px 20px;
-  gap: 20px;
+  padding: 40px 20px 20px;
+  gap: 45px;
   overflow-y: auto;
+  align-items: center;
 }
 
 .side-panel.open {
@@ -525,10 +564,50 @@ body {
   padding: 4px;
 }
 
+.side-panel-card {
+  background: #fff;
+  border: 1px solid #e8e8e8;
+  border-radius: 10px;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  width: 100%;
+}
+
 .side-panel-header {
   display: flex;
   align-items: center;
   gap: 6px;
+}
+
+.side-panel-title {
+  flex: 1;
+  min-width: 0;
+}
+
+.side-panel-actions-icons {
+  display: flex;
+  gap: 4px;
+  flex-shrink: 0;
+}
+
+.side-panel-icon-btn {
+  width: 28px;
+  height: 28px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: none;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  padding: 0;
+  transition: background 0.15s;
+}
+
+.side-panel-icon-btn:hover {
+  background: #f5f5f5;
 }
 
 .side-panel-title {
@@ -539,12 +618,6 @@ body {
   color: #262626;
 }
 
-.side-panel-body {
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
-}
-
 .side-panel-progress {
   display: flex;
   gap: 13px;
@@ -552,7 +625,7 @@ body {
 }
 
 .side-panel-progress .progress-bar {
-  width: 276px;
+  flex: 1;
 }
 
 .side-panel-percent {
@@ -572,19 +645,41 @@ body {
   color: #262626;
 }
 
+.side-panel-actions-section {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
 .side-panel-actions {
   display: flex;
   flex-direction: column;
   gap: 10px;
 }
 
-.side-panel-priority-btn {
+.side-panel-card .action-item {
+  background: #fff;
+}
+
+.side-panel-card .action-item.completed {
+  background: #f3f3ef;
+}
+
+.side-panel-footer {
   margin-top: auto;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+}
+
+.side-panel-priority-btn {
   width: 100%;
   height: 44px;
   border: 1px solid #e8e8e8;
   border-radius: 1000px;
-  background: none;
+  background: #fff;
   font-family: 'Inter', sans-serif;
   font-size: 16px;
   font-weight: 500;
@@ -596,6 +691,21 @@ body {
 
 .side-panel-priority-btn:hover {
   background: #f5f5f5;
+}
+
+.side-panel-created-by {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-family: 'P22 Mackinac Pro', Georgia, serif;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 28px;
+  color: #262626;
+}
+
+.side-panel-created-by svg {
+  flex-shrink: 0;
 }
 
 /* ===== Swap Modal ===== */
@@ -685,7 +795,12 @@ body {
   align-items: center;
 }
 
+/* Header card */
 .member-drawer-header {
+  background: #fff;
+  border: 1px solid #e8e8e8;
+  border-radius: 10px;
+  padding: 15px;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -753,11 +868,7 @@ body {
   width: 100%;
 }
 
-/* Priority goals wrapper */
-.member-drawer-priority-wrap {
-  background: #f3f3ef;
-  border-radius: 10px;
-  padding: 20px;
+.member-drawer-section {
   display: flex;
   flex-direction: column;
   gap: 10px;
@@ -772,19 +883,30 @@ body {
   color: #707070;
 }
 
-.member-drawer-priority-goals {
-  display: flex;
-  flex-direction: column;
-  gap: 5px;
-}
-
-.member-drawer-goal-card {
+/* Priority goals: single white card with dividers */
+.member-drawer-priority-card {
   background: #fff;
   border: 1px solid #e8e8e8;
-  border-radius: 5px;
-  padding: 15px;
+  border-radius: 10px;
+  padding: 20px 0;
   display: flex;
   flex-direction: column;
+  gap: 15px;
+  width: 100%;
+  box-shadow: 4px 4px 9px rgba(0, 0, 0, 0.1);
+}
+
+.member-drawer-priority-row {
+  padding: 0 15px;
+  display: flex;
+  flex-direction: column;
+}
+
+.member-drawer-priority-divider {
+  border: none;
+  border-top: 1px solid #e8e8e8;
+  margin: 0;
+  width: 100%;
 }
 
 .member-drawer-goal-title {
@@ -803,20 +925,11 @@ body {
   color: #707070;
 }
 
-/* Other goals section */
-.member-drawer-other-section {
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-  width: 100%;
+.member-drawer-priority-card .progress-fill {
+  background: #8c8c8c;
 }
 
-.member-drawer-other-goals {
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-}
-
+/* Other goals: individual stacked cards */
 .member-drawer-other-goal-card {
   background: #fff;
   border: 1px solid #e8e8e8;
@@ -825,10 +938,15 @@ body {
   display: flex;
   flex-direction: column;
   gap: 5px;
+  width: 100%;
 }
 
 .member-drawer-other-goal-card .progress-fill {
   background: #8c8c8c;
+}
+
+.member-drawer-assign-btn {
+  background: #fff;
 }
 
 /* ===== Assign Goal Modal ===== */
@@ -934,4 +1052,42 @@ body {
 
 .assign-modal-cancel:hover {
   background: #f5f5f5;
+}
+
+/* ===== Edit Modal ===== */
+.edit-modal {
+  width: 460px;
+}
+
+.edit-modal-label {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 13px;
+  font-weight: 500;
+  line-height: 18px;
+  color: #707070;
+  margin-bottom: -12px;
+}
+
+.edit-modal-textarea {
+  resize: vertical;
+  min-height: 96px;
+  font-family: 'Inter', sans-serif;
+}
+
+/* ===== Delete Modal ===== */
+.delete-modal-msg {
+  font-family: 'Inter', sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 20px;
+  color: #262626;
+}
+
+.delete-modal-confirm {
+  background: #fa7779;
+  color: #fff;
+}
+
+.delete-modal-confirm:hover {
+  background: #e86567;
 }

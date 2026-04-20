@@ -129,7 +129,7 @@ function renderPriorityDetail() {
 
 // ===== Other Goals Grid =====
 function renderOtherGoals() {
-  const grid = document.querySelector('.goals-grid');
+  const grid = document.getElementById('other-goals-grid');
   const others = getOtherGoalIndices();
   grid.innerHTML = others.map(idx => {
     const goal = goalData[idx];
@@ -209,6 +209,85 @@ function closePanel() {
 
 closeBtn.addEventListener('click', closePanel);
 overlay.addEventListener('click', closePanel);
+
+// ===== Edit Modal =====
+const editModal = document.getElementById('edit-modal');
+const editOverlay = document.getElementById('edit-modal-overlay');
+const editTitleInput = document.getElementById('edit-modal-title-input');
+const editDescInput = document.getElementById('edit-modal-desc-input');
+
+function openEditModal() {
+  if (currentGoalIndex === null) return;
+  const goal = goalData[currentGoalIndex];
+  editTitleInput.value = goal.title;
+  editDescInput.value = goal.desc || '';
+  editModal.classList.add('open');
+  editOverlay.classList.add('open');
+  setTimeout(() => editTitleInput.focus(), 50);
+}
+
+function closeEditModal() {
+  editModal.classList.remove('open');
+  editOverlay.classList.remove('open');
+}
+
+function submitEditModal() {
+  if (currentGoalIndex === null) return;
+  const title = editTitleInput.value.trim();
+  if (!title) return;
+  const goal = goalData[currentGoalIndex];
+  goal.title = title;
+  goal.desc = editDescInput.value.trim();
+  document.getElementById('side-panel-title').textContent = goal.title;
+  document.getElementById('side-panel-desc').textContent = goal.desc;
+  renderPriorityList();
+  renderPriorityDetail();
+  renderOtherGoals();
+  closeEditModal();
+}
+
+document.getElementById('side-panel-edit-btn').addEventListener('click', openEditModal);
+document.getElementById('edit-modal-submit').addEventListener('click', submitEditModal);
+document.getElementById('edit-modal-cancel').addEventListener('click', closeEditModal);
+editOverlay.addEventListener('click', closeEditModal);
+editTitleInput.addEventListener('keydown', (e) => {
+  if (e.key === 'Enter') submitEditModal();
+});
+
+// ===== Delete Modal =====
+const deleteModal = document.getElementById('delete-modal');
+const deleteOverlay = document.getElementById('delete-modal-overlay');
+const deleteMsg = document.getElementById('delete-modal-msg');
+
+function openDeleteModal() {
+  if (currentGoalIndex === null) return;
+  const goal = goalData[currentGoalIndex];
+  deleteMsg.textContent = `Are you sure you want to delete "${goal.title}"? This can't be undone.`;
+  deleteModal.classList.add('open');
+  deleteOverlay.classList.add('open');
+}
+
+function closeDeleteModal() {
+  deleteModal.classList.remove('open');
+  deleteOverlay.classList.remove('open');
+}
+
+function submitDeleteModal() {
+  if (currentGoalIndex === null) return;
+  const idx = currentGoalIndex;
+  priorityGoalIndices = priorityGoalIndices
+    .filter(i => i !== idx)
+    .map(i => i > idx ? i - 1 : i);
+  goalData.splice(idx, 1);
+  if (selectedPrioritySlot >= priorityGoalIndices.length) selectedPrioritySlot = 0;
+  closeDeleteModal();
+  closePanel();
+}
+
+document.getElementById('side-panel-delete-btn').addEventListener('click', openDeleteModal);
+document.getElementById('delete-modal-submit').addEventListener('click', submitDeleteModal);
+document.getElementById('delete-modal-cancel').addEventListener('click', closeDeleteModal);
+deleteOverlay.addEventListener('click', closeDeleteModal);
 
 // ===== Swap Modal =====
 const swapModal = document.getElementById('swap-modal');
@@ -393,31 +472,29 @@ function openMemberDrawer(index) {
     <button class="member-drawer-view-profile">View Profile</button>
   `;
 
-  memberDrawerBody.innerHTML = `
-    <div class="member-drawer-priority-wrap">
-      <p class="member-drawer-section-label">Priority Goals</p>
-      <div class="member-drawer-priority-goals">
-        ${member.priorityGoals.map(g => `
-          <div class="member-drawer-goal-card">
-            <span class="member-drawer-goal-title">${g.title}</span>
-            <div class="goal-card-meta">
-              <span class="member-drawer-goal-percent">${g.percent}% complete</span>
-              <div class="progress-bar"><div class="progress-track"><div class="progress-fill" style="width:${g.percent}%"></div></div></div>
-            </div>
-          </div>
-        `).join('')}
+  const priorityRows = member.priorityGoals.map(g => `
+    <div class="member-drawer-priority-row">
+      <span class="member-drawer-goal-title">${g.title}</span>
+      <div class="goal-card-meta">
+        <span class="member-drawer-goal-percent">${g.percent}% complete</span>
+        <div class="progress-bar"><div class="progress-track"><div class="progress-fill" style="width:${g.percent}%"></div></div></div>
       </div>
     </div>
-    <div class="member-drawer-other-section">
+  `).join('<hr class="member-drawer-priority-divider" />');
+
+  memberDrawerBody.innerHTML = `
+    <div class="member-drawer-section">
+      <p class="member-drawer-section-label">Priority Goals</p>
+      <div class="member-drawer-priority-card">${priorityRows}</div>
+    </div>
+    <div class="member-drawer-section">
       <p class="member-drawer-section-label">Other Goals</p>
-      <div class="member-drawer-other-goals">
-        ${member.otherGoals.map(g => `
-          <div class="member-drawer-other-goal-card">
-            <span class="member-drawer-goal-title">${g.title}</span>
-            <div class="progress-bar"><div class="progress-track"><div class="progress-fill" style="width:${g.percent}%"></div></div></div>
-          </div>
-        `).join('')}
-      </div>
+      ${member.otherGoals.map(g => `
+        <div class="member-drawer-other-goal-card">
+          <span class="member-drawer-goal-title">${g.title}</span>
+          <div class="progress-bar"><div class="progress-track"><div class="progress-fill" style="width:${g.percent}%"></div></div></div>
+        </div>
+      `).join('')}
     </div>
   `;
 
@@ -482,7 +559,7 @@ assignInput.addEventListener('keydown', (e) => {
 });
 
 // ===== Tab Switching =====
-const otherTab = document.getElementById('other-goals-tab');
+const yourTab = document.getElementById('your-goals-tab');
 const teamTab = document.getElementById('team-goals-tab');
 
 document.querySelectorAll('.goals-tab').forEach(tab => {
@@ -491,11 +568,11 @@ document.querySelectorAll('.goals-tab').forEach(tab => {
     tab.classList.add('active');
 
     const which = tab.dataset.tab;
-    if (which === 'other') {
-      otherTab.style.display = '';
+    if (which === 'your') {
+      yourTab.style.display = '';
       teamTab.style.display = 'none';
     } else {
-      otherTab.style.display = 'none';
+      yourTab.style.display = 'none';
       teamTab.style.display = '';
     }
   });
