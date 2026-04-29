@@ -104,6 +104,17 @@ if (sidebarMyPeople) sidebarMyPeople.addEventListener('click', (e) => {
   sidebarMyPeople.classList.add('active');
 });
 
+// Nadia's Notes sidebar link
+const sidebarNadiasNotes = document.getElementById('sidebar-nadias-notes');
+if (sidebarNadiasNotes) sidebarNadiasNotes.addEventListener('click', (e) => {
+  e.preventDefault();
+  mainContent.style.display = 'none';
+  quizOverlay.style.display = '';
+  quizIframe.src = '/nadias-notes.html';
+  document.querySelectorAll('.sidebar-item').forEach(i => i.classList.remove('active'));
+  sidebarNadiasNotes.classList.add('active');
+});
+
 // Journeys sidebar link
 const sidebarJourneys = document.getElementById('sidebar-journeys');
 if (sidebarJourneys) sidebarJourneys.addEventListener('click', (e) => {

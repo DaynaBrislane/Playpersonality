@@ -1,0 +1,640 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Nadia's Notes</title>
+  <link rel="stylesheet" href="collaboration-profile-view.css" />
+  <link rel="stylesheet" href="nadias-notes.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;700&display=swap" rel="stylesheet" />
+</head>
+<body>
+  <main class="nn-page">
+    <!-- Profile Card -->
+    <div class="cpv-profile-card">
+      <button class="profile-edit-btn">
+        <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M11.333 1.333a1.886 1.886 0 0 1 2.667 0 1.886 1.886 0 0 1 0 2.667l-.667.667-2.667-2.667.667-.667zM9.333 3.333l-7 7V13h2.667l7-7-2.667-2.667z" fill="#8c8c8c"/></svg>
+      </button>
+      <div class="cpv-profile-top">
+        <div class="cpv-identity">
+          <img src="/collab-profiles/avatar.svg" alt="" class="cpv-avatar" />
+          <h2 class="cpv-name">Dayna Brislane</h2>
+        </div>
+        <span class="cpv-badge"><img src="/collab-profiles/campaigner-badge.svg" alt="" class="cpv-badge-dot" />Campaigner</span>
+      </div>
+      <p class="cpv-desc">You're a campaigner. Energetic and enthusiastic visionaries who spark new ideas and inspire others with their passion and creativity</p>
+      <div class="cpv-meta-row">
+        <div class="cpv-meta-item"><span class="cpv-meta-label">Role</span><span class="cpv-meta-value">Product Designer</span></div>
+        <div class="cpv-meta-item"><span class="cpv-meta-label">Team</span><span class="cpv-meta-value">Unknown</span></div>
+        <div class="cpv-meta-item"><span class="cpv-meta-label">Level</span><span class="cpv-meta-value">Unknown</span></div>
+        <div class="cpv-meta-item"><span class="cpv-meta-label">Organization</span><span class="cpv-meta-value">Valence</span></div>
+      </div>
+    </div>
+
+    <!-- Chat Input -->
+    <div class="cpv-chat-box">
+      <div class="cpv-chat-input-row">
+        <p class="cpv-chat-placeholder">Ask Nadia anything about your work style</p>
+      </div>
+      <div class="cpv-chat-toolbar">
+        <div class="cpv-chat-left">
+          <button class="cpv-chat-btn"><img src="/collab-profiles/pp-attach.svg" alt="" class="cpv-attach-icon" /></button>
+          <button class="cpv-chat-btn"><img src="/collab-profiles/pp-audio.svg" alt="" /></button>
+        </div>
+        <div class="cpv-chat-right">
+          <button class="cpv-chat-btn"><img src="/collab-profiles/pp-mic.svg" alt="" /></button>
+          <button class="cpv-chat-send"><svg width="40" height="40" viewBox="0 0 40 40" fill="none"><circle cx="20" cy="20" r="20" fill="#555BA2"/><path d="M20 26V14M20 14L15 19M20 14L25 19" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Action Buttons -->
+    <div class="cpv-action-btns">
+      <button class="cpv-action-btn" data-prompt="What is something special about me and my work that I bring to my team?"><img src="/collab-profiles/action-shine.svg" alt="" class="cpv-action-icon" />Where you shine</button>
+      <button class="cpv-action-btn" data-prompt="I need space to think but my team likes to discuss everything. How can I navigate this?"><img src="/collab-profiles/action-collab.svg" alt="" class="cpv-action-icon" />Collaborating</button>
+      <button class="cpv-action-btn" data-prompt="What is one thing that will help me get ahead in my career?"><img src="/collab-profiles/action-improving.svg" alt="" class="cpv-action-icon" />Improving</button>
+      <button class="cpv-action-btn" data-prompt="What is one thing that my boss secretly wishes I was better at?"><img src="/collab-profiles/action-blindspots.svg" alt="" class="cpv-action-icon" />Hidden blindspots</button>
+    </div>
+
+    <!-- Sub-tabs -->
+    <nav class="nn-tabs">
+      <button class="nn-tab active" data-tab="context">Your Context</button>
+      <button class="nn-tab" data-tab="perspective">Perspective</button>
+      <button class="nn-tab" data-tab="insights">Insights</button>
+      <button class="nn-tab" data-tab="patterns">Patterns</button>
+    </nav>
+
+    <!-- ===== Tab Panel: Nadia's Context ===== -->
+    <div class="nn-panel" data-panel="context">
+
+    <!-- Two column body -->
+    <div class="nn-body">
+      <!-- Left column -->
+      <section class="nn-col nn-col-left">
+        <h2 class="nn-col-title">Building context on you</h2>
+
+        <!-- General -->
+        <article class="nn-card">
+          <div class="nn-card-header">
+            <div class="nn-card-head-left">
+              <span class="nn-dot" style="background:#E868B3"></span>
+              <span class="nn-card-title">General</span>
+            </div>
+            <button class="nn-icon-btn" aria-label="Edit">
+              <svg width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M11.5 1.5l3 3-9 9H2.5v-3l9-9z" stroke="#8c8c8c" stroke-width="1.3" stroke-linejoin="round"/></svg>
+            </button>
+          </div>
+          <div class="nn-card-divider"></div>
+          <dl class="nn-kv">
+            <div class="nn-kv-row"><dt>Role</dt><dd>Product Designer</dd></div>
+            <div class="nn-kv-row"><dt>Perspective</dt><dd>Campaigner</dd></div>
+            <div class="nn-kv-row"><dt>Level</dt><dd>Principle</dd></div>
+            <div class="nn-kv-row"><dt>Tenure</dt><dd>4 Years 3 months</dd></div>
+            <div class="nn-kv-row"><dt>Reports to</dt><dd>VP Product: Maya Rosen</dd></div>
+            <div class="nn-kv-row"><dt>Team</dt><dd class="nn-kv-link">Unknown</dd></div>
+          </dl>
+        </article>
+
+        <!-- Workstyle -->
+        <article class="nn-card">
+          <div class="nn-card-header">
+            <div class="nn-card-head-left">
+              <span class="nn-dot" style="background:#C0EFB7"></span>
+              <span class="nn-card-title">Workstyle</span>
+            </div>
+            <button class="nn-icon-btn" aria-label="Edit">
+              <svg width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M11.5 1.5l3 3-9 9H2.5v-3l9-9z" stroke="#8c8c8c" stroke-width="1.3" stroke-linejoin="round"/></svg>
+            </button>
+          </div>
+          <div class="nn-card-divider"></div>
+          <div class="nn-workstyle">
+            <span class="nn-tag">
+              <span class="nn-tag-dot" style="background:#C0EFB7"></span>
+              Campaigner
+            </span>
+            <p class="nn-workstyle-desc">Energetic and enthusiastic visionaries who spark new ideas and inspire others with their passion and creativity</p>
+          </div>
+        </article>
+
+        <!-- Memory -->
+        <article class="nn-card">
+          <div class="nn-card-header">
+            <div class="nn-card-head-left">
+              <span class="nn-dot" style="background:#FFD3A8"></span>
+              <span class="nn-card-title">Memory</span>
+            </div>
+            <a class="nn-card-link" href="#">View all</a>
+          </div>
+          <div class="nn-card-divider"></div>
+          <div class="nn-memory-list">
+            <div class="nn-memory-item">
+              <span class="nn-memory-bar"></span>
+              <div class="nn-memory-body">
+                <p>You bring up your manager when we discuss career moves &mdash; four of the last five times.</p>
+                <div class="nn-memory-actions">
+                  <button class="nn-memory-action">Resonates</button>
+                  <button class="nn-memory-action">Dismiss</button>
+                </div>
+              </div>
+            </div>
+            <div class="nn-memory-item">
+              <span class="nn-memory-bar"></span>
+              <div class="nn-memory-body">
+                <p>You seem to decide faster when you&rsquo;ve written the problem down first &mdash; tentative, seen twice.</p>
+                <div class="nn-memory-actions">
+                  <button class="nn-memory-action">Resonates</button>
+                  <button class="nn-memory-action">Dismiss</button>
+                </div>
+              </div>
+            </div>
+            <div class="nn-memory-item">
+              <span class="nn-memory-bar"></span>
+              <div class="nn-memory-body">
+                <p>You&rsquo;ve mentioned feeling stretched thin in 4 of the last 6 sessions</p>
+                <div class="nn-memory-actions">
+                  <button class="nn-memory-action">Resonates</button>
+                  <button class="nn-memory-action">Dismiss</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <!-- Priority Goals -->
+        <article class="nn-card">
+          <div class="nn-card-header">
+            <div class="nn-card-head-left">
+              <span class="nn-dot" style="background:#91D3E1"></span>
+              <span class="nn-card-title">Your Priority Goals</span>
+            </div>
+            <a class="nn-card-link" href="#">View all</a>
+          </div>
+          <div class="nn-goal">
+            <p class="nn-goal-label">Q1 goals for next quarter</p>
+            <p class="nn-goal-title">Learn how to do executive presentations</p>
+            <div class="nn-progress"><span class="nn-progress-fill" style="width:25%"></span></div>
+          </div>
+          <div class="nn-goal">
+            <p class="nn-goal-label">Strategic Goal</p>
+            <p class="nn-goal-title">Hire a new principle product designer</p>
+            <div class="nn-progress"><span class="nn-progress-fill" style="width:70%"></span></div>
+          </div>
+          <div class="nn-goal">
+            <p class="nn-goal-label">Active Focus</p>
+            <p class="nn-goal-title">Hire a new principle product designer</p>
+            <div class="nn-progress"><span class="nn-progress-fill" style="width:45%"></span></div>
+          </div>
+        </article>
+
+        <!-- Your Team -->
+        <article class="nn-card">
+          <div class="nn-card-header">
+            <div class="nn-card-head-left">
+              <span class="nn-dot" style="background:#A0A3F3"></span>
+              <span class="nn-card-title">Your Team</span>
+            </div>
+            <button class="nn-icon-btn" aria-label="Edit">
+              <svg width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M11.5 1.5l3 3-9 9H2.5v-3l9-9z" stroke="#8c8c8c" stroke-width="1.3" stroke-linejoin="round"/></svg>
+            </button>
+          </div>
+          <div class="nn-card-divider"></div>
+          <div class="nn-team">
+            <div class="nn-team-row">
+              <div class="nn-team-left">
+                <span class="nn-avatar" style="background:#E868B3"></span>
+                <div class="nn-team-info"><p class="nn-team-name">Priya Kapoor</p><p class="nn-team-role">Product Designer</p></div>
+              </div>
+              <span class="nn-team-tag">Manager</span>
+            </div>
+            <div class="nn-team-row">
+              <div class="nn-team-left">
+                <span class="nn-avatar" style="background:#E8A852"></span>
+                <div class="nn-team-info"><p class="nn-team-name">Elena Mora</p><p class="nn-team-role">Product Designer</p></div>
+              </div>
+            </div>
+            <div class="nn-team-row">
+              <div class="nn-team-left">
+                <span class="nn-avatar" style="background:#D2D2FF"></span>
+                <div class="nn-team-info"><p class="nn-team-name">Jordan Lee</p><p class="nn-team-role">Product Designer</p></div>
+              </div>
+            </div>
+            <div class="nn-team-row">
+              <div class="nn-team-left">
+                <span class="nn-avatar" style="background:#FFD3A8"></span>
+                <div class="nn-team-info"><p class="nn-team-name">Sam Winters</p><p class="nn-team-role">Product Designer</p></div>
+              </div>
+            </div>
+            <div class="nn-team-row">
+              <div class="nn-team-left">
+                <span class="nn-avatar" style="background:#F08080"></span>
+                <div class="nn-team-info"><p class="nn-team-name">Marcus Reeves</p><p class="nn-team-role">Product Designer</p></div>
+              </div>
+            </div>
+            <div class="nn-team-row">
+              <div class="nn-team-left">
+                <span class="nn-avatar" style="background:#91D3E1"></span>
+                <div class="nn-team-info"><p class="nn-team-name">Alex Nguyen</p><p class="nn-team-role">Product Designer</p></div>
+              </div>
+            </div>
+          </div>
+        </article>
+      </section>
+
+      <!-- Right column -->
+      <aside class="nn-col nn-col-right">
+        <h2 class="nn-col-title">Gaps in my knowledge</h2>
+
+        <!-- Pattern card -->
+        <article class="nn-pattern-card">
+          <div class="nn-pattern-header">
+            <div class="nn-card-head-left">
+              <span class="nn-dot" style="background:#E868B3;width:9px;height:9px"></span>
+              <span class="nn-pattern-label">Your Patterns</span>
+            </div>
+            <span class="nn-pattern-counter">2 of 5</span>
+          </div>
+          <p class="nn-pattern-question">Is family actually a driver, or am I over-reading it?</p>
+          <p class="nn-pattern-sub">You mention weekends and school pickup often. I don&rsquo;t want to assume.</p>
+          <div class="nn-pattern-options">
+            <button class="nn-option">Yes</button>
+            <button class="nn-option">Kind of</button>
+            <button class="nn-option">Not really</button>
+          </div>
+          <div class="nn-pattern-divider"></div>
+          <div class="nn-pattern-footer">
+            <button class="nn-pattern-nav" aria-label="Previous">
+              <svg width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M10 3l-5 5 5 5" stroke="#8c8c8c" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </button>
+            <span class="nn-pattern-skip">Skip</span>
+          </div>
+        </article>
+
+        <!-- Category progress bars -->
+        <div class="nn-cat">
+          <div class="nn-cat-head">
+            <span class="nn-dot" style="background:#E868B3"></span>
+            <span class="nn-cat-label">General</span>
+          </div>
+          <div class="nn-cat-bar"><span class="nn-cat-fill" style="width:53%;background:#E868B3"></span></div>
+        </div>
+        <div class="nn-cat">
+          <div class="nn-cat-head">
+            <span class="nn-dot" style="background:#C0EFB7"></span>
+            <span class="nn-cat-label">Workstyle</span>
+          </div>
+          <div class="nn-cat-bar"><span class="nn-cat-fill" style="width:100%;background:#C0EFB7"></span></div>
+        </div>
+        <div class="nn-cat">
+          <div class="nn-cat-head">
+            <span class="nn-dot" style="background:#FFD3A8"></span>
+            <span class="nn-cat-label">Memory</span>
+          </div>
+          <div class="nn-cat-bar"><span class="nn-cat-fill" style="width:75%;background:#FFD3A8"></span></div>
+        </div>
+        <div class="nn-cat">
+          <div class="nn-cat-head">
+            <span class="nn-dot" style="background:#91D3E1"></span>
+            <span class="nn-cat-label">Goals</span>
+          </div>
+          <div class="nn-cat-bar"><span class="nn-cat-fill" style="width:73%;background:#91D3E1"></span></div>
+        </div>
+        <div class="nn-cat">
+          <div class="nn-cat-head">
+            <span class="nn-dot" style="background:#A0A3F3"></span>
+            <span class="nn-cat-label">Your Team</span>
+          </div>
+          <div class="nn-cat-bar"><span class="nn-cat-fill" style="width:27%;background:#A0A3F3"></span></div>
+        </div>
+      </aside>
+    </div>
+
+    </div><!-- end Context panel -->
+
+    <!-- ===== Tab Panel: Perspective ===== -->
+    <div class="nn-panel" data-panel="perspective" style="display:none">
+
+      <!-- Your Perspective -->
+      <section class="pp-section">
+        <h3 class="pp-section-title">Your Perspective</h3>
+        <div class="pp-perspective-card">
+          <div class="pp-perspective-head">
+            <div class="pp-badge">
+              <span class="pp-badge-dot"></span>
+              <strong>Campaigner</strong>
+            </div>
+            <div class="pp-perspective-divider"></div>
+            <p class="pp-perspective-desc">You&rsquo;re a campaigner. Energetic and enthusiastic visionaries who spark new ideas and inspire others with their passion and creativity</p>
+          </div>
+          <div class="pp-traits">
+          <div class="trait-row">
+            <div class="trait-label">
+              <img src="/collab-profiles/energy-icon.svg" alt="" class="trait-icon" />
+              <strong>Energy</strong>
+            </div>
+            <div class="trait-bar-container">
+              <div class="trait-bar-bg">
+                <div class="trait-bar-fill" style="background:#e868b3; left:13.75%; width:26.83%"></div>
+              </div>
+              <div class="trait-tooltip" style="left:27%">
+                <span class="tooltip-dot" style="background:#e868b3"></span>
+                Primarily Extroverted
+              </div>
+            </div>
+            <div class="trait-labels">
+              <span>Extroverted</span>
+              <span>Introverted</span>
+            </div>
+          </div>
+          <div class="trait-row">
+            <div class="trait-label">
+              <img src="/collab-profiles/info-proc-icon.svg?v=2" alt="" class="trait-icon" />
+              <strong>Information Processing</strong>
+            </div>
+            <div class="trait-bar-container">
+              <div class="trait-bar-bg">
+                <div class="trait-bar-fill" style="background:#ffd094; left:41.69%; width:26.82%"></div>
+              </div>
+              <div class="trait-tooltip" style="left:55%">
+                <span class="tooltip-dot" style="background:#ffd094"></span>
+                Skews Intuiting
+              </div>
+            </div>
+            <div class="trait-labels">
+              <span>Observing</span>
+              <span>Intuiting</span>
+            </div>
+          </div>
+          <div class="trait-row">
+            <div class="trait-label">
+              <img src="/collab-profiles/decision-icon.svg?v=2" alt="" class="trait-icon" />
+              <strong>Decision Making</strong>
+            </div>
+            <div class="trait-bar-container">
+              <div class="trait-bar-bg">
+                <div class="trait-bar-fill" style="background:#a0a3f3; left:63.89%; width:28.11%"></div>
+              </div>
+              <div class="trait-tooltip" style="left:78%">
+                <span class="tooltip-dot" style="background:#a0a3f3"></span>
+                Primarily Feeling
+              </div>
+            </div>
+            <div class="trait-labels">
+              <span>Thinking</span>
+              <span>Feeling</span>
+            </div>
+          </div>
+          <div class="trait-row">
+            <div class="trait-label">
+              <div class="org-icon">
+                <div class="org-square"></div>
+                <div class="org-square"></div>
+                <div class="org-square"></div>
+                <div class="org-square"></div>
+              </div>
+              <strong>Organization</strong>
+            </div>
+            <div class="trait-bar-container">
+              <div class="trait-bar-bg">
+                <div class="trait-bar-fill" style="background:#c0efb7; left:10.65%; width:32.7%"></div>
+              </div>
+              <div class="trait-tooltip" style="left:19%">
+                <span class="tooltip-dot" style="background:#c0efb7"></span>
+                Primarily Structured
+              </div>
+            </div>
+            <div class="trait-labels">
+              <span>Structured</span>
+              <span>Exploratory</span>
+            </div>
+          </div>
+          </div><!-- end .pp-traits -->
+        </div>
+      </section>
+
+      <!-- Dimension Deep Dive -->
+      <section class="pp-section">
+        <h3 class="pp-section-title">Dimension Deep Dive</h3>
+        <div class="pp-dim-tabs">
+          <button class="pp-dim-tab active" data-dim="energy">
+            <img src="/collab-profiles/dim-energy.svg" alt="" class="pp-dim-icon" />
+            Energy and Communication
+          </button>
+          <button class="pp-dim-tab" data-dim="info">
+            <img src="/collab-profiles/dim-info.svg" alt="" class="pp-dim-icon" />
+            Understanding
+          </button>
+          <button class="pp-dim-tab" data-dim="decision">
+            <img src="/collab-profiles/dim-decision.svg" alt="" class="pp-dim-icon" />
+            Decision Making
+          </button>
+          <button class="pp-dim-tab" data-dim="org">
+            <img src="/collab-profiles/dim-org.svg" alt="" class="pp-dim-icon" />
+            Organization
+          </button>
+        </div>
+
+        <!-- Energy dimension content -->
+        <div class="pp-dim-panel" data-dim="energy">
+          <aside class="pp-subtabs">
+            <button class="pp-subtab active">Expressiveness</button>
+            <button class="pp-subtab">Proactive Communication</button>
+            <button class="pp-subtab">Approach to Learning</button>
+            <button class="pp-subtab">Preferred Social Setting</button>
+            <button class="pp-subtab">Projection of Energy</button>
+          </aside>
+          <div class="pp-dim-divider"></div>
+          <div class="pp-stat-card">
+            <div class="pp-stat-head">
+              <div class="pp-stat-titleblock">
+                <h4 class="pp-stat-title">You lean strongly expressive</h4>
+                <p class="pp-stat-meta">More Expressive than 78% of people at your org</p>
+              </div>
+              <div class="pp-slider">
+                <div class="pp-slider-track">
+                  <span class="pp-slider-fill" style="background:#E868B3; left:13.75%; width:26.83%"></span>
+                </div>
+                <div class="pp-slider-labels">
+                  <span>Expressive</span>
+                  <span>Balanced</span>
+                  <span>Contained</span>
+                </div>
+              </div>
+            </div>
+            <p class="pp-stat-desc">You are often found where the action is, and don&rsquo;t mind being the center of attention. You are upbeat, often displaying wit and humor when you talk with others. You may get bored without activity, so you often make it happen and get others to join in with you.</p>
+          </div>
+        </div>
+
+        <div class="pp-dim-panel" data-dim="info" style="display:none">
+          <aside class="pp-subtabs">
+            <button class="pp-subtab active">Handling Ambiguity</button>
+            <button class="pp-subtab">Assessing Feasibility</button>
+            <button class="pp-subtab">Considering Precedent</button>
+            <button class="pp-subtab">Practicality</button>
+            <button class="pp-subtab">Experimenting</button>
+          </aside>
+          <div class="pp-dim-divider"></div>
+          <div class="pp-stat-card">
+            <div class="pp-stat-head">
+              <div class="pp-stat-titleblock">
+                <h4 class="pp-stat-title">You lean strongly abstract</h4>
+                <p class="pp-stat-meta">More abstract than 84% of people at your org</p>
+              </div>
+              <div class="pp-slider">
+                <div class="pp-slider-track">
+                  <span class="pp-slider-fill" style="background:#FFD28A; left:25%; width:25%"></span>
+                </div>
+                <div class="pp-slider-labels">
+                  <span>Concrete</span>
+                  <span>Balanced</span>
+                  <span>Abstract</span>
+                </div>
+              </div>
+            </div>
+            <p class="pp-stat-desc">You like to get beneath the surface level, infer connections and read between the lines. You enjoy creative processes such as brainstorming. You may find it hard to back up your big ideas with detailed plans.</p>
+          </div>
+        </div>
+
+        <div class="pp-dim-panel" data-dim="decision" style="display:none">
+          <aside class="pp-subtabs">
+            <button class="pp-subtab active">Handling Adversity</button>
+            <button class="pp-subtab">Objectiveness</button>
+            <button class="pp-subtab">Seeking Alignment</button>
+            <button class="pp-subtab">Abstract Language</button>
+            <button class="pp-subtab">Enforcing Compliance</button>
+          </aside>
+          <div class="pp-dim-divider"></div>
+          <div class="pp-stat-card">
+            <div class="pp-stat-head">
+              <div class="pp-stat-titleblock">
+                <h4 class="pp-stat-title">You lean strongly accepting</h4>
+                <p class="pp-stat-meta">More accepting than 81% of people at your org</p>
+              </div>
+              <div class="pp-slider">
+                <div class="pp-slider-track">
+                  <span class="pp-slider-fill" style="background:#B8BBF9; left:18%; width:25%"></span>
+                </div>
+                <div class="pp-slider-labels">
+                  <span>Critical</span>
+                  <span>Balanced</span>
+                  <span>Accepting</span>
+                </div>
+              </div>
+            </div>
+            <p class="pp-stat-desc">Your environment is human and social, and you seek to affirm a truth that focuses on the value and worth of other people&rsquo;s ideas and viewpoints. You view harmony as important to human well-being, and go out of your way to make sure it stays intact.</p>
+          </div>
+        </div>
+
+        <div class="pp-dim-panel" data-dim="org" style="display:none">
+          <aside class="pp-subtabs">
+            <button class="pp-subtab active">Planning</button>
+            <button class="pp-subtab">Adaptability</button>
+            <button class="pp-subtab">Follow-through</button>
+          </aside>
+          <div class="pp-dim-divider"></div>
+          <div class="pp-stat-card">
+            <div class="pp-stat-head">
+              <div class="pp-stat-titleblock">
+                <h4 class="pp-stat-title">You lean structured</h4>
+                <p class="pp-stat-meta">More Structured than 56% of people at your org</p>
+              </div>
+              <div class="pp-slider">
+                <div class="pp-slider-track">
+                  <span class="pp-slider-fill" style="background:#BFE6A0; left:10%; width:32%"></span>
+                </div>
+                <div class="pp-slider-labels">
+                  <span>Structured</span>
+                  <span>Balanced</span>
+                  <span>Exploratory</span>
+                </div>
+              </div>
+            </div>
+            <p class="pp-stat-desc">You like clear plans and deadlines. You feel best when you can map work into structured steps and make steady progress against a defined plan.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Strengths -->
+      <section class="pp-section">
+        <h3 class="pp-section-title">Strengths</h3>
+        <div class="pp-cards-grid">
+          <div class="pp-mini-card">
+            <img src="/collab-profiles/wwm-energy.svg" alt="" class="pp-mini-icon" />
+            <div class="pp-mini-body">
+              <p class="pp-mini-title">Exceptional People Skills</p>
+              <p class="pp-mini-desc">Skilled in understanding emotions, building rapport, and connecting with many diverse groups.</p>
+            </div>
+            <div class="pp-mini-divider"></div>
+            <a href="#" class="pp-mini-link">Discuss</a>
+          </div>
+          <div class="pp-mini-card">
+            <img src="/collab-profiles/wwm-info.svg" alt="" class="pp-mini-icon" />
+            <div class="pp-mini-body">
+              <p class="pp-mini-title">Adaptability and Creativity</p>
+              <p class="pp-mini-desc">Thrives in unpredictable, fast-paced environments, often finding innovative solutions to complex problems.</p>
+            </div>
+            <div class="pp-mini-divider"></div>
+            <a href="#" class="pp-mini-link">Discuss</a>
+          </div>
+          <div class="pp-mini-card">
+            <img src="/collab-profiles/wwm-decision.svg" alt="" class="pp-mini-icon" />
+            <div class="pp-mini-body">
+              <p class="pp-mini-title">Big Picture Thinkers</p>
+              <p class="pp-mini-desc">Strong ability to zoom out and see a strategic vision. Adept at inspiring others toward a common goal.</p>
+            </div>
+            <div class="pp-mini-divider"></div>
+            <a href="#" class="pp-mini-link">Discuss</a>
+          </div>
+        </div>
+      </section>
+
+      <!-- Growth Areas -->
+      <section class="pp-section">
+        <h3 class="pp-section-title">Growth Areas</h3>
+        <div class="pp-cards-grid">
+          <div class="pp-mini-card">
+            <img src="/collab-profiles/strength-people.svg" alt="" class="pp-mini-icon" />
+            <div class="pp-mini-body">
+              <p class="pp-mini-title">Exceptional People Skills</p>
+              <p class="pp-mini-desc">Skilled in understanding emotions, building rapport, and connecting with many diverse groups.</p>
+            </div>
+            <div class="pp-mini-divider"></div>
+            <a href="#" class="pp-mini-link">Discuss</a>
+          </div>
+          <div class="pp-mini-card">
+            <span class="pp-mini-icon pp-glyph pp-glyph-grid"></span>
+            <div class="pp-mini-body">
+              <p class="pp-mini-title">Adaptability and Creativity</p>
+              <p class="pp-mini-desc">Thrives in unpredictable, fast-paced environments, often finding innovative solutions to complex problems.</p>
+            </div>
+            <div class="pp-mini-divider"></div>
+            <a href="#" class="pp-mini-link">Discuss</a>
+          </div>
+          <div class="pp-mini-card">
+            <img src="/collab-profiles/strength-bigpicture.svg" alt="" class="pp-mini-icon" />
+            <div class="pp-mini-body">
+              <p class="pp-mini-title">Big Picture Thinkers</p>
+              <p class="pp-mini-desc">Strong ability to zoom out and see a strategic vision. Adept at inspiring others toward a common goal.</p>
+            </div>
+            <div class="pp-mini-divider"></div>
+            <a href="#" class="pp-mini-link">Discuss</a>
+          </div>
+        </div>
+      </section>
+
+    </div><!-- end Perspective panel -->
+
+    <!-- Other tabs (placeholders) -->
+    <div class="nn-panel nn-panel-empty" data-panel="insights" style="display:none">
+      <p class="nn-empty-msg">Insights coming soon.</p>
+    </div>
+    <div class="nn-panel nn-panel-empty" data-panel="patterns" style="display:none">
+      <p class="nn-empty-msg">Patterns coming soon.</p>
+    </div>
+
+  </main>
+
+  <script type="module" src="nadias-notes.js"></script>
+</body>
+</html>
