@@ -60,6 +60,20 @@ body {
   flex-shrink: 0;
   box-shadow: inset 0 0 0 1.5px #292929;
 }
+.pp-dynamic-svg .dyn-pink {
+  animation: pp-dyn-pink-in 1s cubic-bezier(0.22, 1, 0.36, 1) 0.15s both;
+}
+.pp-dynamic-svg .dyn-green {
+  animation: pp-dyn-green-in 1s cubic-bezier(0.22, 1, 0.36, 1) 0.15s both;
+}
+@keyframes pp-dyn-pink-in {
+  from { transform: translate(-22px, 14px); }
+  to { transform: translate(0, 0); }
+}
+@keyframes pp-dyn-green-in {
+  from { transform: translate(22px, -14px); }
+  to { transform: translate(0, 0); }
+}
 
 .pp-name {
   font-family: 'P22 Mackinac Pro', Georgia, serif;
@@ -1253,3 +1267,38 @@ body {
   cursor: pointer;
 }
 .pn-modal-delete:hover { background: #c82333; }
+
+/* How Grace works best section (figma 1180:25219) */
+.pp-grace-hwwb {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-bottom: 40px;
+}
+.pp-grace-hwwb-title {
+  font-family: 'P22 Mackinac Pro', Georgia, serif;
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 28px;
+  color: #262626;
+}
+.pp-grace-hwwb-card {
+  width: 100%;
+  gap: 30px;
+}
+.pp-grace-added-header {
+  margin-top: 10px;
+}
+.pp-grace-hwwb .hwwb-lead {
+  font-size: 16px;
+  line-height: 24px;
+}
+.pp-grace-hwwb .hwwb-tip-label {
+  font-size: 14px;
+  line-height: 20px;
+  width: 48px;
+}
+.pp-grace-hwwb .hwwb-tip-text {
+  font-size: 14px;
+  line-height: 20px;
+}

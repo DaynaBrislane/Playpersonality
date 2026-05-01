@@ -221,24 +221,37 @@ body {
 }
 
 .person-tip {
-  font-size: 16px;
-  line-height: 24px;
-  color: black;
-  padding: 0 10px;
-}
-
-.person-tags {
-  display: flex;
-  gap: 10px;
-  flex-wrap: wrap;
-}
-.person-tag {
-  background: #f5f5f5;
-  border-radius: 100px;
-  padding: 3px 10px;
+  font-family: 'Inter', sans-serif;
   font-size: 14px;
   line-height: 20px;
-  color: black;
+  color: #000;
+}
+
+.person-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+}
+.person-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  background: #f5f5f5;
+  border-radius: 100px;
+  padding: 5px 10px;
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 14px;
+  line-height: 20px;
+  color: #262626;
+}
+.person-pill-dot {
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  border: 1.5px solid #262626;
+  box-sizing: border-box;
+  display: inline-block;
 }
 
 .btn-connect {
@@ -400,8 +413,8 @@ body {
 .btn-request-connect {
   width: 100%;
   padding: 10px 20px;
-  background: #d2d2ff;
-  border: none;
+  background: #fff;
+  border: 1px solid #e8e8e8;
   border-radius: 100px;
   font-family: 'Inter', sans-serif;
   font-weight: 500;
@@ -411,7 +424,7 @@ body {
   cursor: pointer;
 }
 .btn-request-connect:hover {
-  background: #c4c4ff;
+  background: #f5f5f5;
 }
 
 /* No profile tooltip */

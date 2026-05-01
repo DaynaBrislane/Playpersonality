@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Person Profile - Grace MacNamara</title>
   <link rel="stylesheet" href="person-profile.css" />
+  <link rel="stylesheet" href="collaboration-profile-view.css" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@400;500&display=swap" rel="stylesheet" />
@@ -103,7 +104,22 @@
     <div class="pp-dynamic-card">
       <div class="pp-dynamic-top">
         <div class="pp-dynamic-left">
-          <img src="/collab-profiles/dynamic-icon.svg" alt="" class="pp-dynamic-icon" />
+          <svg class="pp-dynamic-icon pp-dynamic-svg" width="67" height="62" viewBox="0 0 67 62" fill="none" aria-hidden="true">
+            <circle class="dyn-green" cx="40.6322" cy="25.5424" r="24.4319" fill="#BEFEB7" stroke="black" stroke-width="2.06467"/>
+            <circle class="dyn-pink" cx="25.5619" cy="36.1928" r="24.4319" fill="#F4298F" stroke="black" stroke-width="2.06467"/>
+            <mask id="dyn-mask-green" style="mask-type:alpha" maskUnits="userSpaceOnUse" x="15" y="0" width="52" height="51">
+              <circle class="dyn-green" cx="40.6342" cy="25.4643" r="24.4319" fill="#BEFEB7" stroke="black" stroke-width="2.06467"/>
+            </mask>
+            <g mask="url(#dyn-mask-green)">
+              <circle class="dyn-pink" cx="25.5639" cy="36.1166" r="24.4319" fill="#FFD3A8" stroke="black" stroke-width="2.06467"/>
+            </g>
+            <mask id="dyn-mask-pink" style="mask-type:alpha" maskUnits="userSpaceOnUse" x="0" y="11" width="51" height="51">
+              <circle class="dyn-pink" cx="25.4635" cy="36.4644" r="24.4319" transform="rotate(-180 25.4635 36.4644)" fill="#BEFEB7" stroke="black" stroke-width="2.06467"/>
+            </mask>
+            <g mask="url(#dyn-mask-pink)">
+              <circle class="dyn-green" cx="40.6314" cy="26.0328" r="24.4319" transform="rotate(-180 40.6314 26.0328)" stroke="black" stroke-width="2.06467"/>
+            </g>
+          </svg>
           <div class="pp-dynamic-title-area">
             <h2 class="pp-dynamic-title">Your Dynamic with Grace</h2>
             <div class="pp-dynamic-badges">
@@ -171,8 +187,96 @@
       </div>
     </div>
 
-    <!-- How to work with Grace -->
-    <div class="pp-hww-section">
+    <!-- How Grace works best -->
+    <section class="pp-grace-hwwb">
+      <h2 class="pp-grace-hwwb-title">How Grace works best</h2>
+      <div class="hwwb-card pp-grace-hwwb-card">
+        <div class="hwwb-scenario">
+          <img src="/collab-profiles/wwm-energy.svg" alt="" class="hwwb-icon" />
+          <div class="hwwb-content">
+            <h3 class="hwwb-scenario-title">What energizes her</h3>
+            <p class="hwwb-lead">She gets energy from people, ideas, possibility, and meaningful work that connects to a real human impact. She&rsquo;s at her best when you&rsquo;re building momentum together and there&rsquo;s room to be creative.</p>
+            <div class="hwwb-tip"><span class="hwwb-tip-label">Do</span><span class="hwwb-tip-text">Bring energy and possibility, because she lights up around forward motion.</span></div>
+            <div class="hwwb-tip"><span class="hwwb-tip-label">Avoid</span><span class="hwwb-tip-text">Reducing work to routine tasks, because monotony drains her focus quickly.</span></div>
+          </div>
+        </div>
+        <div class="hwwb-divider"></div>
+
+        <div class="hwwb-scenario">
+          <img src="/collab-profiles/wwm-decision.svg" alt="" class="hwwb-icon" />
+          <div class="hwwb-content">
+            <h3 class="hwwb-scenario-title">How to help her decide</h3>
+            <p class="hwwb-lead">She makes decisions through both possibility and people impact. She cares about what works, but she also cares deeply about how the decision lands for the team.</p>
+            <div class="hwwb-tip"><span class="hwwb-tip-label">Do</span><span class="hwwb-tip-text">Show the people impact, because that heavily shapes her judgment.</span></div>
+            <div class="hwwb-tip"><span class="hwwb-tip-label">Avoid</span><span class="hwwb-tip-text">Framing decisions as purely logical, because context and feelings matter to her.</span></div>
+          </div>
+        </div>
+        <div class="hwwb-divider"></div>
+
+        <div class="hwwb-scenario">
+          <img src="/collab-profiles/wwm-org.svg" alt="" class="hwwb-icon" />
+          <div class="hwwb-content">
+            <h3 class="hwwb-scenario-title">How to schedule with her</h3>
+            <p class="hwwb-lead">She likes flexibility and room to adapt, and she can resist overly rigid planning. She can overcommit when something feels exciting, so clear boundaries help her.</p>
+            <div class="hwwb-tip"><span class="hwwb-tip-label">Do</span><span class="hwwb-tip-text">Offer options with clear purpose, because she values choice and context.</span></div>
+            <div class="hwwb-tip"><span class="hwwb-tip-label">Avoid</span><span class="hwwb-tip-text">Packing her calendar tightly, because she needs breathing room to stay present.</span></div>
+          </div>
+        </div>
+        <div class="hwwb-divider"></div>
+
+        <div class="hwwb-scenario">
+          <img src="/collab-profiles/wwm-info.svg" alt="" class="hwwb-icon" />
+          <div class="hwwb-content">
+            <h3 class="hwwb-scenario-title">How to bring her information</h3>
+            <p class="hwwb-lead">She naturally looks for patterns, meaning, and the bigger picture before she zooms into details. She can handle facts and specifics, but she needs to understand why they matter first.</p>
+            <div class="hwwb-tip"><span class="hwwb-tip-label">Do</span><span class="hwwb-tip-text">Lead with the big picture, because she connects details through purpose.</span></div>
+            <div class="hwwb-tip"><span class="hwwb-tip-label">Avoid</span><span class="hwwb-tip-text">Starting with dense minutiae, because she may lose the thread early.</span></div>
+          </div>
+        </div>
+        <div class="hwwb-divider"></div>
+
+        <div class="hwwb-card-header pp-grace-added-header">
+          <span class="hwwb-card-label">Added by Dayna</span>
+          <span class="hwwb-card-count">3 scenarios</span>
+        </div>
+        <div class="hwwb-divider"></div>
+
+        <div class="hwwb-scenario">
+          <span class="hwwb-num">1</span>
+          <div class="hwwb-content">
+            <h3 class="hwwb-scenario-title">Asking for help</h3>
+            <p class="hwwb-lead">Be specific about what you&rsquo;ve tried &mdash; she&rsquo;ll meet you where you are.</p>
+            <div class="hwwb-tip"><span class="hwwb-tip-label">Do</span><span class="hwwb-tip-text">She builds trust quickly through real conversation and shared context.</span></div>
+            <div class="hwwb-tip"><span class="hwwb-tip-label">Avoid</span><span class="hwwb-tip-text">Vague &ldquo;got a sec?&rdquo; pings without context &mdash; she&rsquo;ll defer.</span></div>
+          </div>
+        </div>
+        <div class="hwwb-divider"></div>
+
+        <div class="hwwb-scenario">
+          <span class="hwwb-num">2</span>
+          <div class="hwwb-content">
+            <h3 class="hwwb-scenario-title">Brainstorming together</h3>
+            <p class="hwwb-lead">Bring two or three half-baked ideas. She builds on momentum.</p>
+            <div class="hwwb-tip"><span class="hwwb-tip-label">Do</span><span class="hwwb-tip-text">She builds trust quickly through real conversation and shared context.</span></div>
+            <div class="hwwb-tip"><span class="hwwb-tip-label">Avoid</span><span class="hwwb-tip-text">Showing up with one polished option looking for approval.</span></div>
+          </div>
+        </div>
+        <div class="hwwb-divider"></div>
+
+        <div class="hwwb-scenario">
+          <span class="hwwb-num">3</span>
+          <div class="hwwb-content">
+            <h3 class="hwwb-scenario-title">When she goes quiet</h3>
+            <p class="hwwb-lead">Assume she&rsquo;s heads-down, not upset. A direct ping is welcome.</p>
+            <div class="hwwb-tip"><span class="hwwb-tip-label">Do</span><span class="hwwb-tip-text">She builds trust quickly through real conversation and shared context.</span></div>
+            <div class="hwwb-tip"><span class="hwwb-tip-label">Avoid</span><span class="hwwb-tip-text">Reading silence as disapproval &mdash; she&rsquo;ll tell you if something&rsquo;s off.</span></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- (legacy) -->
+    <div class="pp-hww-section" style="display:none">
       <h2 class="pp-hww-heading">How to work with Grace</h2>
 
       <!-- Dimension Tabs -->

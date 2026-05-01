@@ -84,32 +84,48 @@
 
   <script>
     const people = [
-      { name: 'Grace MacNamara', role: 'Product Manager', tip: 'Best results when you give autonomy and focus on outcomes.', tags: ['Practical', 'Prefers async communication'], hasArrow: true, color: '#F4298F' },
-      { name: 'Bob Harley', role: 'Product Designer', tip: 'Give Bob high level goals and let him solve his way', tags: ['Big picture thinker', 'Benefits from detail support'], hasArrow: true, color: '#a0a3f3' },
-      { name: 'Eve Malone', role: 'Engineer', tip: 'Use quick check-ins to maintain alignment.', tags: ['Structured', 'Likes deadlines'], hasArrow: false, hasViewProfile: true, color: '#bfe6a0' },
-      { name: 'Lucas Freeman', role: 'Operations Strategist', tip: 'Share context often and involve in decisions', tags: ['Detail oriented', 'Highly collaborative'], hasArrow: true, color: '#ffd094' },
-      { name: 'Eileen Neslon', role: 'Sales Rep', tip: 'Use quick check-ins to maintain alignment.', tags: ['Structured', 'Likes deadlines'], hasArrow: true, color: '#F4298F' },
-      { name: 'Gwen', role: 'Sales Rep', tip: '', tags: [], hasArrow: true, isRequestConnect: true, noProfile: true, color: '#F1F1F1', noStroke: true },
-      { name: 'Eibhlinn Kiersey', role: 'Sales Rep', tip: '', tags: [], hasArrow: true, noProfile: true, isRequestConnect: true, color: '#F1F1F1', noStroke: true },
-      { name: 'Adam Nolan', role: 'Illustrator', tip: 'Share context often and involve in decisions', tags: ['Detail oriented', 'Highly collaborative'], hasArrow: true, hasViewProfile: true, color: '#bfe6a0' }
+      { name: 'Grace MacNamara', role: 'Product Manager', tip: 'Best results when you give Grace autonomy and frame work around outcomes rather than process.', perspective: 'Consul', perspectiveColor: '#F4298F', color: '#F4298F' },
+      { name: 'Bob Harley', role: 'Product Designer', tip: 'Open with high-level goals. Bob solves his way and resists prescriptive direction.', perspective: 'Commander', perspectiveColor: '#CBCDF7', color: '#CBCDF7' },
+      { name: 'Eve Malone', role: 'Engineer', tip: 'Quick async check-ins keep Eve aligned without slowing her down. Avoid surprise meetings.', perspective: 'Entrepreneur', perspectiveColor: '#FFE7B7', color: '#FFE7B7' },
+      { name: 'Lucas Freeman', role: 'Operations Strategist', tip: 'Open with high-level goals. Bob solves his way and resists prescriptive direction.', perspective: 'Virtuoso', perspectiveColor: '#FFBC7A', color: '#FFBC7A' },
+      { name: 'Eileen Neslon', role: 'Sales Rep', tip: 'Best results when you give autonomy and focus on outcomes.', perspective: 'Adventurer', perspectiveColor: '#FA7779', color: '#FA7779' },
+      { name: 'Gwen', role: 'Sales Rep', isRequestConnect: true, noProfile: true, color: '#F1F1F1', noStroke: true },
+      { name: 'Armelle', role: 'Sales Rep', isRequestConnect: true, noProfile: true, color: '#F1F1F1', noStroke: true },
+      { name: 'Adam Nolan', role: 'Illustrator', tip: 'Lead with the why before the what — Adam connects to purpose first and craft second.', perspective: 'Campaigner', perspectiveColor: '#BEFEB7', color: '#BEFEB7' }
     ];
 
     const grid = document.getElementById('people-grid');
     people.forEach(p => {
       const card = document.createElement('div');
-      card.className = 'person-card' + (p.isConnect ? ' connect-card' : '');
+      card.className = 'person-card';
 
-      const arrowHtml = p.hasArrow ? '<svg class="person-arrow" width="10" height="14" viewBox="0 0 10 14" fill="none"><path d="M1 1l6 6-6 6" stroke="#595959" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>' : '';
-      const viewProfileBtn = '';
-      const tagsHtml = p.tags.map(t => '<span class="person-tag">' + t + '</span>').join('');
-      const connectHtml = p.isConnect ? '<button class="btn-connect">Connect with ' + p.name.split(' ')[0] + '</button>' : '';
-      const requestConnectHtml = p.isRequestConnect ? '<p class="person-tip">You have not connected to ' + p.name.split(' ')[0] + '\u2019s profile</p><button class="btn-request-connect">Request Connection</button>' : '';
-      const noProfileHtml = p.noProfile ? '<div class="no-profile-tooltip">' + p.name.split(' ')[0] + ' hasnt connected her Perspective yet</div>' : '';
+      const arrowHtml = '<svg class="person-arrow" width="10" height="14" viewBox="0 0 10 14" fill="none"><path d="M1 1l6 6-6 6" stroke="#595959" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>';
 
       if (p.noProfile) card.classList.add('no-profile-card');
 
+      const perspectivePill = p.perspective ? `
+        <span class="person-pill">
+          <span class="person-pill-dot" style="background:${p.perspectiveColor}"></span>
+          ${p.perspective}
+        </span>` : '';
+
+      const sharedBody = `
+        <div class="person-divider"></div>
+        <p class="person-tip">${p.tip || ''}</p>
+        <div class="person-footer">
+          ${perspectivePill}
+          <div class="person-actions">
+            <button class="person-btn">Chat</button>
+            <button class="person-btn">Role Play</button>
+          </div>
+        </div>`;
+
+      const unsharedBody = `
+        <div class="person-divider"></div>
+        <p class="person-tip">${p.name.split(' ')[0]} hasn&rsquo;t shared her profile with you yet.</p>
+        <button class="btn-request-connect">Request Connection</button>`;
+
       card.innerHTML = `
-        ${noProfileHtml}
         <div class="person-header">
           <div class="person-identity">
             <div class="person-avatar${p.noStroke ? ' no-stroke' : ''}" style="background:${p.color}"></div>
@@ -120,16 +136,7 @@
           </div>
           ${arrowHtml}
         </div>
-        <div class="person-actions">
-          <button class="person-btn has-icon"><img src="/collab-profiles/nadia-icon.svg" alt="" class="nadia-icon" />Chat</button>
-          <button class="person-btn">Role Play</button>
-          ${viewProfileBtn}
-        </div>
-        <div class="person-divider"></div>
-        ${p.isRequestConnect ? requestConnectHtml : `
-        <p class="person-tip">${p.tip}</p>
-        ${tagsHtml ? '<div class="person-tags">' + tagsHtml + '</div>' : ''}
-        ${connectHtml}`}
+        ${p.isRequestConnect ? unsharedBody : sharedBody}
       `;
       grid.appendChild(card);
     });
