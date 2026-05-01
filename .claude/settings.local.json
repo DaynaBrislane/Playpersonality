@@ -148,7 +148,11 @@
       "Bash(cp /Users/daynabrislane/Documents/repos/Playpersonality/collabonboard.html /Users/daynabrislane/Documents/repos/collabonboard/index.html)",
       "Bash(cp /Users/daynabrislane/Documents/repos/Playpersonality/collabonboard.css /Users/daynabrislane/Documents/repos/collabonboard/collabonboard.css)",
       "Bash(cp /Users/daynabrislane/Documents/repos/Playpersonality/collabonboard.js /Users/daynabrislane/Documents/repos/collabonboard/collabonboard.js)",
-      "Bash(curl -s -o /tmp/interactions-fig.png \"https://www.figma.com/api/mcp/asset/793c7079-2ff6-4f02-8a7e-8ce5e84a63b5\")"
+      "Bash(curl -s -o /tmp/interactions-fig.png \"https://www.figma.com/api/mcp/asset/793c7079-2ff6-4f02-8a7e-8ce5e84a63b5\")",
+      "mcp__6be4db9b-1448-408b-8096-f9724649db77__list_teams",
+      "mcp__6be4db9b-1448-408b-8096-f9724649db77__list_projects",
+      "Bash(curl -s http://localhost:5173/nadias-notes.css)",
+      "Bash(curl -s \"http://localhost:5173/nadias-notes.css?$\\(date +%s\\)\")"
     ]
   }
 }

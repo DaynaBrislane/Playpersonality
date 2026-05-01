@@ -199,6 +199,134 @@ if (editTeamModal) {
   });
 }
 
+// Insight row expand/collapse with detail panel
+const buildInsightDetail = (title, date) => {
+  const div = document.createElement('div');
+  div.className = 'nn-insight-detail';
+  div.innerHTML = `
+    <div class="nn-insight-detail-inner">
+    <span class="nn-insight-detail-bar"></span>
+    <div class="nn-insight-detail-body">
+      <div class="nn-insight-detail-head">
+        <div class="nn-insight-detail-top">
+          <div class="nn-insight-detail-titles">
+            <p class="nn-insight-detail-date">${date}</p>
+            <h4 class="nn-insight-detail-title">${title}</h4>
+          </div>
+          <div class="nn-insight-feedback">
+            <button class="nn-insight-fb-btn" aria-label="Helpful" data-fb="up">
+              <svg width="11" height="11" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M5 6.5h-2v7h2m0-7l3-5a1.5 1.5 0 011.5 1.5V5h3.5a1 1 0 011 1.2l-1 6a1 1 0 01-1 .8H5m0-7v7" stroke="#262626" stroke-width="1.2" stroke-linejoin="round"/></svg>
+            </button>
+            <button class="nn-insight-fb-btn" aria-label="Not helpful" data-fb="down">
+              <svg width="11" height="11" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M11 9.5h2v-7h-2m0 7l-3 5a1.5 1.5 0 01-1.5-1.5V11H3a1 1 0 01-1-1.2l1-6a1 1 0 011-.8h7m0 7v-7" stroke="#262626" stroke-width="1.2" stroke-linejoin="round"/></svg>
+            </button>
+            <button class="nn-insight-collapse" type="button" aria-label="Collapse" data-collapse-insight>
+              <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M4 10l4-4 4 4" stroke="#262626" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </button>
+          </div>
+        </div>
+        <div class="nn-insight-detail-divider"></div>
+        <p class="nn-insight-detail-desc">You have a real knack for diving straight into something specific&mdash;be it a message, a relationship, or a project&mdash;which makes our sessions productive and focused. Is there ever a time you&rsquo;d like to zoom out and reflect on the bigger picture, or does sticking with what&rsquo;s immediate feel best for you right now?</p>
+      </div>
+      <div class="nn-insight-detail-bottom">
+        <div class="nn-insight-sources">
+          <p class="nn-insight-sources-label">Based on</p>
+          <div class="nn-insight-source-pills">
+            <button class="nn-insight-source-pill" type="button"><span class="nn-insight-pill-dot" style="background:#a1a5fd"></span>Grace&rsquo;s Perspective</button>
+            <button class="nn-insight-source-pill" type="button"><span class="nn-insight-pill-dot" style="background:#cc1462"></span>Your Perspective</button>
+            <button class="nn-insight-source-pill" type="button">
+              <svg width="11" height="12" viewBox="0 0 12 12" fill="none" aria-hidden="true"><rect x="1" y="2" width="10" height="9" rx="1" stroke="#262626" stroke-width="1"/><path d="M1 5h10M4 1v2M8 1v2" stroke="#262626" stroke-width="1" stroke-linecap="round"/></svg>
+              Calendar
+            </button>
+          </div>
+        </div>
+        <button class="nn-dive-deeper-btn" type="button">Dive Deeper</button>
+      </div>
+    </div>
+    </div>
+  `;
+  return div;
+};
+
+document.querySelectorAll('.nn-insight').forEach((wrap) => {
+  const row = wrap.querySelector('.nn-insight-row');
+  if (!row) return;
+  row.addEventListener('click', () => {
+    let detail = wrap.querySelector('.nn-insight-detail');
+    if (!detail) {
+      const title = row.querySelector('.nn-insight-title')?.textContent.replace(/…|\.\.\.+$/, '').trim() || 'Insight detail';
+      const date = row.querySelector('.nn-insight-date')?.textContent.trim() || '';
+      detail = buildInsightDetail(title, date);
+      wrap.appendChild(detail);
+    }
+    detail.classList.remove('is-closing');
+    wrap.classList.add('is-open');
+  });
+});
+
+document.addEventListener('click', (e) => {
+  const collapseBtn = e.target.closest('[data-collapse-insight]');
+  if (!collapseBtn) return;
+  e.stopPropagation();
+  const wrap = collapseBtn.closest('.nn-insight');
+  if (!wrap) return;
+  const detail = wrap.querySelector('.nn-insight-detail');
+  if (!detail) { wrap.classList.remove('is-open'); return; }
+  detail.classList.add('is-closing');
+  const cleanup = () => {
+    wrap.classList.remove('is-open');
+    detail.remove();
+  };
+  detail.addEventListener('animationend', cleanup, { once: true });
+  setTimeout(cleanup, 350);
+});
+
+// Feedback thumbs toggle
+document.addEventListener('click', (e) => {
+  const fb = e.target.closest('.nn-insight-fb-btn');
+  if (!fb) return;
+  e.stopPropagation();
+  const group = fb.parentElement;
+  group.querySelectorAll('.nn-insight-fb-btn').forEach((b) => b.classList.toggle('is-active', b === fb && !fb.classList.contains('is-active')));
+});
+
+// Edit General modal
+const editGeneralModal = document.getElementById('edit-general-modal');
+const generalCard = document.getElementById('general-card');
+if (editGeneralModal && generalCard) {
+  const form = editGeneralModal.querySelector('#edit-general-form');
+  const closeGeneral = () => { editGeneralModal.hidden = true; };
+  const openGeneral = () => {
+    form.querySelectorAll('[data-target-field]').forEach((input) => {
+      const dd = generalCard.querySelector(`[data-field="${input.dataset.targetField}"]`);
+      input.value = dd ? dd.textContent.trim() : '';
+    });
+    editGeneralModal.hidden = false;
+    setTimeout(() => form.querySelector('input')?.focus(), 30);
+  };
+
+  document.querySelectorAll('[data-open-edit-general]').forEach((btn) => {
+    btn.addEventListener('click', openGeneral);
+  });
+  editGeneralModal.querySelectorAll('[data-close-edit-general]').forEach((btn) => {
+    btn.addEventListener('click', closeGeneral);
+  });
+  editGeneralModal.addEventListener('click', (e) => {
+    if (e.target === editGeneralModal) closeGeneral();
+  });
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && !editGeneralModal.hidden) closeGeneral();
+  });
+  form.addEventListener('submit', (e) => {
+    e.preventDefault();
+    form.querySelectorAll('[data-target-field]').forEach((input) => {
+      const dd = generalCard.querySelector(`[data-field="${input.dataset.targetField}"]`);
+      if (dd) dd.textContent = input.value.trim() || dd.textContent;
+    });
+    closeGeneral();
+  });
+}
+
 // Action pill hover → change chat placeholder
 const chatPlaceholder = document.querySelector('.cpv-chat-placeholder');
 if (chatPlaceholder) {

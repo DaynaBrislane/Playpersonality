@@ -1003,7 +1003,7 @@ body {
 }
 
 .assign-modal-input:focus {
-  border-color: #d2d2ff;
+  border-color: #bfbfbf;
 }
 
 .assign-modal-input::placeholder {

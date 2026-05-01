@@ -1199,7 +1199,7 @@ body {
   resize: vertical;
   outline: none;
 }
-.pn-modal-textarea:focus { border-color: #555ba2; }
+.pn-modal-textarea:focus { border-color: #bfbfbf; box-shadow: none; }
 .pn-modal-footer {
   display: flex;
   justify-content: flex-end;

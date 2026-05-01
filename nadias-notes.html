@@ -76,24 +76,24 @@
         <h2 class="nn-col-title">Building context on you</h2>
 
         <!-- General -->
-        <article class="nn-card">
+        <article class="nn-card" id="general-card">
           <div class="nn-card-header">
             <div class="nn-card-head-left">
               <span class="nn-dot" style="background:#E868B3"></span>
               <span class="nn-card-title">General</span>
             </div>
-            <button class="nn-icon-btn" aria-label="Edit">
+            <button class="nn-icon-btn" aria-label="Edit" data-open-edit-general>
               <svg width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M11.5 1.5l3 3-9 9H2.5v-3l9-9z" stroke="#8c8c8c" stroke-width="1.3" stroke-linejoin="round"/></svg>
             </button>
           </div>
           <div class="nn-card-divider"></div>
           <dl class="nn-kv">
-            <div class="nn-kv-row"><dt>Role</dt><dd>Product Designer</dd></div>
-            <div class="nn-kv-row"><dt>Perspective</dt><dd>Campaigner</dd></div>
-            <div class="nn-kv-row"><dt>Level</dt><dd>Principle</dd></div>
-            <div class="nn-kv-row"><dt>Tenure</dt><dd>4 Years 3 months</dd></div>
-            <div class="nn-kv-row"><dt>Reports to</dt><dd>VP Product: Maya Rosen</dd></div>
-            <div class="nn-kv-row"><dt>Team</dt><dd class="nn-kv-link">Unknown</dd></div>
+            <div class="nn-kv-row"><dt>Role</dt><dd data-field="role">Product Designer</dd></div>
+            <div class="nn-kv-row"><dt>Perspective</dt><dd data-field="perspective">Campaigner</dd></div>
+            <div class="nn-kv-row"><dt>Level</dt><dd data-field="level">Principle</dd></div>
+            <div class="nn-kv-row"><dt>Tenure</dt><dd data-field="tenure">4 Years 3 months</dd></div>
+            <div class="nn-kv-row"><dt>Reports to</dt><dd data-field="reports">VP Product: Maya Rosen</dd></div>
+            <div class="nn-kv-row"><dt>Team</dt><dd class="nn-kv-link" data-field="team">Unknown</dd></div>
           </dl>
         </article>
 
@@ -561,7 +561,7 @@
               <p class="pp-mini-desc">Skilled in understanding emotions, building rapport, and connecting with many diverse groups.</p>
             </div>
             <div class="pp-mini-divider"></div>
-            <a href="#" class="pp-mini-link">Discuss</a>
+            <a href="#" class="pp-mini-link">Dive Deeper</a>
           </div>
           <div class="pp-mini-card">
             <img src="/collab-profiles/wwm-info.svg" alt="" class="pp-mini-icon" />
@@ -570,7 +570,7 @@
               <p class="pp-mini-desc">Thrives in unpredictable, fast-paced environments, often finding innovative solutions to complex problems.</p>
             </div>
             <div class="pp-mini-divider"></div>
-            <a href="#" class="pp-mini-link">Discuss</a>
+            <a href="#" class="pp-mini-link">Dive Deeper</a>
           </div>
           <div class="pp-mini-card">
             <img src="/collab-profiles/wwm-decision.svg" alt="" class="pp-mini-icon" />
@@ -579,7 +579,7 @@
               <p class="pp-mini-desc">Strong ability to zoom out and see a strategic vision. Adept at inspiring others toward a common goal.</p>
             </div>
             <div class="pp-mini-divider"></div>
-            <a href="#" class="pp-mini-link">Discuss</a>
+            <a href="#" class="pp-mini-link">Dive Deeper</a>
           </div>
         </div>
       </section>
@@ -595,7 +595,7 @@
               <p class="pp-mini-desc">Skilled in understanding emotions, building rapport, and connecting with many diverse groups.</p>
             </div>
             <div class="pp-mini-divider"></div>
-            <a href="#" class="pp-mini-link">Discuss</a>
+            <a href="#" class="pp-mini-link">Dive Deeper</a>
           </div>
           <div class="pp-mini-card">
             <span class="pp-mini-icon pp-glyph pp-glyph-grid"></span>
@@ -604,7 +604,7 @@
               <p class="pp-mini-desc">Thrives in unpredictable, fast-paced environments, often finding innovative solutions to complex problems.</p>
             </div>
             <div class="pp-mini-divider"></div>
-            <a href="#" class="pp-mini-link">Discuss</a>
+            <a href="#" class="pp-mini-link">Dive Deeper</a>
           </div>
           <div class="pp-mini-card">
             <img src="/collab-profiles/strength-bigpicture.svg" alt="" class="pp-mini-icon" />
@@ -613,7 +613,7 @@
               <p class="pp-mini-desc">Strong ability to zoom out and see a strategic vision. Adept at inspiring others toward a common goal.</p>
             </div>
             <div class="pp-mini-divider"></div>
-            <a href="#" class="pp-mini-link">Discuss</a>
+            <a href="#" class="pp-mini-link">Dive Deeper</a>
           </div>
         </div>
       </section>
@@ -623,151 +623,216 @@
     <!-- Other tabs (placeholders) -->
     <div class="nn-panel" data-panel="insights" style="display:none">
       <section class="nn-insights">
-        <button class="nn-insight-row">
+        <div class="nn-insight"><button class="nn-insight-row">
           <span class="nn-insight-bar"></span>
           <div class="nn-insight-body">
             <p class="nn-insight-date">Nov 20, 2024</p>
             <p class="nn-insight-title">Impostor syndrome and comparison are undermining confidence.</p>
           </div>
           <svg class="nn-insight-chev" width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M4 6l4 4 4-4" stroke="#262626" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-        </button>
-        <button class="nn-insight-row">
+        </button></div>
+        <div class="nn-insight"><button class="nn-insight-row">
           <span class="nn-insight-bar"></span>
           <div class="nn-insight-body">
             <p class="nn-insight-date">Dec 17, 2024</p>
             <p class="nn-insight-title">You have a real gift for taking big, overwhelming projects and turning them into clear&hellip;</p>
           </div>
           <svg class="nn-insight-chev" width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M4 6l4 4 4-4" stroke="#262626" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-        </button>
-        <button class="nn-insight-row is-selected">
+        </button></div>
+        <div class="nn-insight"><button class="nn-insight-row">
           <span class="nn-insight-bar"></span>
           <div class="nn-insight-body">
             <p class="nn-insight-date">Dec 17, 2024</p>
             <p class="nn-insight-title">Something I&rsquo;ve picked up on is how you approach difficult conversations with both &hellip;</p>
           </div>
           <svg class="nn-insight-chev" width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M4 6l4 4 4-4" stroke="#262626" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-        </button>
-        <button class="nn-insight-row">
+        </button></div>
+        <div class="nn-insight"><button class="nn-insight-row">
           <span class="nn-insight-bar"></span>
           <div class="nn-insight-body">
             <p class="nn-insight-date">Dec 17, 2024</p>
             <p class="nn-insight-title">I notice you actively seek out opportunities to practice difficult conversations&hellip;</p>
           </div>
           <svg class="nn-insight-chev" width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M4 6l4 4 4-4" stroke="#262626" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-        </button>
-        <button class="nn-insight-row">
+        </button></div>
+        <div class="nn-insight"><button class="nn-insight-row">
           <span class="nn-insight-bar"></span>
           <div class="nn-insight-body">
             <p class="nn-insight-date">Dec 17, 2024</p>
             <p class="nn-insight-title">You have a thoughtful approach to workplace dynamics</p>
           </div>
           <svg class="nn-insight-chev" width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M4 6l4 4 4-4" stroke="#262626" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-        </button>
-        <button class="nn-insight-row">
+        </button></div>
+        <div class="nn-insight"><button class="nn-insight-row">
           <span class="nn-insight-bar"></span>
           <div class="nn-insight-body">
             <p class="nn-insight-date">Dec 17, 2024</p>
             <p class="nn-insight-title">You&rsquo;ve naturally progressed from mastering technical design tools to shaping team&hellip;</p>
           </div>
           <svg class="nn-insight-chev" width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M4 6l4 4 4-4" stroke="#262626" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-        </button>
-        <button class="nn-insight-row">
+        </button></div>
+        <div class="nn-insight"><button class="nn-insight-row">
           <span class="nn-insight-bar"></span>
           <div class="nn-insight-body">
             <p class="nn-insight-date">Dec 17, 2024</p>
             <p class="nn-insight-title">You have a real gift for taking big, overwhelming projects and turning them into clear&hellip;</p>
           </div>
           <svg class="nn-insight-chev" width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M4 6l4 4 4-4" stroke="#262626" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-        </button>
-        <button class="nn-insight-row">
+        </button></div>
+        <div class="nn-insight"><button class="nn-insight-row">
           <span class="nn-insight-bar"></span>
           <div class="nn-insight-body">
             <p class="nn-insight-date">Dec 17, 2024</p>
             <p class="nn-insight-title">You have a real gift for taking big, overwhelming projects and turning them into clear&hellip;</p>
           </div>
           <svg class="nn-insight-chev" width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M4 6l4 4 4-4" stroke="#262626" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-        </button>
+        </button></div>
       </section>
     </div>
     <div class="nn-panel" data-panel="memory" style="display:none">
       <section class="nn-memory">
         <div class="nn-mem-row">
           <p class="nn-mem-text">Is planning a trip to Montana from June 27th to July 6th, and they want to spend time in Yellowstone and Glacier Lake National Park. They are planning to rent a camper van and are traveling from New York City.</p>
-          <button class="nn-mem-delete" aria-label="Delete">
-            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M2 4h12M5.5 4V2.5h5V4M3.5 4l.667 9.5a1 1 0 001 .9h5.666a1 1 0 001-.9L12.5 4M6.5 7v5M9.5 7v5" stroke="#262626" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-          </button>
+          <div class="nn-mem-actions">
+            <button class="nn-mem-delete" aria-label="Delete">
+              <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M2 4h12M5.5 4V2.5h5V4M3.5 4l.667 9.5a1 1 0 001 .9h5.666a1 1 0 001-.9L12.5 4M6.5 7v5M9.5 7v5" stroke="#262626" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </button>
+            <button class="nn-mem-edit" aria-label="Edit">
+              <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M11.5 1.5a1.414 1.414 0 012 2L5 12l-3 1 1-3 8.5-8.5z" stroke="#262626" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </button>
+          </div>
         </div>
         <div class="nn-mem-row">
           <p class="nn-mem-text">Is a UX/UI/brand designer.</p>
-          <button class="nn-mem-delete" aria-label="Delete">
-            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M2 4h12M5.5 4V2.5h5V4M3.5 4l.667 9.5a1 1 0 001 .9h5.666a1 1 0 001-.9L12.5 4M6.5 7v5M9.5 7v5" stroke="#262626" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-          </button>
+          <div class="nn-mem-actions">
+            <button class="nn-mem-delete" aria-label="Delete">
+              <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M2 4h12M5.5 4V2.5h5V4M3.5 4l.667 9.5a1 1 0 001 .9h5.666a1 1 0 001-.9L12.5 4M6.5 7v5M9.5 7v5" stroke="#262626" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </button>
+            <button class="nn-mem-edit" aria-label="Edit">
+              <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M11.5 1.5a1.414 1.414 0 012 2L5 12l-3 1 1-3 8.5-8.5z" stroke="#262626" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </button>
+          </div>
         </div>
         <div class="nn-mem-row">
           <p class="nn-mem-text">Started their career as a front-end developer.</p>
-          <button class="nn-mem-delete" aria-label="Delete">
-            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M2 4h12M5.5 4V2.5h5V4M3.5 4l.667 9.5a1 1 0 001 .9h5.666a1 1 0 001-.9L12.5 4M6.5 7v5M9.5 7v5" stroke="#262626" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-          </button>
+          <div class="nn-mem-actions">
+            <button class="nn-mem-delete" aria-label="Delete">
+              <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M2 4h12M5.5 4V2.5h5V4M3.5 4l.667 9.5a1 1 0 001 .9h5.666a1 1 0 001-.9L12.5 4M6.5 7v5M9.5 7v5" stroke="#262626" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </button>
+            <button class="nn-mem-edit" aria-label="Edit">
+              <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M11.5 1.5a1.414 1.414 0 012 2L5 12l-3 1 1-3 8.5-8.5z" stroke="#262626" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </button>
+          </div>
         </div>
         <div class="nn-mem-row">
           <p class="nn-mem-text">Struggles with ambiguity</p>
-          <button class="nn-mem-delete" aria-label="Delete">
-            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M2 4h12M5.5 4V2.5h5V4M3.5 4l.667 9.5a1 1 0 001 .9h5.666a1 1 0 001-.9L12.5 4M6.5 7v5M9.5 7v5" stroke="#262626" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-          </button>
+          <div class="nn-mem-actions">
+            <button class="nn-mem-delete" aria-label="Delete">
+              <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M2 4h12M5.5 4V2.5h5V4M3.5 4l.667 9.5a1 1 0 001 .9h5.666a1 1 0 001-.9L12.5 4M6.5 7v5M9.5 7v5" stroke="#262626" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </button>
+            <button class="nn-mem-edit" aria-label="Edit">
+              <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M11.5 1.5a1.414 1.414 0 012 2L5 12l-3 1 1-3 8.5-8.5z" stroke="#262626" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </button>
+          </div>
         </div>
         <div class="nn-mem-row">
           <p class="nn-mem-text">Works best on the Amble Team</p>
-          <button class="nn-mem-delete" aria-label="Delete">
-            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M2 4h12M5.5 4V2.5h5V4M3.5 4l.667 9.5a1 1 0 001 .9h5.666a1 1 0 001-.9L12.5 4M6.5 7v5M9.5 7v5" stroke="#262626" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-          </button>
+          <div class="nn-mem-actions">
+            <button class="nn-mem-delete" aria-label="Delete">
+              <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M2 4h12M5.5 4V2.5h5V4M3.5 4l.667 9.5a1 1 0 001 .9h5.666a1 1 0 001-.9L12.5 4M6.5 7v5M9.5 7v5" stroke="#262626" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </button>
+            <button class="nn-mem-edit" aria-label="Edit">
+              <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M11.5 1.5a1.414 1.414 0 012 2L5 12l-3 1 1-3 8.5-8.5z" stroke="#262626" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </button>
+          </div>
         </div>
         <div class="nn-mem-row">
           <p class="nn-mem-text">Has upcoming 1:1s with Jim and Eve</p>
-          <button class="nn-mem-delete" aria-label="Delete">
-            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M2 4h12M5.5 4V2.5h5V4M3.5 4l.667 9.5a1 1 0 001 .9h5.666a1 1 0 001-.9L12.5 4M6.5 7v5M9.5 7v5" stroke="#262626" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-          </button>
+          <div class="nn-mem-actions">
+            <button class="nn-mem-delete" aria-label="Delete">
+              <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M2 4h12M5.5 4V2.5h5V4M3.5 4l.667 9.5a1 1 0 001 .9h5.666a1 1 0 001-.9L12.5 4M6.5 7v5M9.5 7v5" stroke="#262626" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </button>
+            <button class="nn-mem-edit" aria-label="Edit">
+              <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M11.5 1.5a1.414 1.414 0 012 2L5 12l-3 1 1-3 8.5-8.5z" stroke="#262626" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </button>
+          </div>
         </div>
         <div class="nn-mem-row">
           <p class="nn-mem-text">Lives in Brooklyn, NY; originally from S&atilde;o Paulo</p>
-          <button class="nn-mem-delete" aria-label="Delete">
-            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M2 4h12M5.5 4V2.5h5V4M3.5 4l.667 9.5a1 1 0 001 .9h5.666a1 1 0 001-.9L12.5 4M6.5 7v5M9.5 7v5" stroke="#262626" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-          </button>
+          <div class="nn-mem-actions">
+            <button class="nn-mem-delete" aria-label="Delete">
+              <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M2 4h12M5.5 4V2.5h5V4M3.5 4l.667 9.5a1 1 0 001 .9h5.666a1 1 0 001-.9L12.5 4M6.5 7v5M9.5 7v5" stroke="#262626" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </button>
+            <button class="nn-mem-edit" aria-label="Edit">
+              <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M11.5 1.5a1.414 1.414 0 012 2L5 12l-3 1 1-3 8.5-8.5z" stroke="#262626" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </button>
+          </div>
         </div>
         <div class="nn-mem-row">
           <p class="nn-mem-text">Prefers concise, direct responses without excessive caveats or disclaimers</p>
-          <button class="nn-mem-delete" aria-label="Delete">
-            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M2 4h12M5.5 4V2.5h5V4M3.5 4l.667 9.5a1 1 0 001 .9h5.666a1 1 0 001-.9L12.5 4M6.5 7v5M9.5 7v5" stroke="#262626" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-          </button>
+          <div class="nn-mem-actions">
+            <button class="nn-mem-delete" aria-label="Delete">
+              <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M2 4h12M5.5 4V2.5h5V4M3.5 4l.667 9.5a1 1 0 001 .9h5.666a1 1 0 001-.9L12.5 4M6.5 7v5M9.5 7v5" stroke="#262626" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </button>
+            <button class="nn-mem-edit" aria-label="Edit">
+              <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M11.5 1.5a1.414 1.414 0 012 2L5 12l-3 1 1-3 8.5-8.5z" stroke="#262626" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </button>
+          </div>
         </div>
         <div class="nn-mem-row">
           <p class="nn-mem-text">Native Portuguese speaker, fluent in English and conversational Spanish</p>
-          <button class="nn-mem-delete" aria-label="Delete">
-            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M2 4h12M5.5 4V2.5h5V4M3.5 4l.667 9.5a1 1 0 001 .9h5.666a1 1 0 001-.9L12.5 4M6.5 7v5M9.5 7v5" stroke="#262626" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-          </button>
+          <div class="nn-mem-actions">
+            <button class="nn-mem-delete" aria-label="Delete">
+              <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M2 4h12M5.5 4V2.5h5V4M3.5 4l.667 9.5a1 1 0 001 .9h5.666a1 1 0 001-.9L12.5 4M6.5 7v5M9.5 7v5" stroke="#262626" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </button>
+            <button class="nn-mem-edit" aria-label="Edit">
+              <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M11.5 1.5a1.414 1.414 0 012 2L5 12l-3 1 1-3 8.5-8.5z" stroke="#262626" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </button>
+          </div>
         </div>
         <div class="nn-mem-row">
           <p class="nn-mem-text">Has two kids, ages 4 and 7</p>
-          <button class="nn-mem-delete" aria-label="Delete">
-            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M2 4h12M5.5 4V2.5h5V4M3.5 4l.667 9.5a1 1 0 001 .9h5.666a1 1 0 001-.9L12.5 4M6.5 7v5M9.5 7v5" stroke="#262626" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-          </button>
+          <div class="nn-mem-actions">
+            <button class="nn-mem-delete" aria-label="Delete">
+              <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M2 4h12M5.5 4V2.5h5V4M3.5 4l.667 9.5a1 1 0 001 .9h5.666a1 1 0 001-.9L12.5 4M6.5 7v5M9.5 7v5" stroke="#262626" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </button>
+            <button class="nn-mem-edit" aria-label="Edit">
+              <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M11.5 1.5a1.414 1.414 0 012 2L5 12l-3 1 1-3 8.5-8.5z" stroke="#262626" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </button>
+          </div>
         </div>
         <div class="nn-mem-row">
           <p class="nn-mem-text">Prefers Python for scripting, TypeScript for web projects</p>
-          <button class="nn-mem-delete" aria-label="Delete">
-            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M2 4h12M5.5 4V2.5h5V4M3.5 4l.667 9.5a1 1 0 001 .9h5.666a1 1 0 001-.9L12.5 4M6.5 7v5M9.5 7v5" stroke="#262626" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-          </button>
+          <div class="nn-mem-actions">
+            <button class="nn-mem-delete" aria-label="Delete">
+              <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M2 4h12M5.5 4V2.5h5V4M3.5 4l.667 9.5a1 1 0 001 .9h5.666a1 1 0 001-.9L12.5 4M6.5 7v5M9.5 7v5" stroke="#262626" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </button>
+            <button class="nn-mem-edit" aria-label="Edit">
+              <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M11.5 1.5a1.414 1.414 0 012 2L5 12l-3 1 1-3 8.5-8.5z" stroke="#262626" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </button>
+          </div>
         </div>
         <div class="nn-mem-row">
           <p class="nn-mem-text">Wife&rsquo;s name is Priya; she&rsquo;s a pediatrician</p>
-          <button class="nn-mem-delete" aria-label="Delete">
-            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M2 4h12M5.5 4V2.5h5V4M3.5 4l.667 9.5a1 1 0 001 .9h5.666a1 1 0 001-.9L12.5 4M6.5 7v5M9.5 7v5" stroke="#262626" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-          </button>
+          <div class="nn-mem-actions">
+            <button class="nn-mem-delete" aria-label="Delete">
+              <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M2 4h12M5.5 4V2.5h5V4M3.5 4l.667 9.5a1 1 0 001 .9h5.666a1 1 0 001-.9L12.5 4M6.5 7v5M9.5 7v5" stroke="#262626" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </button>
+            <button class="nn-mem-edit" aria-label="Edit">
+              <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M11.5 1.5a1.414 1.414 0 012 2L5 12l-3 1 1-3 8.5-8.5z" stroke="#262626" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </button>
+          </div>
         </div>
         <div class="nn-mem-row">
           <p class="nn-mem-text">Manages a team of 6 PMs and designers</p>
-          <button class="nn-mem-delete" aria-label="Delete">
-            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M2 4h12M5.5 4V2.5h5V4M3.5 4l.667 9.5a1 1 0 001 .9h5.666a1 1 0 001-.9L12.5 4M6.5 7v5M9.5 7v5" stroke="#262626" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-          </button>
+          <div class="nn-mem-actions">
+            <button class="nn-mem-delete" aria-label="Delete">
+              <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M2 4h12M5.5 4V2.5h5V4M3.5 4l.667 9.5a1 1 0 001 .9h5.666a1 1 0 001-.9L12.5 4M6.5 7v5M9.5 7v5" stroke="#262626" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </button>
+            <button class="nn-mem-edit" aria-label="Edit">
+              <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M11.5 1.5a1.414 1.414 0 012 2L5 12l-3 1 1-3 8.5-8.5z" stroke="#262626" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </button>
+          </div>
         </div>
       </section>
     </div>
@@ -910,6 +975,50 @@
       <div class="net-footer">
         <button class="net-cancel" data-close-edit-team>Cancel</button>
         <button class="net-save">Save</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== Edit General Modal ===== -->
+  <div class="net-overlay" id="edit-general-modal" hidden>
+    <div class="net-modal neg-modal" role="dialog" aria-labelledby="neg-title" aria-modal="true">
+      <button class="net-close" aria-label="Close" data-close-edit-general>
+        <svg width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M3 3l10 10M13 3L3 13" stroke="#262626" stroke-width="1.5" stroke-linecap="round"/></svg>
+      </button>
+      <div class="net-head">
+        <h3 id="neg-title" class="net-title">Edit General</h3>
+        <p class="net-sub">Nadia uses this to prep your 1:1s, summarize feedback, and surface what matters.</p>
+      </div>
+      <div class="net-divider"></div>
+      <form class="neg-form" id="edit-general-form">
+        <label class="neg-field">
+          <span class="neg-label">Role</span>
+          <input type="text" class="neg-input" name="role" data-target-field="role" />
+        </label>
+        <label class="neg-field">
+          <span class="neg-label">Perspective</span>
+          <input type="text" class="neg-input" name="perspective" data-target-field="perspective" />
+        </label>
+        <label class="neg-field">
+          <span class="neg-label">Level</span>
+          <input type="text" class="neg-input" name="level" data-target-field="level" />
+        </label>
+        <label class="neg-field">
+          <span class="neg-label">Tenure</span>
+          <input type="text" class="neg-input" name="tenure" data-target-field="tenure" />
+        </label>
+        <label class="neg-field">
+          <span class="neg-label">Reports to</span>
+          <input type="text" class="neg-input" name="reports" data-target-field="reports" />
+        </label>
+        <label class="neg-field">
+          <span class="neg-label">Team</span>
+          <input type="text" class="neg-input" name="team" data-target-field="team" />
+        </label>
+      </form>
+      <div class="net-footer">
+        <button class="net-cancel" type="button" data-close-edit-general>Cancel</button>
+        <button class="net-save" type="submit" form="edit-general-form" data-save-edit-general>Save</button>
       </div>
     </div>
   </div>

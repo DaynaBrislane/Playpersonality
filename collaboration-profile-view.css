@@ -484,37 +484,69 @@ body {
 }
 .hwwb-scenario.editing [contenteditable="true"] {
   outline: none;
-  background: #f9f9ff;
-  border-radius: 4px;
-  padding: 2px 6px;
-  margin-left: -6px;
+  background: #fff;
+  border: 1px solid #e8e8e8;
+  border-radius: 10px;
+  padding: 14px 18px;
+  display: block;
 }
 .hwwb-scenario.editing [contenteditable="true"]:focus {
-  background: #f1f1ff;
-  box-shadow: 0 0 0 1px #b8bbf9;
+  background: #fff;
+  border-color: #bfbfbf;
+  box-shadow: none;
+}
+.hwwb-scenario.editing .hwwb-content {
+  gap: 12px;
+}
+.hwwb-scenario.editing .hwwb-scenario-title[contenteditable="true"] {
+  padding-right: 150px;
+  min-height: 56px;
+  display: flex;
+  align-items: center;
+}
+.hwwb-scenario.editing .hwwb-tip {
+  border-left: none;
+  padding-left: 0;
+  gap: 16px;
+  align-items: center;
+}
+.hwwb-scenario.editing .hwwb-tip-label {
+  width: 44px;
+}
+.hwwb-scenario.editing .hwwb-tip-text[contenteditable="true"] {
+  flex: 1;
+  padding: 12px 16px;
 }
 .hwwb-scenario.editing .hwwb-scenario-actions {
   opacity: 1;
   pointer-events: auto;
+  top: 13px;
+  right: 14px;
 }
 .hwwb-edit-confirm {
-  background: #555ba2 !important;
-  color: #fff !important;
+  background: #fff !important;
+  color: #262626 !important;
+  border: 1px solid #e8e8e8 !important;
   border-radius: 100px !important;
-  padding: 4px 12px !important;
+  padding: 6px 18px !important;
   width: auto !important;
+  height: auto !important;
   font-family: 'Inter', sans-serif;
-  font-size: 12px;
+  font-size: 13px;
   font-weight: 500;
+  transition: background 0.15s ease, border-color 0.15s ease;
 }
-.hwwb-edit-confirm:hover { background: #444a8d !important; color: #fff !important; }
+.hwwb-edit-confirm:hover { background: #f5f5f5 !important; border-color: #d9d9d9 !important; color: #262626 !important; }
 .hwwb-edit-cancel {
-  padding: 4px 10px !important;
+  padding: 6px 12px !important;
   width: auto !important;
+  height: auto !important;
   font-family: 'Inter', sans-serif;
-  font-size: 12px;
+  font-size: 13px;
   color: #707070 !important;
+  background: transparent !important;
 }
+.hwwb-edit-cancel:hover { color: #262626 !important; background: transparent !important; }
 .hwwb-scenario-actions button {
   width: 28px;
   height: 28px;
@@ -2253,7 +2285,8 @@ body {
   outline: none;
 }
 .edit-field textarea:focus {
-  border-color: #555ba2;
+  border-color: #bfbfbf;
+  box-shadow: none;
 }
 .edit-modal-footer {
   padding: 16px 30px 24px;
