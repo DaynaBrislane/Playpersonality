@@ -35,7 +35,6 @@
               <button class="visibility-toggle" id="visibility-toggle">
                 <svg class="visibility-icon" width="16" height="16" viewBox="0 0 16 16" fill="none"><circle cx="6" cy="8" r="4.5" stroke="#595959" stroke-width="1.3" fill="none"/><circle cx="10" cy="8" r="4.5" stroke="#595959" stroke-width="1.3" fill="none"/></svg>
                 <span id="visibility-label">Shared</span>
-                <svg class="visibility-chevron" width="10" height="6" viewBox="0 0 10 6" fill="none"><path d="M1 1l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
               </button>
               <div class="visibility-menu" id="visibility-menu" style="display:none">
                 <button class="visibility-option selected" data-value="Shared">
@@ -197,7 +196,7 @@
           <div class="coach-side-body">
             <div class="coach-asks"><span class="coach-asks-dot"></span>Alex asks</div>
             <div class="coach-question">How should I give Maya feedback?</div>
-            <p class="coach-answer">Align on the <em>why</em> before the feedback. <span class="maya-pill"><span class="maya-pill-dot"></span>Maya</span> is far more receptive to pushback after feeling heard. Lead with what you agree on then fill in the gap.</p>
+            <p class="coach-answer">Align on the <em>why</em> before the feedback. <span class="maya-pill" tabindex="0"><span class="maya-pill-dot"></span>Maya<span class="maya-hover-card" role="tooltip"><span class="maya-hover-avatar" aria-hidden="true"></span><span class="maya-hover-text"><span class="maya-hover-name">Maya MacNamara</span><span class="maya-hover-role">Product Manager</span></span></span></span> is far more receptive to pushback after feeling heard. Lead with what you agree on then fill in the gap.</p>
             <p class="coach-footer-meta coach-footer-tailored">
               <svg width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M8 1l1.5 4.5L14 7l-4.5 1.5L8 13l-1.5-4.5L2 7l4.5-1.5L8 1z" fill="#6065a7"/></svg>
               Drawing from Maya's Profile
@@ -344,35 +343,69 @@
             <h3>Share your Profile</h3>
             <p>Let colleagues know how to work with you</p>
           </div>
-          <button class="share-close-btn" id="share-modal-close">&times;</button>
+          <button class="share-close-btn" id="share-modal-close" aria-label="Close">
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M4 4l8 8M12 4l-8 8" stroke="#262626" stroke-width="1.5" stroke-linecap="round"/></svg>
+          </button>
         </div>
         <div class="share-divider"></div>
+
+        <div class="share-row">
+          <span class="share-row-label">General Access</span>
+          <button class="share-access-pill" type="button">
+            <svg width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true"><circle cx="8" cy="8" r="7" stroke="#262626" stroke-width="1.2" fill="none"/><path d="M1 8h14M8 1c2 2 3 4 3 7s-1 5-3 7M8 1c-2 2-3 4-3 7s1 5 3 7" stroke="#262626" stroke-width="1.2" fill="none"/></svg>
+            Invited Only
+            <svg width="10" height="6" viewBox="0 0 10 6" fill="none" aria-hidden="true"><path d="M1 1l4 4 4-4" stroke="#262626" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </button>
+        </div>
+
         <div class="share-section">
-          <span class="share-label">Copy link</span>
-          <div class="share-link-box">
-            <span class="share-link-url" id="share-link-url">https://valence.co/perspective/share/dayna-brislane</span>
-            <button class="share-copy-btn" id="share-copy-btn">Copy</button>
+          <span class="share-section-title">People with access</span>
+          <div class="share-people-list">
+            <div class="share-person">
+              <div class="share-person-avatar"></div>
+              <div class="share-person-info">
+                <strong>jin</strong>
+                <span class="share-person-meta">
+                  <svg width="12" height="12" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M5.5 8a2.5 2.5 0 1 0 0-5 2.5 2.5 0 0 0 0 5zm5 0a2 2 0 1 0 0-4 2 2 0 0 0 0 4zM5.5 9.5C3.5 9.5 0 10.5 0 12.5V14h11v-1.5c0-2-3.5-3-5.5-3zm5.5.3c-.3 0-.6 0-.9.1.8.6 1.4 1.4 1.4 2.6V14H16v-1.5c0-1.8-3-2.7-5-2.7z" fill="#8c8c8c"/></svg>
+                  Connected · 3 days ago
+                </span>
+              </div>
+              <button class="share-person-status" type="button">
+                Connected
+                <svg width="10" height="6" viewBox="0 0 10 6" fill="none" aria-hidden="true"><path d="M1 1l4 4 4-4" stroke="#595959" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </button>
+            </div>
+            <div class="share-person">
+              <div class="share-person-avatar"></div>
+              <div class="share-person-info">
+                <strong>Jennelle</strong>
+                <span class="share-person-meta">
+                  <svg width="12" height="12" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M5.5 8a2.5 2.5 0 1 0 0-5 2.5 2.5 0 0 0 0 5zm5 0a2 2 0 1 0 0-4 2 2 0 0 0 0 4zM5.5 9.5C3.5 9.5 0 10.5 0 12.5V14h11v-1.5c0-2-3.5-3-5.5-3zm5.5.3c-.3 0-.6 0-.9.1.8.6 1.4 1.4 1.4 2.6V14H16v-1.5c0-1.8-3-2.7-5-2.7z" fill="#8c8c8c"/></svg>
+                  Connected · 3 days ago
+                </span>
+              </div>
+              <button class="share-person-status" type="button">
+                Connected
+                <svg width="10" height="6" viewBox="0 0 10 6" fill="none" aria-hidden="true"><path d="M1 1l4 4 4-4" stroke="#595959" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </button>
+            </div>
           </div>
         </div>
+
         <div class="share-section">
-          <span class="share-label">Share via</span>
+          <span class="share-section-title">Share via</span>
           <div class="share-via-row">
-            <button class="share-via-btn">
-              <img src="/collab-profiles/slack-icon.png" alt="" />
-              Slack
-            </button>
-            <button class="share-via-btn">
+            <button class="share-via-btn" type="button">
               <img src="/collab-profiles/teams-icon.png" alt="" />
               Teams
             </button>
-            <button class="share-via-btn">
-              <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><rect x="1" y="3.5" width="14" height="9" rx="1.5" stroke="#595959" stroke-width="1.3" fill="none"/><path d="M1.5 4.5L8 9l6.5-4.5" stroke="#595959" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg>
-              Email
+            <button class="share-via-btn" type="button" id="share-copy-btn">
+              <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><rect x="5" y="5" width="9" height="9" rx="1.5" stroke="#595959" stroke-width="1.3" fill="none"/><path d="M2 11V3a1 1 0 0 1 1-1h8" stroke="#595959" stroke-width="1.3" stroke-linecap="round" fill="none"/></svg>
+              Copy Link
             </button>
           </div>
         </div>
-        <div class="share-divider"></div>
-        <button class="share-done-btn" id="share-done-btn">Done</button>
+        <span class="share-link-url" id="share-link-url" style="display:none">https://valence.co/perspective/share/dayna-brislane</span>
       </div>
     </div>
 
@@ -528,6 +561,12 @@
     </div>
 
   </div>
+
+  <!-- Loading overlay (iframed) -->
+  <div class="cl-iframe-overlay" id="cl-iframe-overlay" style="display:none">
+    <iframe id="cl-iframe" src="/collab-loading.html" title="Building your collaboration profile"></iframe>
+  </div>
+
   <script>
     // Action buttons (edit/delete) on each scenario
     const editIcon = '<svg width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M11.333 1.333a1.886 1.886 0 0 1 2.667 0 1.886 1.886 0 0 1 0 2.667l-.667.667-2.667-2.667.667-.667zM9.333 3.333l-7 7V13h2.667l7-7-2.667-2.667z" fill="currentColor"/></svg>';
@@ -805,6 +844,14 @@
     const pvButtons = document.querySelectorAll('.pv-toggle-btn');
     const pvPanels = document.querySelectorAll('.pv-panel');
     const profilePage = document.querySelector('.profile-page');
+    const coachCard = document.querySelector('.coach-card');
+    function playCoachStoryAnim() {
+      if (!coachCard) return;
+      coachCard.classList.remove('is-anim-playing');
+      void coachCard.offsetWidth; // force reflow so the animation restarts
+      coachCard.classList.add('is-anim-playing');
+    }
+
     pvButtons.forEach((btn) => {
       btn.addEventListener('click', () => {
         const view = btn.dataset.view;
@@ -815,7 +862,14 @@
           p.style.display = match ? '' : 'none';
         });
         profilePage.dataset.activeView = view;
+        if (view === 'coaching') {
+          requestAnimationFrame(() => requestAnimationFrame(playCoachStoryAnim));
+        }
       });
+    });
+    coachCard?.addEventListener('click', (e) => {
+      if (e.target.closest('.coach-cta-btn')) return;
+      playCoachStoryAnim();
     });
 
     // Share modal
@@ -828,38 +882,26 @@
     shareModalClose.addEventListener('click', () => { shareModal.style.display = 'none'; });
     shareModal.addEventListener('click', (e) => { if (e.target === shareModal) shareModal.style.display = 'none'; });
 
-    document.getElementById('share-done-btn').addEventListener('click', () => { shareModal.style.display = 'none'; });
-
-    shareCopyBtn.addEventListener('click', () => {
+    shareCopyBtn?.addEventListener('click', () => {
       const url = document.getElementById('share-link-url').textContent;
       navigator.clipboard.writeText(url).then(() => {
-        shareCopyBtn.textContent = 'Copied!';
-        setTimeout(() => { shareCopyBtn.textContent = 'Copy'; }, 2000);
+        const original = shareCopyBtn.querySelector('span') ? null : shareCopyBtn.lastChild?.textContent;
+        const label = shareCopyBtn.childNodes[shareCopyBtn.childNodes.length - 1];
+        if (label && label.nodeType === Node.TEXT_NODE) {
+          label.textContent = ' Copied!';
+          setTimeout(() => { label.textContent = ' Copy Link'; }, 2000);
+        }
       });
     });
 
-    // Visibility dropdown
+    // Visibility pill opens the Share modal (no inline menu)
     const visToggle = document.getElementById('visibility-toggle');
     const visMenu = document.getElementById('visibility-menu');
-    const visLabel = document.getElementById('visibility-label');
-    const visOptions = document.querySelectorAll('.visibility-option');
-
+    if (visMenu) visMenu.remove();
     visToggle.addEventListener('click', (e) => {
       e.stopPropagation();
-      visMenu.style.display = visMenu.style.display === 'none' ? '' : 'none';
+      shareModal.style.display = '';
     });
-
-    visOptions.forEach(opt => {
-      opt.addEventListener('click', () => {
-        visOptions.forEach(o => o.classList.remove('selected'));
-        opt.classList.add('selected');
-        visLabel.textContent = opt.dataset.value;
-        visMenu.style.display = 'none';
-      });
-    });
-
-    document.addEventListener('click', () => { visMenu.style.display = 'none'; });
-    visMenu.addEventListener('click', (e) => e.stopPropagation());
 
     // Profile edit modal
     const profileEditBtn = document.getElementById('profile-edit-btn');
@@ -889,6 +931,24 @@
       metaValues[2].textContent = document.getElementById('edit-profile-level').value;
       metaValues[3].textContent = document.getElementById('edit-profile-org').value;
       profileModal.style.display = 'none';
+    });
+
+    // Embedded loading animation: clicking "Create Profile" plays the overlay
+    const clOverlay = document.getElementById('cl-iframe-overlay');
+    const clIframe = document.getElementById('cl-iframe');
+    document.querySelectorAll('.coach-cta-btn').forEach((btn) => {
+      btn.addEventListener('click', () => {
+        clOverlay.style.display = '';
+        // If the iframe is already loaded, ensure it's showing the loading state
+        try { clIframe.contentWindow.postMessage({ type: 'collab-loading:show' }, '*'); } catch (_) {}
+      });
+    });
+    window.addEventListener('message', (event) => {
+      if (event.data?.type === 'collab-loading:close') {
+        clOverlay.style.display = 'none';
+        const perspectiveBtn = document.querySelector('.pv-toggle-btn[data-view="perspective"]');
+        perspectiveBtn?.click();
+      }
     });
   </script>
 </body>

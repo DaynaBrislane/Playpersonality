@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Building your collaboration profile</title>
+  <link rel="stylesheet" href="collab-loading.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@400;500&display=swap" rel="stylesheet" />
+</head>
+<body>
+  <div class="page">
+    <!-- Sidebar -->
+    <aside class="sidebar">
+      <div class="sidebar-inner">
+        <img src="/collab-profiles/sidebar-icon.svg" alt="" class="sidebar-toggle-icon" />
+
+        <div class="sidebar-nav">
+          <a href="#" class="sidebar-item">
+            <span class="sidebar-icon-badge purple">
+              <img src="/collab-profiles/calendar-sm-icon.svg" alt="" />
+            </span>
+            <span class="sidebar-label">New Chat</span>
+          </a>
+          <a href="#" class="sidebar-item">
+            <img src="/collab-profiles/home-icon.svg" alt="" class="sidebar-icon" />
+            <span class="sidebar-label">Home</span>
+          </a>
+          <a href="#" class="sidebar-item">
+            <img src="/collab-profiles/chat-history-icon.svg" alt="" class="sidebar-icon" />
+            <span class="sidebar-label">Chat History</span>
+          </a>
+        </div>
+
+        <div class="sidebar-section">
+          <span class="sidebar-section-title">WORK</span>
+          <a href="#" class="sidebar-item">
+            <img src="/collab-profiles/notes-icon.svg" alt="" class="sidebar-icon" />
+            <span class="sidebar-label">Nadia's Notes</span>
+          </a>
+          <a href="#" class="sidebar-item active">
+            <img src="/collab-profiles/collab-profile-icon.svg" alt="" class="sidebar-icon" />
+            <span class="sidebar-label">Collaboration<br>Profile</span>
+          </a>
+          <a href="#" class="sidebar-item">
+            <img src="/collab-profiles/people-icon.svg" alt="" class="sidebar-icon" />
+            <span class="sidebar-label">My People</span>
+          </a>
+          <a href="#" class="sidebar-item">
+            <img src="/collab-profiles/perf-icon.svg" alt="" class="sidebar-icon" />
+            <span class="sidebar-label">Performance Management</span>
+          </a>
+        </div>
+      </div>
+    </aside>
+
+    <!-- Main -->
+    <main class="main">
+      <header class="page-header">
+        <img src="/collab-profiles/collab-header-icon.svg" alt="" class="page-header-icon" />
+        <div class="page-header-text">
+          <h1>Your collaboration profile</h1>
+          <p>Help others understand how to work with you effectively.</p>
+        </div>
+      </header>
+
+      <p class="coach-line">Here's how Nadia coaches your teammates about you</p>
+
+      <!-- Comparison card -->
+      <div class="compare-card">
+        <div class="compare-col">
+          <div class="compare-tag">Generic answer</div>
+          <div class="compare-asker">
+            <span class="compare-asker-dot orange"></span>
+            <span>Alex asks</span>
+          </div>
+          <div class="compare-question">How should I give Maya feedback?</div>
+          <p class="compare-answer">Be direct and specific about what needs to change.</p>
+          <p class="compare-meta muted">No context to draw on</p>
+        </div>
+        <div class="compare-divider" aria-hidden="true"></div>
+        <div class="compare-col">
+          <div class="compare-tag tag-tailored">Tailored to you and Maya</div>
+          <div class="compare-asker">
+            <span class="compare-asker-dot orange"></span>
+            <span>Alex asks</span>
+          </div>
+          <div class="compare-question">How should I give Maya feedback?</div>
+          <p class="compare-answer">
+            Align on the <em>why</em> before the feedback.
+            <span class="maya-pill"><span class="maya-dot"></span>Maya</span>
+            is far more receptive to pushback after feeling heard. Lead with what you agree on then fill in the gap.
+          </p>
+          <p class="compare-meta tailored-meta">
+            <svg width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+              <path d="M8 1.5l1.6 4.4L14 7.5l-4.4 1.6L8 13.5 6.4 9.1 2 7.5l4.4-1.6L8 1.5z" stroke="#6065a7" stroke-width="1.2" stroke-linejoin="round" fill="none"/>
+            </svg>
+            Drawing from Maya's Profile
+          </p>
+        </div>
+      </div>
+
+      <div class="footer-row">
+        <span class="footer-import">Import from Perspective · one-click setup</span>
+        <button class="btn-primary" id="create-profile-btn">Create Profile</button>
+      </div>
+    </main>
+  </div>
+
+  <!-- Loading overlay -->
+  <div class="loading-overlay" id="loading-overlay" aria-hidden="true">
+    <button class="loading-close" id="loading-close" aria-label="Close">
+      <svg width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden="true">
+        <path d="M5 5l10 10M15 5L5 15" stroke="#262626" stroke-width="2" stroke-linecap="round"/>
+      </svg>
+    </button>
+    <div class="loading-stage">
+      <svg class="loading-svg" viewBox="0 0 720 240" preserveAspectRatio="xMidYMid meet" aria-hidden="true">
+        <defs>
+          <clipPath id="clip-pink"><circle id="cl-pink" cx="-290" cy="120" r="70"/></clipPath>
+          <clipPath id="clip-teal"><circle id="cl-teal" cx="-200" cy="120" r="70"/></clipPath>
+          <clipPath id="clip-cream"><circle id="cl-cream" cx="-110" cy="120" r="70"/></clipPath>
+        </defs>
+        <circle id="fill-pink" cx="-290" cy="120" r="70" fill="#f4298f"/>
+        <circle id="fill-teal" cx="-200" cy="120" r="70" fill="#80dada"/>
+        <circle id="fill-cream" cx="-110" cy="120" r="70" fill="#ffe7b7"/>
+        <g clip-path="url(#clip-pink)"><g clip-path="url(#clip-teal)">
+          <rect x="-400" y="0" width="1600" height="240" fill="#ffbc7a"/>
+        </g></g>
+        <g clip-path="url(#clip-teal)"><g clip-path="url(#clip-cream)">
+          <rect x="-400" y="0" width="1600" height="240" fill="#a1a5fd"/>
+        </g></g>
+        <g clip-path="url(#clip-pink)"><g clip-path="url(#clip-teal)"><g clip-path="url(#clip-cream)">
+          <rect x="-400" y="0" width="1600" height="240" fill="#BEFEB7"/>
+        </g></g></g>
+        <circle id="stroke-pink" cx="-290" cy="120" r="70" fill="none" stroke="#1b1b1b" stroke-width="3"/>
+        <circle id="stroke-teal" cx="-200" cy="120" r="70" fill="none" stroke="#1b1b1b" stroke-width="3"/>
+        <circle id="stroke-cream" cx="-110" cy="120" r="70" fill="none" stroke="#1b1b1b" stroke-width="3"/>
+      </svg>
+
+      <h2 class="loading-title">Building your collaboration profile</h2>
+      <ul class="loading-status" id="loading-status">
+        <li data-step="0">Importing your context from Perspective…</li>
+        <li data-step="1">Analyzing how you collaborate…</li>
+        <li data-step="2">Tailoring guidance for your teammates…</li>
+        <li data-step="3">Crafting your profile…</li>
+      </ul>
+    </div>
+  </div>
+
+  <script type="module" src="collab-loading.js"></script>
+</body>
+</html>

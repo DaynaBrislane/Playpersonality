@@ -15,6 +15,7 @@ export default defineConfig({
         personProfile: resolve(__dirname, 'person-profile.html'),
         journeys: resolve(__dirname, 'journeys.html'),
         nadiasNotes: resolve(__dirname, 'nadias-notes.html'),
+        collabLoading: resolve(__dirname, 'collab-loading.html'),
       },
     },
   },

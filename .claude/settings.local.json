@@ -152,7 +152,9 @@
       "mcp__6be4db9b-1448-408b-8096-f9724649db77__list_teams",
       "mcp__6be4db9b-1448-408b-8096-f9724649db77__list_projects",
       "Bash(curl -s http://localhost:5173/nadias-notes.css)",
-      "Bash(curl -s \"http://localhost:5173/nadias-notes.css?$\\(date +%s\\)\")"
+      "Bash(curl -s \"http://localhost:5173/nadias-notes.css?$\\(date +%s\\)\")",
+      "Read(//Users/daynabrislane/Documents/repos/Collab /**)",
+      "Bash(curl -s -o /tmp/perspective-card.png \"https://www.figma.com/api/mcp/asset/e83fe939-c683-4a06-be5f-be7e021c3c8b\")"
     ]
   }
 }
