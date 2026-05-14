@@ -115,6 +115,17 @@ if (sidebarNadiasNotes) sidebarNadiasNotes.addEventListener('click', (e) => {
   sidebarNadiasNotes.classList.add('active');
 });
 
+// Chat History sidebar link
+const sidebarChatHistory = document.getElementById('sidebar-chat-history');
+if (sidebarChatHistory) sidebarChatHistory.addEventListener('click', (e) => {
+  e.preventDefault();
+  mainContent.style.display = 'none';
+  quizOverlay.style.display = '';
+  quizIframe.src = '/chat-history.html';
+  document.querySelectorAll('.sidebar-item').forEach(i => i.classList.remove('active'));
+  sidebarChatHistory.classList.add('active');
+});
+
 // Journeys sidebar link
 const sidebarJourneys = document.getElementById('sidebar-journeys');
 if (sidebarJourneys) sidebarJourneys.addEventListener('click', (e) => {

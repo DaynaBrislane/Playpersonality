@@ -16,6 +16,7 @@ export default defineConfig({
         journeys: resolve(__dirname, 'journeys.html'),
         nadiasNotes: resolve(__dirname, 'nadias-notes.html'),
         collabLoading: resolve(__dirname, 'collab-loading.html'),
+        chatHistory: resolve(__dirname, 'chat-history.html'),
       },
     },
   },

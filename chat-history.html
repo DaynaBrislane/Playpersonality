@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Chat History</title>
+  <link rel="stylesheet" href="chat-history.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@400;500&display=swap" rel="stylesheet" />
+</head>
+<body>
+  <div class="chat-history-page">
+    <!-- Header -->
+    <div class="ch-header">
+      <div class="ch-header-text">
+        <h1 class="ch-title">Chat History</h1>
+        <p class="ch-subtitle">48 chats with Nadia. Pick up where you left off, or start something new.</p>
+      </div>
+      <button class="ch-new-chat-btn" type="button">New Chat</button>
+    </div>
+    <div class="ch-divider"></div>
+
+    <!-- Insight card -->
+    <div class="ch-insight-card">
+      <div class="ch-insight-stripe"></div>
+      <div class="ch-insight-body">
+        <div class="ch-insight-label-row">
+          <span class="ch-insight-dot"></span>
+          <span class="ch-insight-label">Insight from chat history</span>
+        </div>
+        <h2 class="ch-insight-headline">Diving into the specific</h2>
+        <div class="ch-insight-inner-divider"></div>
+        <p class="ch-insight-text">You have a real knack for diving straight into something specific—be it a message, a relationship, or a project—which makes our sessions productive and focused. Is there ever a time you'd like to zoom out and reflect on the bigger picture, or does sticking with what's immediate feel best for you right now?</p>
+        <button class="ch-dive-btn" type="button">Dive Deeper</button>
+      </div>
+      <div class="ch-insight-actions">
+        <button class="ch-reaction-btn" aria-label="Helpful" type="button">
+          <svg width="14" height="14" viewBox="0 0 16 16" fill="none">
+            <path d="M2.5 7.5h2v6h-2a.5.5 0 0 1-.5-.5V8a.5.5 0 0 1 .5-.5Zm3 0 2.4-4.8a1 1 0 0 1 1.9.45V6.5h3.4a1 1 0 0 1 .98 1.2l-1 5a1 1 0 0 1-.98.8H5.5v-6Z" stroke="#595959" stroke-width="1.1" stroke-linejoin="round"/>
+          </svg>
+        </button>
+        <button class="ch-reaction-btn" aria-label="Not helpful" type="button">
+          <svg width="14" height="14" viewBox="0 0 16 16" fill="none">
+            <path d="M13.5 8.5h-2v-6h2a.5.5 0 0 1 .5.5v5a.5.5 0 0 1-.5.5Zm-3 0L8.1 13.3a1 1 0 0 1-1.9-.45V9.5H2.8a1 1 0 0 1-.98-1.2l1-5A1 1 0 0 1 3.8 2.5h6.7v6Z" stroke="#595959" stroke-width="1.1" stroke-linejoin="round"/>
+          </svg>
+        </button>
+      </div>
+    </div>
+
+    <!-- Search / filter -->
+    <div class="ch-list-wrap">
+      <div class="ch-toolbar">
+        <div class="ch-search-box">
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+            <circle cx="6.5" cy="6.5" r="5" stroke="#8c8c8c" stroke-width="1.3"/>
+            <path d="M10.5 10.5L14 14" stroke="#8c8c8c" stroke-width="1.3" stroke-linecap="round"/>
+          </svg>
+          <input type="text" class="ch-search-input" placeholder="Search past conversations" />
+        </div>
+        <div class="ch-filter">
+          <button class="ch-filter-btn" type="button" aria-haspopup="listbox" aria-expanded="false">
+            <span class="ch-filter-btn-label">In Chats</span>
+            <svg class="ch-filter-chevron" width="12" height="12" viewBox="0 0 12 12" fill="none" aria-hidden="true">
+              <path d="M3 4.5l3 3 3-3" stroke="#595959" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </button>
+          <div class="ch-filter-popover" role="listbox" aria-multiselectable="true" hidden>
+            <label class="ch-filter-option">
+              <input type="checkbox" value="in-chats" data-short="Chats" checked />
+              <span class="ch-checkbox" aria-hidden="true">
+                <svg width="10" height="10" viewBox="0 0 10 10" fill="none"><path d="M1.5 5.2 3.8 7.5 8.5 2.5" stroke="#fff" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </span>
+              <span class="ch-filter-label">In Chats</span>
+            </label>
+            <label class="ch-filter-option">
+              <input type="checkbox" value="uploaded-documents" data-short="Uploads" />
+              <span class="ch-checkbox" aria-hidden="true">
+                <svg width="10" height="10" viewBox="0 0 10 10" fill="none"><path d="M1.5 5.2 3.8 7.5 8.5 2.5" stroke="#fff" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </span>
+              <span class="ch-filter-label">Uploaded documents</span>
+            </label>
+            <label class="ch-filter-option">
+              <input type="checkbox" value="created-documents" data-short="Created Docs" />
+              <span class="ch-checkbox" aria-hidden="true">
+                <svg width="10" height="10" viewBox="0 0 10 10" fill="none"><path d="M1.5 5.2 3.8 7.5 8.5 2.5" stroke="#fff" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </span>
+              <span class="ch-filter-label">Created documents</span>
+            </label>
+          </div>
+        </div>
+      </div>
+      <div class="ch-toolbar-divider"></div>
+
+      <!-- This Month -->
+      <div class="ch-section">
+        <p class="ch-section-label">This Month</p>
+        <ul class="ch-list">
+          <li class="ch-row">
+            <div class="ch-row-text">
+              <span class="ch-row-date">Nov 20, 2024</span>
+              <p class="ch-row-title">Explored your dynamic role, feedback, and focus on executive coaching.</p>
+            </div>
+            <div class="ch-row-actions">
+              <button class="ch-row-menu" aria-label="More" type="button">
+                <span></span><span></span><span></span>
+              </button>
+              <div class="ch-row-popover" role="menu" hidden>
+                <button class="ch-row-popover-item" type="button" role="menuitem" data-action="rename">
+                  <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+                    <path d="M11.4 1.6a1.4 1.4 0 0 1 2 2L5 12l-2.7.7L3 10l8.4-8.4z" stroke="#262626" stroke-width="1.2" stroke-linejoin="round"/>
+                  </svg>
+                  <span>Rename</span>
+                </button>
+                <button class="ch-row-popover-item" type="button" role="menuitem" data-action="delete">
+                  <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+                    <path d="M2.5 4h11M6 4V2.5h4V4M4 4l.6 9.1a1 1 0 0 0 1 1h4.8a1 1 0 0 0 1-1L12 4M6.5 7v4.5M9.5 7v4.5" stroke="#262626" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+                  <span>Delete</span>
+                </button>
+              </div>
+            </div>
+          </li>
+          <li class="ch-row">
+            <div class="ch-row-text">
+              <span class="ch-row-date">Nov 20, 2024</span>
+              <p class="ch-row-title">Discussed insights into your leadership style and team dynamics.</p>
+            </div>
+            <div class="ch-row-actions">
+              <button class="ch-row-menu" aria-label="More" type="button">
+                <span></span><span></span><span></span>
+              </button>
+              <div class="ch-row-popover" role="menu" hidden>
+                <button class="ch-row-popover-item" type="button" role="menuitem" data-action="rename">
+                  <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+                    <path d="M11.4 1.6a1.4 1.4 0 0 1 2 2L5 12l-2.7.7L3 10l8.4-8.4z" stroke="#262626" stroke-width="1.2" stroke-linejoin="round"/>
+                  </svg>
+                  <span>Rename</span>
+                </button>
+                <button class="ch-row-popover-item" type="button" role="menuitem" data-action="delete">
+                  <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+                    <path d="M2.5 4h11M6 4V2.5h4V4M4 4l.6 9.1a1 1 0 0 0 1 1h4.8a1 1 0 0 0 1-1L12 4M6.5 7v4.5M9.5 7v4.5" stroke="#262626" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+                  <span>Delete</span>
+                </button>
+              </div>
+            </div>
+          </li>
+          <li class="ch-row">
+            <div class="ch-row-text">
+              <span class="ch-row-date">Nov 20, 2024</span>
+              <p class="ch-row-title">Planned next steps and resource allocation for Q1 2025.</p>
+            </div>
+            <div class="ch-row-actions">
+              <button class="ch-row-menu" aria-label="More" type="button">
+                <span></span><span></span><span></span>
+              </button>
+              <div class="ch-row-popover" role="menu" hidden>
+                <button class="ch-row-popover-item" type="button" role="menuitem" data-action="rename">
+                  <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+                    <path d="M11.4 1.6a1.4 1.4 0 0 1 2 2L5 12l-2.7.7L3 10l8.4-8.4z" stroke="#262626" stroke-width="1.2" stroke-linejoin="round"/>
+                  </svg>
+                  <span>Rename</span>
+                </button>
+                <button class="ch-row-popover-item" type="button" role="menuitem" data-action="delete">
+                  <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+                    <path d="M2.5 4h11M6 4V2.5h4V4M4 4l.6 9.1a1 1 0 0 0 1 1h4.8a1 1 0 0 0 1-1L12 4M6.5 7v4.5M9.5 7v4.5" stroke="#262626" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+                  <span>Delete</span>
+                </button>
+              </div>
+            </div>
+          </li>
+        </ul>
+      </div>
+
+      <!-- Earlier -->
+      <div class="ch-section">
+        <p class="ch-section-label">Earlier</p>
+        <ul class="ch-list">
+          <li class="ch-row">
+            <div class="ch-row-text">
+              <span class="ch-row-date">Nov 20, 2024</span>
+              <p class="ch-row-title">Discussed goal setting for Q2.</p>
+            </div>
+            <div class="ch-row-actions">
+              <button class="ch-row-menu" aria-label="More" type="button">
+                <span></span><span></span><span></span>
+              </button>
+              <div class="ch-row-popover" role="menu" hidden>
+                <button class="ch-row-popover-item" type="button" role="menuitem" data-action="rename">
+                  <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+                    <path d="M11.4 1.6a1.4 1.4 0 0 1 2 2L5 12l-2.7.7L3 10l8.4-8.4z" stroke="#262626" stroke-width="1.2" stroke-linejoin="round"/>
+                  </svg>
+                  <span>Rename</span>
+                </button>
+                <button class="ch-row-popover-item" type="button" role="menuitem" data-action="delete">
+                  <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+                    <path d="M2.5 4h11M6 4V2.5h4V4M4 4l.6 9.1a1 1 0 0 0 1 1h4.8a1 1 0 0 0 1-1L12 4M6.5 7v4.5M9.5 7v4.5" stroke="#262626" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+                  <span>Delete</span>
+                </button>
+              </div>
+            </div>
+          </li>
+          <li class="ch-row">
+            <div class="ch-row-text">
+              <span class="ch-row-date">Nov 20, 2024</span>
+              <p class="ch-row-title">Planned overtaking the world.</p>
+            </div>
+            <div class="ch-row-actions">
+              <button class="ch-row-menu" aria-label="More" type="button">
+                <span></span><span></span><span></span>
+              </button>
+              <div class="ch-row-popover" role="menu" hidden>
+                <button class="ch-row-popover-item" type="button" role="menuitem" data-action="rename">
+                  <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+                    <path d="M11.4 1.6a1.4 1.4 0 0 1 2 2L5 12l-2.7.7L3 10l8.4-8.4z" stroke="#262626" stroke-width="1.2" stroke-linejoin="round"/>
+                  </svg>
+                  <span>Rename</span>
+                </button>
+                <button class="ch-row-popover-item" type="button" role="menuitem" data-action="delete">
+                  <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+                    <path d="M2.5 4h11M6 4V2.5h4V4M4 4l.6 9.1a1 1 0 0 0 1 1h4.8a1 1 0 0 0 1-1L12 4M6.5 7v4.5M9.5 7v4.5" stroke="#262626" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+                  <span>Delete</span>
+                </button>
+              </div>
+            </div>
+          </li>
+          <li class="ch-row">
+            <div class="ch-row-text">
+              <span class="ch-row-date">Nov 20, 2024</span>
+              <p class="ch-row-title">Discussed owl sightings in the neighborhood.</p>
+            </div>
+            <div class="ch-row-actions">
+              <button class="ch-row-menu" aria-label="More" type="button">
+                <span></span><span></span><span></span>
+              </button>
+              <div class="ch-row-popover" role="menu" hidden>
+                <button class="ch-row-popover-item" type="button" role="menuitem" data-action="rename">
+                  <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+                    <path d="M11.4 1.6a1.4 1.4 0 0 1 2 2L5 12l-2.7.7L3 10l8.4-8.4z" stroke="#262626" stroke-width="1.2" stroke-linejoin="round"/>
+                  </svg>
+                  <span>Rename</span>
+                </button>
+                <button class="ch-row-popover-item" type="button" role="menuitem" data-action="delete">
+                  <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+                    <path d="M2.5 4h11M6 4V2.5h4V4M4 4l.6 9.1a1 1 0 0 0 1 1h4.8a1 1 0 0 0 1-1L12 4M6.5 7v4.5M9.5 7v4.5" stroke="#262626" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+                  <span>Delete</span>
+                </button>
+              </div>
+            </div>
+          </li>
+          <li class="ch-row">
+            <div class="ch-row-text">
+              <span class="ch-row-date">Nov 20, 2024</span>
+              <p class="ch-row-title">Tried a new style.</p>
+            </div>
+            <div class="ch-row-actions">
+              <button class="ch-row-menu" aria-label="More" type="button">
+                <span></span><span></span><span></span>
+              </button>
+              <div class="ch-row-popover" role="menu" hidden>
+                <button class="ch-row-popover-item" type="button" role="menuitem" data-action="rename">
+                  <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+                    <path d="M11.4 1.6a1.4 1.4 0 0 1 2 2L5 12l-2.7.7L3 10l8.4-8.4z" stroke="#262626" stroke-width="1.2" stroke-linejoin="round"/>
+                  </svg>
+                  <span>Rename</span>
+                </button>
+                <button class="ch-row-popover-item" type="button" role="menuitem" data-action="delete">
+                  <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+                    <path d="M2.5 4h11M6 4V2.5h4V4M4 4l.6 9.1a1 1 0 0 0 1 1h4.8a1 1 0 0 0 1-1L12 4M6.5 7v4.5M9.5 7v4.5" stroke="#262626" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+                  <span>Delete</span>
+                </button>
+              </div>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <script type="module" src="chat-history.js"></script>
+</body>
+</html>
