@@ -1378,6 +1378,7 @@ body {
   align-items: center;
   gap: 20px;
 }
+.enrich-source-row--no-check { padding-left: 36px; }
 .enrich-source-text {
   flex: 1;
   min-width: 0;
@@ -1426,8 +1427,8 @@ body {
   width: 20px;
   height: 20px;
   border-radius: 50%;
-  background: linear-gradient(135deg, #b8e896, #7dd17a);
-  box-shadow: inset 0 0 0 1.5px rgba(0, 0, 0, 0.04);
+  background: #BEFEB7;
+  border: 1px solid #000;
 }
 .enrich-source-btn {
   flex-shrink: 0;
@@ -1454,6 +1455,206 @@ body {
   padding: 8px 20px;
   font-size: 16px;
   line-height: 24px;
+}
+
+/* ===== Regenerate Animation ===== */
+.regen-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(255, 255, 255, 0.92);
+  backdrop-filter: blur(2px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 10000;
+  animation: regen-fade-in 0.25s ease-out;
+}
+.regen-overlay[hidden] { display: none; }
+.regen-overlay.is-closing { animation: regen-fade-out 0.35s ease-in forwards; }
+
+.regen-stage {
+  position: relative;
+  width: 320px;
+  height: 320px;
+}
+.regen-label {
+  position: absolute;
+  left: 50%;
+  bottom: -56px;
+  transform: translateX(-50%);
+  font-family: 'P22 Mackinac Pro', Georgia, serif;
+  font-size: 18px;
+  line-height: 24px;
+  color: #262626;
+  white-space: nowrap;
+  opacity: 0;
+  transition: opacity 0.35s ease-out;
+}
+.regen-overlay.is-active .regen-label { opacity: 1; }
+
+.regen-source,
+.regen-scenario {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.regen-source {
+  width: 40px;
+  height: 40px;
+  margin: -20px 0 0 -20px;
+  background: #fff;
+  border: 1px solid #e8e8e8;
+  border-radius: 50%;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+}
+.regen-dot {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: #BEFEB7;
+  border: 1px solid #000;
+}
+
+.regen-scenario {
+  width: 80px;
+  height: 80px;
+  margin: -40px 0 0 -40px;
+  mix-blend-mode: multiply;
+}
+.regen-scenario img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  display: block;
+}
+
+.regen-overlay.is-phase-1 .regen-source {
+  animation: regen-drop 1.7s cubic-bezier(0.33, 0, 0.2, 1) forwards;
+}
+.regen-overlay.is-phase-1 .r-1 { --start-y: -110px; }
+.regen-overlay.is-phase-1 .r-2 { --start-y: -55px; }
+.regen-overlay.is-phase-1 .r-3 { --start-y: 0px; }
+.regen-overlay.is-phase-1 .r-4 { --start-y: 55px; }
+.regen-overlay.is-phase-1 .r-5 {
+  --start-y: 110px;
+  animation: regen-anchor 2.4s cubic-bezier(0.33, 0, 0.2, 1) forwards;
+}
+.regen-overlay.is-phase-2 .regen-scenario {
+  animation: regen-twirl 2.6s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+}
+
+/* Stagger each icon */
+/* Top icons drop one after another; the bottom one (r-5) anchors and absorbs them */
+.regen-overlay.is-phase-1 .r-1 { animation-delay: 0s; }
+.regen-overlay.is-phase-1 .r-2 { animation-delay: 0.15s; }
+.regen-overlay.is-phase-1 .r-3 { animation-delay: 0.3s; }
+.regen-overlay.is-phase-1 .r-4 { animation-delay: 0.45s; }
+
+/* All four scenarios share the same duration & easing so they orbit in sync */
+.regen-overlay.is-phase-2 .regen-scenario { animation-delay: 0s; }
+
+@keyframes regen-drop {
+  0% { transform: translateY(var(--start-y)); opacity: 0; }
+  22% { transform: translateY(var(--start-y)); opacity: 1; }
+  45% { transform: translateY(var(--start-y)); opacity: 1; }
+  78% { transform: translateY(110px); opacity: 1; }
+  100% { transform: translateY(110px); opacity: 0; }
+}
+
+@keyframes regen-anchor {
+  0% { transform: translateY(110px) scale(0.85); opacity: 0; }
+  12% { transform: translateY(110px) scale(1); opacity: 1; }
+  85% { transform: translateY(110px) scale(1); opacity: 1; }
+  100% { transform: translateY(110px) scale(0.6); opacity: 0; }
+}
+
+@keyframes regen-twirl {
+  0% {
+    transform: rotate(var(--a)) translateX(0) rotate(calc(-1 * var(--a))) scale(0.3);
+    opacity: 0;
+  }
+  18% {
+    transform: rotate(calc(var(--a) + 60deg)) translateX(48px) rotate(calc(-1 * (var(--a) + 60deg))) scale(1);
+    opacity: 1;
+  }
+  100% {
+    transform: rotate(calc(var(--a) + 420deg)) translateX(48px) rotate(calc(-1 * (var(--a) + 420deg))) scale(1);
+    opacity: 1;
+  }
+}
+
+@keyframes regen-fade-in {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+@keyframes regen-fade-out {
+  from { opacity: 1; }
+  to { opacity: 0; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .regen-overlay.is-phase-1 .regen-source,
+  .regen-overlay.is-phase-2 .regen-scenario {
+    animation-duration: 0.4s !important;
+  }
+}
+
+/* ===== Skeleton loading state for regenerated panel ===== */
+.pv-panel.is-regenerating .hwwb-scenario-title,
+.pv-panel.is-regenerating .hwwb-lead,
+.pv-panel.is-regenerating .hwwb-tip-text,
+.pv-panel.is-regenerating .hwwb-aside-item,
+.pv-panel.is-regenerating .hwwb-card-label,
+.pv-panel.is-regenerating .hwwb-aside-title {
+  color: transparent !important;
+  background: linear-gradient(90deg, #ececec 0%, #f6f6f6 50%, #ececec 100%);
+  background-size: 200% 100%;
+  border-radius: 4px;
+  animation: skeleton-shimmer 1.2s linear infinite;
+  user-select: none;
+}
+.pv-panel.is-regenerating .hwwb-scenario-title { min-height: 22px; }
+.pv-panel.is-regenerating .hwwb-lead { min-height: 38px; }
+.pv-panel.is-regenerating .hwwb-tip-text { min-height: 18px; }
+.pv-panel.is-regenerating .hwwb-aside-item { min-height: 16px; }
+
+.pv-panel.is-regenerating .hwwb-tip-label,
+.pv-panel.is-regenerating .hwwb-add-btn,
+.pv-panel.is-regenerating .hwwb-aside-add,
+.pv-panel.is-regenerating .hwwb-aside-divider {
+  opacity: 0.3;
+  pointer-events: none;
+}
+.pv-panel.is-regenerating .hwwb-icon,
+.pv-panel.is-regenerating .hwwb-num,
+.pv-panel.is-regenerating .hwwb-aside-icon,
+.pv-panel.is-regenerating .hwwb-aside-dot {
+  animation: skeleton-pulse 1.2s ease-in-out infinite;
+}
+.pv-panel.is-regenerating.is-revealing .hwwb-scenario-title,
+.pv-panel.is-regenerating.is-revealing .hwwb-lead,
+.pv-panel.is-regenerating.is-revealing .hwwb-tip-text,
+.pv-panel.is-regenerating.is-revealing .hwwb-aside-item,
+.pv-panel.is-regenerating.is-revealing .hwwb-card-label,
+.pv-panel.is-regenerating.is-revealing .hwwb-aside-title {
+  animation: none;
+  background: transparent;
+  color: inherit !important;
+  transition: color 0.3s ease;
+}
+@keyframes skeleton-shimmer {
+  0% { background-position: 200% 0; }
+  100% { background-position: -200% 0; }
+}
+@keyframes skeleton-pulse {
+  0%, 100% { opacity: 0.4; }
+  50% { opacity: 0.8; }
 }
 
 /* ===== Empty Public Panel ===== */

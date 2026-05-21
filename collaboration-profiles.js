@@ -31,22 +31,12 @@ pwInput.addEventListener('keydown', (e) => {
 const mainContent = document.getElementById('main-content');
 const quizOverlay = document.getElementById('quiz-overlay');
 const quizIframe = document.getElementById('quiz-iframe');
-const quizBackBtn = document.getElementById('quiz-back-btn');
 const btnTakeAssessment = document.querySelector('.btn-complete');
 
 btnTakeAssessment.addEventListener('click', () => {
   mainContent.style.display = 'none';
   quizOverlay.style.display = '';
   quizIframe.src = '/quiz.html';
-});
-
-quizBackBtn.addEventListener('click', () => {
-  quizOverlay.style.display = 'none';
-  mainContent.style.display = '';
-  quizIframe.src = 'about:blank';
-  // Reset sidebar active state to Home
-  document.querySelectorAll('.sidebar-item').forEach(i => i.classList.remove('active'));
-  document.querySelectorAll('.sidebar-item')[1].classList.add('active');
 });
 
 // Listen for quiz "Explore Perspective" message

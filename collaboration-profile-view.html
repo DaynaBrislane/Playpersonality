@@ -600,8 +600,7 @@
               <button type="button" class="enrich-source-btn">Connect</button>
             </div>
             <div class="enrich-source-divider"></div>
-            <div class="enrich-source-row">
-              <span class="enrich-check" aria-hidden="true"></span>
+            <div class="enrich-source-row enrich-source-row--no-check">
               <span class="enrich-source-icon" aria-hidden="true">
                 <svg width="21" height="21" viewBox="0 0 21 21" fill="none"><path d="M2.5 5.5h5l1.5 2h8.5a1 1 0 0 1 1 1V16a1 1 0 0 1-1 1H3.5a1 1 0 0 1-1-1V5.5z" stroke="#262626" stroke-width="1.3" stroke-linejoin="round"/></svg>
               </span>
@@ -617,6 +616,44 @@
         <div class="enrich-modal-footer">
           <button type="button" class="enrich-cancel" id="enrich-cancel">Cancel</button>
           <button type="button" class="enrich-save" id="enrich-save">Save and Regenerate</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Regenerate Animation Overlay -->
+    <div class="regen-overlay" id="regen-overlay" hidden>
+      <div class="regen-stage" aria-hidden="true">
+        <div class="regen-label" id="regen-label">Gathering your sources&hellip;</div>
+
+        <!-- Phase 1: Source icons swirl into the center -->
+        <div class="regen-source r-1" style="--a:0deg">
+          <span class="regen-dot"></span>
+        </div>
+        <div class="regen-source r-2" style="--a:72deg">
+          <svg width="22" height="22" viewBox="0 0 20 20" fill="none"><path d="M5 2.5h6.5L15 6v11H5V2.5z" stroke="#262626" stroke-width="1.2" stroke-linejoin="round"/><path d="M11 2.5V6h4M7 10h6M7 12.5h6M7 15h4" stroke="#262626" stroke-width="1.2" stroke-linecap="round"/></svg>
+        </div>
+        <div class="regen-source r-3" style="--a:144deg">
+          <svg width="22" height="22" viewBox="0 0 20 20" fill="none"><path d="M5 2.5h6.5L15 6v11H5V2.5z" stroke="#262626" stroke-width="1.2" stroke-linejoin="round"/><path d="M11 2.5V6h4M7 10h6M7 12.5h6M7 15h4" stroke="#262626" stroke-width="1.2" stroke-linecap="round"/></svg>
+        </div>
+        <div class="regen-source r-4" style="--a:216deg">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><rect width="24" height="24" rx="4" fill="#0A66C2"/><path d="M7 9h2.5v8H7zM8.25 7.75a1.25 1.25 0 1 1 0-2.5 1.25 1.25 0 0 1 0 2.5zM11 9h2.4v1.1h.04c.34-.6 1.16-1.25 2.4-1.25 2.56 0 3.04 1.5 3.04 3.45V17H16.5v-3.5c0-.83-.02-1.9-1.16-1.9-1.16 0-1.34.9-1.34 1.84V17H11z" fill="#fff"/></svg>
+        </div>
+        <div class="regen-source r-5" style="--a:288deg">
+          <svg width="24" height="24" viewBox="0 0 21 21" fill="none"><path d="M2.5 5.5h5l1.5 2h8.5a1 1 0 0 1 1 1V16a1 1 0 0 1-1 1H3.5a1 1 0 0 1-1-1V5.5z" stroke="#262626" stroke-width="1.3" stroke-linejoin="round"/></svg>
+        </div>
+
+        <!-- Phase 2: Scenario icons twirl/overlap -->
+        <div class="regen-scenario s-1" style="--a:0deg">
+          <img src="/collab-profiles/wwm-energy.svg" alt="" />
+        </div>
+        <div class="regen-scenario s-2" style="--a:90deg">
+          <img src="/collab-profiles/wwm-decision.svg" alt="" />
+        </div>
+        <div class="regen-scenario s-3" style="--a:180deg">
+          <img src="/collab-profiles/wwm-org.svg" alt="" />
+        </div>
+        <div class="regen-scenario s-4" style="--a:270deg">
+          <img src="/collab-profiles/wwm-info.svg" alt="" />
         </div>
       </div>
     </div>
@@ -1006,7 +1043,41 @@
     document.querySelectorAll('.hwwb-aside-add').forEach(btn => btn.addEventListener('click', () => { enrichModal.style.display = ''; }));
     if (enrichCancel) enrichCancel.addEventListener('click', () => { enrichModal.style.display = 'none'; });
     if (enrichClose) enrichClose.addEventListener('click', () => { enrichModal.style.display = 'none'; });
-    if (enrichSave) enrichSave.addEventListener('click', () => { enrichModal.style.display = 'none'; });
+    if (enrichSave) enrichSave.addEventListener('click', () => {
+      enrichModal.style.display = 'none';
+      const regen = document.getElementById('regen-overlay');
+      const activePanel = document.querySelector('.pv-panel.active');
+      if (activePanel) activePanel.classList.add('is-regenerating');
+      if (!regen) return;
+      // Reset
+      regen.classList.remove('is-phase-1', 'is-phase-2', 'is-active', 'is-closing');
+      regen.hidden = false;
+      // Force reflow so animations restart cleanly
+      void regen.offsetWidth;
+      regen.classList.add('is-active', 'is-phase-1');
+      const labelEl = document.getElementById('regen-label');
+      if (labelEl) labelEl.textContent = 'Gathering your sources…';
+      setTimeout(() => {
+        regen.classList.remove('is-phase-1');
+        void regen.offsetWidth;
+        regen.classList.add('is-phase-2');
+        if (labelEl) labelEl.textContent = 'Regenerating insights…';
+      }, 2400);
+      setTimeout(() => {
+        regen.classList.add('is-closing');
+      }, 5000);
+      setTimeout(() => {
+        regen.hidden = true;
+        regen.classList.remove('is-phase-1', 'is-phase-2', 'is-active', 'is-closing');
+      }, 5400);
+      // Skeleton loading: stays visible briefly after the overlay clears, then reveals
+      setTimeout(() => {
+        if (activePanel) activePanel.classList.add('is-revealing');
+      }, 6500);
+      setTimeout(() => {
+        if (activePanel) activePanel.classList.remove('is-regenerating', 'is-revealing');
+      }, 6900);
+    });
     if (enrichModal) enrichModal.addEventListener('click', (e) => { if (e.target === enrichModal) enrichModal.style.display = 'none'; });
     if (enrichBrowse && enrichFileInput) enrichBrowse.addEventListener('click', () => enrichFileInput.click());
 
